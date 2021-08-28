@@ -5,4 +5,5 @@ a * i + b = 12
 a * i + b = 16
 a * i + b = 20
 a is 5
+b is 6
 
