@@ -2,8 +2,7 @@
 2. double 7.4
 3. int 2
 4. double 3.4
-5. char 'f'
-6. int 4294967300
-7. error
-8. int 3.4
-
+5. char f
+6. overflow
+7. overflow
+8. double 3.4
