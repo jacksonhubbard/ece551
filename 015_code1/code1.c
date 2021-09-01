@@ -6,7 +6,7 @@ int max (int num1, int num2) {
   }
   //otherwise, your answer is num2
   else {
-	  return num1;
+	  return num2;
   }
 }
 
