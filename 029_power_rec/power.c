@@ -1,11 +1,11 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-unsigned power(unsigned base, unsigned exponet) {
-  if (exponet == 0) {
+unsigned power(unsigned x, unsigned y) {
+  if (y == 0) {
     return 1;
   }
   else {
-    return (base * power(base, exponet - 1));
+    return (x * power(x, y - 1));
   }
 }
