@@ -7,9 +7,9 @@ B
 C
 C
 F
-F
+B
 D
-G
+C
 F
 C
 B
