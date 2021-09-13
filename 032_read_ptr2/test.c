@@ -2,13 +2,13 @@
 #include <stdlib.h>
 
 int f(int ** r, int ** s) {
-  int temp = ** r;
+  int temp = **r;
   int temp2 = **s;
   int * z = *r;
   *r = *s;
   *s = z;
-  printf("**r = %d\n",**r);
-  printf("**s = %d\n",**s);
+  printf("**r = %d\n", **r);
+  printf("**s = %d\n", **s);
   *z += 3;
   **s -= 8;
   **r -= 19;
