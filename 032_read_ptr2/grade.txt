@@ -1,9 +1,9 @@
-Grading at 09/13/2021:22:01:30.436564
-For commit ID 1f03afdd3e818cd2d6157ef728f8bdf9b67b1904
-Grading at Mon Sep 13 18:01:30 EDT 2021
+Grading at 09/13/2021:22:02:40.646128
+For commit ID 42a20eae7f23d784f9744383d305d9e3ccb4d5a3
+Grading at Mon Sep 13 18:02:40 EDT 2021
 Attempting to compile test.c
 The code did not compile
-Your file did not match the expected ouput
-Your output did not match what we expected.
+Your file matched the expected output
+Your output matched what we expected
 
 Overall Grade: FAILED
