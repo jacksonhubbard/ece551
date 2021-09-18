@@ -14,10 +14,14 @@ size_t maxSeq(int * array, size_t n) {
       if (curr > max) {
         max = curr;
       }
-      curr = 0;
+      curr = 1;
     }
     prev = array[i];
   };
+
+  if (curr > max) {
+    max = curr;
+  }
 
   return max;
 }
