@@ -12,7 +12,7 @@ G
 B
 A
 D
-C
+A
 B
 A
 C
