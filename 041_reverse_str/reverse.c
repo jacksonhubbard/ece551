@@ -4,7 +4,7 @@
 
 void reverse(char * str) {
   //WRITE ME!
-  if (!(str[0] == '\n')) && (str != NULL) {
+  if ((!(str[0] == '\n')) && (str != NULL)) {
     size_t len = strlen(str);
     char * i = str;
     char * j = i + len - 1;
