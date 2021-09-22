@@ -31,14 +31,11 @@ void encryption_breaker(FILE * f) {
   int indexOfMostFreq = arrayMax(freqs, 26);
   char mostUsedChar = 97 + indexOfMostFreq;
 
-  int offsetMostFreqs = 'e' - mostUsedChar;
+  int offsetMostFreqs = mostUsedChar - 'e';
   if (offsetMostFreqs < 0) {
-    int offsetMostFreqs2 = mostUsedChar - 'e';
-    printf("%d\n", offsetMostFreqs2);
+    offsetMostFreqs = 26 + offsetMostFreqs;
   }
-  else {
-    printf("%d\n", offsetMostFreqs);
-  }
+  printf("%d\n", offsetMostFreqs);
 }
 
 int main(int argc, char ** argv) {
