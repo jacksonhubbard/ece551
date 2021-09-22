@@ -22,7 +22,7 @@ void encryption_breaker(FILE * f) {
 
   while ((c = fgetc(f)) != EOF) {
     if (isalpha(c)) {
-      //c = tolower(c);
+      c = tolower(c);
       int offset = c - 97;
       freqs[offset] += 1;
     }
@@ -33,9 +33,12 @@ void encryption_breaker(FILE * f) {
 
   int offsetMostFreqs = 'e' - mostUsedChar;
   if (offsetMostFreqs < 0) {
-    offsetMostFreqs = mostUsedChar - 'e';
+    int offsetMostFreqs2 = mostUsedChar - 'e';
+    printf("%d\n", offsetMostFreqs2);
   }
-  printf("%d\n", offsetMostFreqs);
+  else {
+    printf("%d\n", offsetMostFreqs);
+  }
 }
 
 int main(int argc, char ** argv) {
