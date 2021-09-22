@@ -31,9 +31,9 @@ void encryption_breaker(FILE * f) {
   int indexOfMostFreq = arrayMax(freqs, 26);
   char mostUsedChar = 97 + indexOfMostFreq;
 
-  int offsetMostFreqs = mostUsedChar - 'e';
+  int offsetMostFreqs = 'e' - mostUsedChar;
   if (offsetMostFreqs < 0) {
-    offsetMostFreqs = 'e' - mostUsedChar;
+    offsetMostFreqs = mostUsedChar - 'e';
   }
   printf("%d\n", offsetMostFreqs);
 }
