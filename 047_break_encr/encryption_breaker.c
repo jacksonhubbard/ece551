@@ -23,16 +23,11 @@ void encryption_breaker(FILE * f) {
   while ((c = fgetc(f)) != EOF) {
     if (isalpha(c)) {
       c = tolower(c);
-      //      printf("%c\n", c);
       int offset = c - 97;
-      //printf("%d\n", offset);
       freqs[offset] += 1;
     }
   }
-  for (int i = 0; i < 26; i++) {
-    //char c2 = 97 + i;
-    //printf("%c :  %d\n", c2, freqs[i]);
-  }
+
   int indexOfMostFreq = arrayMax(freqs, 26);
   char mostUsedChar = 97 + indexOfMostFreq;
 
