@@ -1,7 +1,37 @@
-Grading at 09/24/2021:02:39:24.702117
-For commit ID b21ff87b1ee5a958e6ff38d6d16002cfd3e8aaee
-Grading at Thu Sep 23 22:39:24 EDT 2021
+Grading at 09/24/2021:02:40:48.168029
+For commit ID ac01e9b89a28bce9f15ecb817298472540515ac2
+Grading at Thu Sep 23 22:40:44 EDT 2021
 Running your test cases
-Cannot proceed without testcases.txt
+
+Compiling printCountries
+rm -f *~ printCountries printRunningAvg printCumulative printDailyMax
+gcc -std=gnu99 -Werror -Wall -pedantic -ggdb3 pandemic.c printCountries.o -o printCountries
++-----------------------------------------------------------------------+
+Test case printCountries invalid.csv
+Your program successfully indicated a failure case
+
+Compiling printDailyMax
+rm -f *~ printCountries printRunningAvg printCumulative printDailyMax
+gcc -std=gnu99 -Werror -Wall -pedantic -ggdb3 pandemic.c printDailyMax.o -o printDailyMax
++-----------------------------------------------------------------------+
+Test case printDailyMax population.csv
+Your program successfully indicated a failure case
+
+Compiling printCountries
+rm -f *~ printCountries printRunningAvg printCumulative printDailyMax
+gcc -std=gnu99 -Werror -Wall -pedantic -ggdb3 pandemic.c printCountries.o -o printCountries
++-----------------------------------------------------------------------+
+Test case printCountries population.csv
+Your file matched the expected output
+
+Compiling printDailyMax
+rm -f *~ printCountries printRunningAvg printCumulative printDailyMax
+gcc -std=gnu99 -Werror -Wall -pedantic -ggdb3 pandemic.c printDailyMax.o -o printDailyMax
++-----------------------------------------------------------------------+
+Test case printDailyMax population.csv daily_small.csv
+Your file did not match the expected ouput
+
+You have FAILED one or more of your test cases
+Keep debugging
 
 Overall Grade: NO GRADE YET
