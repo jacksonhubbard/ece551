@@ -17,7 +17,6 @@ void rotate_matrix(FILE * f) {
           fprintf(stderr, "%s", "Incorrect length1");
           exit(EXIT_FAILURE);
         }
-
         lineCount++;
       }
       else {
@@ -29,6 +28,11 @@ void rotate_matrix(FILE * f) {
       fprintf(stderr, "%s", "Incorrect length2");
       exit(EXIT_FAILURE);
     }
+  }
+
+  if (row < 10) {
+    fprintf(stderr, "%s", "Incorrect length2");
+    exit(EXIT_FAILURE);
   }
 
   // to print orginal matrix
