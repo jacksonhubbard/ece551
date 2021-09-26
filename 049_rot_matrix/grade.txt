@@ -1,0 +1,23 @@
+Grading at 09/26/2021:16:56:13.005147
+For commit ID 9e39d0aec8876e5683131e902b2e4c77e5d23ec7
+Grading at Sun Sep 26 12:56:08 EDT 2021
+Attempting to compile rotateMatrix.c
+testcase1 passed
+#################################################
+testcase2:
+testcase2 passed
+#################################################
+testcase3:
+valgrind reported memory errors
+#################################################
+testcase4:
+valgrind reported memory errors
+#################################################
+testcase5:
+testcase5 passed
+#################################################
+testcase6:
+Your file matched the expected output
+testcase6 passed
+
+Overall Grade: C
