@@ -50,6 +50,18 @@ void calcCumulative(unsigned * data, size_t n_days, uint64_t pop, double * cum) 
   if (n_days < 7) {
     return;
   }
+
+  uint64_t cases_times_100k;
+  //printf("pop: %lu\n", pop);
+
+  for (size_t day = 0; day < n_days; day++) {
+    cases_times_100k = data[day] * 100000;
+    //    printf("cases: %d\n", data[day]);
+    // printf("cases * 100k: %li\n", cases_times_100k);
+    double cum_per_100k = (double)cases_times_100k / (double)pop;
+    //printf("cum per 100k: %f\n", cum_per_100k);
+    cum[day] = cum_per_100k;
+  }
 }
 
 void printCountryWithMax(country_t * countries,
