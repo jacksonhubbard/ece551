@@ -31,14 +31,29 @@ country_t parseLine(char * line) {
 
 void calcRunningAvg(unsigned * data, size_t n_days, double * avg) {
   //WRITE ME
+  if (n_days < 7) {
+    return;
+  }
+
   int sum = 0;
-  for (size_t day = 0; day < n_days; day++) {
-    for (size_t offset = 7; offset > 0; offset--) {
-      if (day - offset > 0) {
-        sum += data[day - offset];
-      }
+  //for (size_t day = 6; day < n_days; day++) {
+  //sum = 0;
+  //for (size_t offset = day; offset > (offset-6); offset--) {
+  //if (day - offset > 0) {
+  //sum += data[day - offset];
+  // }
+  //}
+  //sum += data[day];
+  // }
+
+  for (size_t day = 0; day < (n_days - 7); day++) {
+    sum = 0;
+
+    for (size_t day_offset = day; day_offset < 7; day_offset++) {
+      sum += data[day_offset];
     }
-    sum += data[day];
+    double curr_avg = sum / 7.0;
+    avg[day] = curr_avg;
   }
 }
 
