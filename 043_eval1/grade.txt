@@ -1,6 +1,6 @@
-Grading at 09/28/2021:18:03:32.026221
-For commit ID d17654fe98c58c6735abe5a08a6bf57440a29ecf
-Grading at Tue Sep 28 14:03:28 EDT 2021
+Grading at 09/28/2021:18:04:33.276201
+For commit ID f071f58f67f8dc866c6f40bab3bbb0bff0a08263
+Grading at Tue Sep 28 14:04:32 EDT 2021
 Running your test cases
 
 Compiling printCountries
@@ -9,29 +9,7 @@ gcc -std=gnu99 -Werror -Wall -pedantic -ggdb3 pandemic.c printCountries.o -o pri
 +-----------------------------------------------------------------------+
 Test case printCountries invalid.csv
 Your program successfully indicated a failure case
-
-Compiling printDailyMax
-rm -f *~ printCountries printRunningAvg printCumulative printDailyMax
-gcc -std=gnu99 -Werror -Wall -pedantic -ggdb3 pandemic.c printDailyMax.o -o printDailyMax
-+-----------------------------------------------------------------------+
-Test case printDailyMax population.csv
-Your program successfully indicated a failure case
-
-Compiling printCountries
-rm -f *~ printCountries printRunningAvg printCumulative printDailyMax
-gcc -std=gnu99 -Werror -Wall -pedantic -ggdb3 pandemic.c printCountries.o -o printCountries
-+-----------------------------------------------------------------------+
-Test case printCountries population.csv
-Your file matched the expected output
-
-Compiling printDailyMax
-rm -f *~ printCountries printRunningAvg printCumulative printDailyMax
-gcc -std=gnu99 -Werror -Wall -pedantic -ggdb3 pandemic.c printDailyMax.o -o printDailyMax
-+-----------------------------------------------------------------------+
-Test case printDailyMax population.csv daily_small.csv
-Your file did not match the expected output
-
-You have FAILED one or more of your test cases
-Keep debugging
+Program must be one of printCountries printRunningAvg printCumulative printDailyMax
+But found "#printDailyMax"
 
 Overall Grade: NO GRADE YET
