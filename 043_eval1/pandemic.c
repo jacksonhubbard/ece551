@@ -34,16 +34,12 @@ void calcRunningAvg(unsigned * data, size_t n_days, double * avg) {
   if (n_days < 7) {
     return;
   }
-
   int sum = 0;
   for (size_t day = 0; day < (n_days - 6); day++) {
     sum = 0;
-    //    printf("%s", "new round");
     for (size_t day_offset = day; day_offset < (day + 7); day_offset++) {
-      //printf("%lu", day_offset);
       sum += data[day_offset];
     }
-    //printf("%d", sum);
     double curr_avg = sum / 7.0;
     avg[day] = curr_avg;
   }
@@ -51,6 +47,9 @@ void calcRunningAvg(unsigned * data, size_t n_days, double * avg) {
 
 void calcCumulative(unsigned * data, size_t n_days, uint64_t pop, double * cum) {
   //WRITE ME
+  if (n_days < 7) {
+    return;
+  }
 }
 
 void printCountryWithMax(country_t * countries,
