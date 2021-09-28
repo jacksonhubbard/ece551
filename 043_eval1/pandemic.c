@@ -36,16 +36,6 @@ void calcRunningAvg(unsigned * data, size_t n_days, double * avg) {
   }
 
   int sum = 0;
-  //for (size_t day = 6; day < n_days; day++) {
-  //sum = 0;
-  //for (size_t offset = day; offset > (offset-6); offset--) {
-  //if (day - offset > 0) {
-  //sum += data[day - offset];
-  // }
-  //}
-  //sum += data[day];
-  // }
-
   for (size_t day = 0; day < (n_days - 6); day++) {
     sum = 0;
     //    printf("%s", "new round");
