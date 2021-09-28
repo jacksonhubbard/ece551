@@ -1,6 +1,6 @@
-Grading at 09/28/2021:18:49:13.768042
-For commit ID bcdf4e2fc5ec9c1887ab1a6489f64092eb5a456a
-Grading at Tue Sep 28 14:49:10 EDT 2021
+Grading at 09/28/2021:18:50:51.171746
+For commit ID eb42c0c7b5a0fbb263dfc4c55f368e2e0a6803a0
+Grading at Tue Sep 28 14:50:47 EDT 2021
 Running your test cases
 
 Compiling printCountries
@@ -22,6 +22,13 @@ rm -f *~ printCountries printRunningAvg printCumulative printDailyMax
 gcc -std=gnu99 -Werror -Wall -pedantic -ggdb3 pandemic.c printCountries.o -o printCountries
 +-----------------------------------------------------------------------+
 Test case printCountries population.csv
+Your file matched the expected output
+
+Compiling printRunningAvg
+rm -f *~ printCountries printRunningAvg printCumulative printDailyMax
+gcc -std=gnu99 -Werror -Wall -pedantic -ggdb3 pandemic.c printRunningAvg.o -o printRunningAvg
++-----------------------------------------------------------------------+
+Test case printRunningAvg population.csv daily_small.csv
 Your file matched the expected output
 
 Compiling printDailyMax
