@@ -46,12 +46,14 @@ void calcRunningAvg(unsigned * data, size_t n_days, double * avg) {
   //sum += data[day];
   // }
 
-  for (size_t day = 0; day < (n_days - 7); day++) {
+  for (size_t day = 0; day < (n_days - 6); day++) {
     sum = 0;
-
-    for (size_t day_offset = day; day_offset < 7; day_offset++) {
+    //    printf("%s", "new round");
+    for (size_t day_offset = day; day_offset < (day + 7); day_offset++) {
+      //printf("%lu", day_offset);
       sum += data[day_offset];
     }
+    //printf("%d", sum);
     double curr_avg = sum / 7.0;
     avg[day] = curr_avg;
   }
