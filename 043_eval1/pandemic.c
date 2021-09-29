@@ -5,8 +5,7 @@
 
 // takes in a pointer to a line, parses the data, which should be in the form country_name,population and returns a struct with that information
 country_t parseLine(char * line) {
-  country_t ans;
-
+  country_t country;
   char * name = strtok(line, ",");
   char * pop_string = strtok(NULL, ",");
 
@@ -21,14 +20,14 @@ country_t parseLine(char * line) {
 
   // assign the country name currently stored in name to ans.name
   for (size_t i = 0; i < len_name; i++) {
-    ans.name[i] = *(name + i);
+    country.name[i] = *(name + i);
   }
-  ans.name[len_name] = '\0';
+  country.name[len_name] = '\0';
 
   uint64_t pop_int = atoi(pop_string);
-  ans.population = pop_int;
+  country.population = pop_int;
 
-  return ans;
+  return country;
 }
 
 // takes in array of case data, the number of days it was measured over, and an array of doubles which is where the running average is stored. Calculates the 7 day running average of cases
@@ -51,6 +50,12 @@ void calcRunningAvg(unsigned * data, size_t n_days, double * avg) {
   }
 }
 
+double calculate_cases_per_100k(uint64_t sum_cases, uint64_t population) {
+  uint64_t cases_times_100k = sum_cases * 100000;
+  double cum_per_100k = (double)cases_times_100k / (double)population;
+  return cum_per_100k;
+}
+
 // takes in array of case data, the number of days it was measured over, the population for a given country and a double array used to store the cumulative number of cases per 100,000 people
 // calculated by summing cumulative  # cases in the country's population and scaling it down to 100,000 as standard ratio
 void calcCumulative(unsigned * data, size_t n_days, uint64_t pop, double * cum) {
@@ -58,15 +63,15 @@ void calcCumulative(unsigned * data, size_t n_days, uint64_t pop, double * cum) 
     return;
   }
 
-  uint64_t cases_times_100k;
   uint64_t sum_cases = 0;
 
   for (size_t day = 0; day < n_days; day++) {
     sum_cases += data[day];
     // perform math of ratio: # cases/pop = x/100,000
-    cases_times_100k = sum_cases * 100000;
-    double cum_per_100k = (double)cases_times_100k / (double)pop;
-    cum[day] = cum_per_100k;
+    // cases_times_100k = sum_cases * 100000;
+    //double cum_per_100k = (double)cases_times_100k / (double)pop;
+    //cum[day] = cum_per_100k;
+    cum[day] = calculate_cases_per_100k(sum_cases, pop);
   }
 }
 
