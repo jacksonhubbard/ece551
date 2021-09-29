@@ -2,8 +2,9 @@
 printCountries invalid.csv
 printRunningAvg population.csv
 printCumulative population.csv
+printCumalative test_population.csv daily_cases.txt
 printDailyMax population.csv
-
+printDailyMax invalid.csv
 
 
 #success
