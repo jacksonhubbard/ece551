@@ -24,7 +24,6 @@ country_t parseLine(char * line) {
   country.name[len_name] = '\0';
   uint64_t pop_int = atoi(pop_string);
 
-  printf("name: %s   pop: %lu\n", name, pop_int);
   country.population = pop_int;
 
   return country;
