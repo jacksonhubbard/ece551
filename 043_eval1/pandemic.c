@@ -69,21 +69,22 @@ void printCountryWithMax(country_t * countries,
   }
 
   uint64_t max_cases = 0;
-  int index_of_max_country = -1;
+  int index_of_max_country =
+      -1;  // initialized to -1 to indicate no current max, but will get updated to first country in for loop
   int tie_flag = 0;  // used as a marker to indicate if there is a tie in number of cases
 
-  for (size_t country = 0; country < n_countries; country++) {
+  for (size_t country_index = 0; country_index < n_countries; country_index++) {
     for (size_t day = 0; day < n_days; day++) {
-      uint64_t current_cases = data[country][day];
+      uint64_t current_cases = data[country_index][day];
       if (current_cases > max_cases) {
         // current country/day pair is new max so reset fields and set tie_flag to 0 meaning no ties to the new max
-        index_of_max_country = country;
+        index_of_max_country = country_index;
         max_cases = current_cases;
         tie_flag = 0;
       }
-      else if (current_cases == max_cases && (int)country != index_of_max_country) {
+      else if (current_cases == max_cases && (int)country_index != index_of_max_country) {
         // current country/day pair ties the max so set the tie_flag accordingly
-        // only do this if the current country is not the same as the current max's country index
+        // only do this if the current country index is not the same as the current maxs country's index
         tie_flag = 1;
       }
     }

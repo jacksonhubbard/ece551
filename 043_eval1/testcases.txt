@@ -4,8 +4,14 @@ printDailyMax population.csv
 
 #success
 printCountries population.csv
+
 printRunningAvg population.csv daily_small.csv
+
 printCumulative population.csv daily_small.csv
+printCumulative test_population.csv test_daily_small.csv
+printCumulative test_population_tie.csv test_daily_small_tie.csv
+printCumulative population.csv daily_cases.csv
+
 printDailyMax population.csv daily_small.csv
 printDailyMax population.csv daily_cases.csv
 printDailyMax test_population.csv test_daily_small.csv
