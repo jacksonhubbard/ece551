@@ -4,7 +4,6 @@
 #include <string.h>
 
 country_t parseLine(char * line) {
-  //WRITE ME
   country_t ans;
 
   char * name = strtok(line, ",");
@@ -18,6 +17,7 @@ country_t parseLine(char * line) {
     exit(EXIT_FAILURE);
   }
 
+  // assign the country name currently stored in name to ans.name
   for (size_t i = 0; i < len_name; i++) {
     ans.name[i] = *(name + i);
   }
@@ -30,7 +30,6 @@ country_t parseLine(char * line) {
 }
 
 void calcRunningAvg(unsigned * data, size_t n_days, double * avg) {
-  //WRITE ME
   if (n_days < 7) {
     return;
   }
@@ -46,22 +45,17 @@ void calcRunningAvg(unsigned * data, size_t n_days, double * avg) {
 }
 
 void calcCumulative(unsigned * data, size_t n_days, uint64_t pop, double * cum) {
-  //WRITE ME
   if (n_days < 7) {
     return;
   }
 
   uint64_t cases_times_100k;
-  //printf("pop: %lu\n", pop);
   uint64_t sum_cases = 0;
 
   for (size_t day = 0; day < n_days; day++) {
     sum_cases += data[day];
     cases_times_100k = sum_cases * 100000;
-    //    printf("cases: %d\n", data[day]);
-    // printf("cases * 100k: %li\n", cases_times_100k);
     double cum_per_100k = (double)cases_times_100k / (double)pop;
-    //printf("cum per 100k: %f\n", cum_per_100k);
     cum[day] = cum_per_100k;
   }
 }
@@ -70,34 +64,33 @@ void printCountryWithMax(country_t * countries,
                          size_t n_countries,
                          unsigned ** data,
                          size_t n_days) {
-  //WRITE ME
   if (n_countries == 0 || n_days == 0) {
     return;
   }
 
   uint64_t max_cases = 0;
   int index_of_max_country = -1;
-  int tie_flag = 0;
+  int tie_flag = 0;  // used as a marker to indicate if there is a tie in number of cases
 
   for (size_t country = 0; country < n_countries; country++) {
     for (size_t day = 0; day < n_days; day++) {
       uint64_t current_cases = data[country][day];
       if (current_cases > max_cases) {
+        // current country/day pair is new max so reset fields and set tie_flag to 0 meaning no ties to the new max
         index_of_max_country = country;
         max_cases = current_cases;
         tie_flag = 0;
       }
-      else if (current_cases == max_cases) {
+      else if (current_cases == max_cases && (int)country != index_of_max_country) {
+        // current country/day pair ties the max so set the tie_flag accordingly
+        // only do this if the current country is not the same as the current max's country index
         tie_flag = 1;
-      }
-      else {
-        // less than max
       }
     }
   }
 
   if (tie_flag) {
-    printf("%s", "There is a tie between at least two countries");
+    printf("%s", "There is a tie between at least two countries\n");
   }
   else {
     printf("%s has the most daily cases with %u\n",
