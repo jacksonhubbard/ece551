@@ -4,6 +4,8 @@ printDailyMax population.csv
 
 #success
 printCountries population.csv
+printCountries test_population.csv
+printCountries population_bad.csv
 
 printRunningAvg population.csv daily_small.csv
 printRunningAvg population.csv daily_cases.csv
