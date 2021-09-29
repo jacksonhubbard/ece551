@@ -3,6 +3,7 @@
 #include <stdio.h>
 #include <string.h>
 
+// takes in a pointer to a line, parses the data, which should be in the form country_name,population and returns a struct with that information
 country_t parseLine(char * line) {
   country_t ans;
 
@@ -11,7 +12,8 @@ country_t parseLine(char * line) {
 
   size_t len_name = strlen(name);
 
-  if (len_name > 64) {
+  if (len_name >
+      64) {  // country_t allots 64 spaces for country name so if it is longer than 63 (leave room for \0) it is error
     char error_desc[] = "The country name is too long";
     printf("%s\n", error_desc);
     exit(EXIT_FAILURE);
@@ -29,14 +31,19 @@ country_t parseLine(char * line) {
   return ans;
 }
 
+// takes in array of case data, the number of days it was measured over, and an array of doubles which is where the running average is stored. Calculates the 7 day running average of cases
 void calcRunningAvg(unsigned * data, size_t n_days, double * avg) {
   if (n_days < 7) {
     return;
   }
   int sum = 0;
+
+  // Avg  will be 6 elements shorter than n_days since we are taking the 7 day running average. Thus, subtract 6 for upper bound when looping over days
   for (size_t day = 0; day < (n_days - 6); day++) {
     sum = 0;
-    for (size_t day_offset = day; day_offset < (day + 7); day_offset++) {
+    size_t seven_days_from_now = day + 7;
+    // using seven_days_from_now as upper bound to get next 6 days to calculate running avg
+    for (size_t day_offset = day; day_offset < seven_days_from_now; day_offset++) {
       sum += data[day_offset];
     }
     double curr_avg = sum / 7.0;
@@ -44,6 +51,8 @@ void calcRunningAvg(unsigned * data, size_t n_days, double * avg) {
   }
 }
 
+// takes in array of case data, the number of days it was measured over, the population for a given country and a double array used to store the cumulative number of cases per 100,000 people
+// calculated by summing cumulative  # cases in the country's population and scaling it down to 100,000 as standard ratio
 void calcCumulative(unsigned * data, size_t n_days, uint64_t pop, double * cum) {
   if (n_days < 7) {
     return;
@@ -54,12 +63,16 @@ void calcCumulative(unsigned * data, size_t n_days, uint64_t pop, double * cum) 
 
   for (size_t day = 0; day < n_days; day++) {
     sum_cases += data[day];
+    // perform math of ratio: # cases/pop = x/100,000
     cases_times_100k = sum_cases * 100000;
     double cum_per_100k = (double)cases_times_100k / (double)pop;
     cum[day] = cum_per_100k;
   }
 }
 
+// takes in an array of country_t's (custom struct), number of countries in this array, a 2D array storing each countries daily case data, and the number of days
+// the country in position i of countries corresponds to the case data stored in data[i]
+// parses the data and returns the country with the max number of single day cases
 void printCountryWithMax(country_t * countries,
                          size_t n_countries,
                          unsigned ** data,
