@@ -1,6 +1,6 @@
-Grading at 09/29/2021:17:53:07.212450
-For commit ID 1bae05e3838e98ac5158d484d229a153ef50d018
-Grading at Wed Sep 29 13:52:52 EDT 2021
+Grading at 09/29/2021:18:04:15.318401
+For commit ID b830b11b5c785903b8456a672e355057a08e13c9
+Grading at Wed Sep 29 14:03:59 EDT 2021
 Running your test cases
 
 Compiling printCountries
@@ -36,63 +36,145 @@ rm -f *~ printCountries printRunningAvg printCumulative printDailyMax
 gcc -std=gnu99 -Werror -Wall -pedantic -ggdb3 pandemic.c printCountries.o -o printCountries
 +-----------------------------------------------------------------------+
 Test case printCountries population.csv
-Your file matched the expected output
+Line_1_did_not_match
+Line_2_did_not_match
+Line_3_did_not_match
+Line_4_did_not_match
+Line_5_did_not_match
+Line_6_did_not_match
+Line_7_did_not_match
+Line_8_did_not_match
+Line_9_did_not_match
+Your file did not match the expected output
 +-----------------------------------------------------------------------+
 Test case printCountries test_population.csv
-Your file matched the expected output
+Line_1_did_not_match
+Your file did not match the expected output
 +-----------------------------------------------------------------------+
 Test case printCountries population_bad.csv
-Your file matched the expected output
+Line_1_did_not_match
+Line_2_did_not_match
+Your file did not match the expected output
++-----------------------------------------------------------------------+
+Test case printCountries population_bad2.csv
+Line_1_did_not_match
+Line_2_did_not_match
+Line_3_did_not_match
+Line_4_did_not_match
+Your file did not match the expected output
 
 Compiling printRunningAvg
 rm -f *~ printCountries printRunningAvg printCumulative printDailyMax
 gcc -std=gnu99 -Werror -Wall -pedantic -ggdb3 pandemic.c printRunningAvg.o -o printRunningAvg
 +-----------------------------------------------------------------------+
 Test case printRunningAvg population.csv daily_small.csv
-Your file matched the expected output
+Line_1_did_not_match
+Line_2_did_not_match
+Line_3_did_not_match
+Line_4_did_not_match
+Line_5_did_not_match
+Line_6_did_not_match
+Line_7_did_not_match
+Line_8_did_not_match
+Line_9_did_not_match
+Your file did not match the expected output
 +-----------------------------------------------------------------------+
 Test case printRunningAvg population.csv daily_cases.csv
-Your file matched the expected output
+Line_1_did_not_match
+Line_2_did_not_match
+Line_3_did_not_match
+Line_4_did_not_match
+Line_5_did_not_match
+Line_6_did_not_match
+Line_7_did_not_match
+Line_8_did_not_match
+Line_9_did_not_match
+Your file did not match the expected output
 +-----------------------------------------------------------------------+
 Test case printRunningAvg test_population.csv test_daily_small.csv
-Your file matched the expected output
+Line_1_did_not_match
+Your file did not match the expected output
 +-----------------------------------------------------------------------+
 Test case printRunningAvg test_population_tie.csv test_daily_small_tie.csv
-Your file matched the expected output
+Line_1_did_not_match
+Line_2_did_not_match
+Your file did not match the expected output
 
 Compiling printCumulative
 rm -f *~ printCountries printRunningAvg printCumulative printDailyMax
 gcc -std=gnu99 -Werror -Wall -pedantic -ggdb3 pandemic.c printCumulative.o -o printCumulative
 +-----------------------------------------------------------------------+
 Test case printCumulative population.csv daily_small.csv
-Your file matched the expected output
+Line_1_did_not_match
+Line_2_did_not_match
+Line_3_did_not_match
+Line_4_did_not_match
+Line_5_did_not_match
+Line_6_did_not_match
+Line_7_did_not_match
+Line_8_did_not_match
+Line_9_did_not_match
+Your file did not match the expected output
 +-----------------------------------------------------------------------+
 Test case printCumulative test_population.csv test_daily_small.csv
-Your file matched the expected output
+Line_1_did_not_match
+Your file did not match the expected output
 +-----------------------------------------------------------------------+
 Test case printCumulative test_population_tie.csv test_daily_small_tie.csv
-Your file matched the expected output
+Line_1_did_not_match
+Line_2_did_not_match
+Your file did not match the expected output
 +-----------------------------------------------------------------------+
 Test case printCumulative population.csv daily_cases.csv
-Your file matched the expected output
+Line_1_did_not_match
+Line_2_did_not_match
+Line_3_did_not_match
+Line_4_did_not_match
+Line_5_did_not_match
+Line_6_did_not_match
+Line_7_did_not_match
+Line_8_did_not_match
+Line_9_did_not_match
+Your file did not match the expected output
 
 Compiling printDailyMax
 rm -f *~ printCountries printRunningAvg printCumulative printDailyMax
 gcc -std=gnu99 -Werror -Wall -pedantic -ggdb3 pandemic.c printDailyMax.o -o printDailyMax
 +-----------------------------------------------------------------------+
 Test case printDailyMax population.csv daily_small.csv
-Your file matched the expected output
+Line_1_did_not_match
+Line_2_did_not_match
+Line_3_did_not_match
+Line_4_did_not_match
+Line_5_did_not_match
+Line_6_did_not_match
+Line_7_did_not_match
+Line_8_did_not_match
+Line_9_did_not_match
+Your file did not match the expected output
 +-----------------------------------------------------------------------+
 Test case printDailyMax population.csv daily_cases.csv
-Your file matched the expected output
+Line_1_did_not_match
+Line_2_did_not_match
+Line_3_did_not_match
+Line_4_did_not_match
+Line_5_did_not_match
+Line_6_did_not_match
+Line_7_did_not_match
+Line_8_did_not_match
+Line_9_did_not_match
+Your file did not match the expected output
 +-----------------------------------------------------------------------+
 Test case printDailyMax test_population.csv test_daily_small.csv
-Your file matched the expected output
+Line_1_did_not_match
+Your file did not match the expected output
 +-----------------------------------------------------------------------+
 Test case printDailyMax test_population_tie.csv test_daily_small_tie.csv
-Your file matched the expected output
+Line_1_did_not_match
+Line_2_did_not_match
+Your file did not match the expected output
 
-You have PASSED all of your test cases
-Keep adding test cases until you are satisfied your program is correct
+You have FAILED one or more of your test cases
+Keep debugging
 
 Overall Grade: NO GRADE YET
