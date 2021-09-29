@@ -81,10 +81,8 @@ void printCountryWithMax(country_t * countries,
     return;
   }
   uint64_t max_cases = 0;
-
   // initialized to -1 to indicate no current max, but will get updated to first country in for loop
   int index_of_max_country = -1;
-
   // used as a marker to indicate if there is a tie in number of cases
   int tie_flag = 0;
 
