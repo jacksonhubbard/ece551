@@ -8,22 +8,20 @@ country_t parseLine(char * line) {
   country_t country;
   char * name = strtok(line, ",");
   char * pop_string = strtok(NULL, ",");
-
   size_t len_name = strlen(name);
 
-  if (len_name >
-      64) {  // country_t allots 64 spaces for country name so if it is longer than 63 (leave room for \0) it is error
+  // country_t allots 64 spaces for country name so if it is longer than 63 (leave room for \0) it is error
+  if (len_name > 64) {
     char error_desc[] = "The country name is too long";
     printf("%s\n", error_desc);
     exit(EXIT_FAILURE);
   }
-
   // assign the country name currently stored in name to ans.name
   for (size_t i = 0; i < len_name; i++) {
     country.name[i] = *(name + i);
   }
-  country.name[len_name] = '\0';
 
+  country.name[len_name] = '\0';
   uint64_t pop_int = atoi(pop_string);
   country.population = pop_int;
 
@@ -41,7 +39,7 @@ void calcRunningAvg(unsigned * data, size_t n_days, double * avg) {
   for (size_t day = 0; day < (n_days - 6); day++) {
     sum = 0;
     size_t seven_days_from_now = day + 7;
-    // using seven_days_from_now as upper bound to get next 6 days to calculate running avg
+    // using seven_days_from_now as upper bound to get next 6 days to calculate sum used for running avg
     for (size_t day_offset = day; day_offset < seven_days_from_now; day_offset++) {
       sum += data[day_offset];
     }
@@ -50,8 +48,10 @@ void calcRunningAvg(unsigned * data, size_t n_days, double * avg) {
   }
 }
 
-double calculate_cases_per_100k(uint64_t sum_cases, uint64_t population) {
-  uint64_t cases_times_100k = sum_cases * 100000;
+// takes in number of cases and a population and uses these to calculate the number of cases per 100,000 people
+// Does so by solving the ratio for x: # cases/pop = x/100,000
+double calculate_cases_per_100k(uint64_t num_cases, uint64_t population) {
+  uint64_t cases_times_100k = num_cases * 100000;
   double cum_per_100k = (double)cases_times_100k / (double)population;
   return cum_per_100k;
 }
@@ -64,13 +64,8 @@ void calcCumulative(unsigned * data, size_t n_days, uint64_t pop, double * cum) 
   }
 
   uint64_t sum_cases = 0;
-
   for (size_t day = 0; day < n_days; day++) {
     sum_cases += data[day];
-    // perform math of ratio: # cases/pop = x/100,000
-    // cases_times_100k = sum_cases * 100000;
-    //double cum_per_100k = (double)cases_times_100k / (double)pop;
-    //cum[day] = cum_per_100k;
     cum[day] = calculate_cases_per_100k(sum_cases, pop);
   }
 }
@@ -85,11 +80,13 @@ void printCountryWithMax(country_t * countries,
   if (n_countries == 0 || n_days == 0) {
     return;
   }
-
   uint64_t max_cases = 0;
-  int index_of_max_country =
-      -1;  // initialized to -1 to indicate no current max, but will get updated to first country in for loop
-  int tie_flag = 0;  // used as a marker to indicate if there is a tie in number of cases
+
+  // initialized to -1 to indicate no current max, but will get updated to first country in for loop
+  int index_of_max_country = -1;
+
+  // used as a marker to indicate if there is a tie in number of cases
+  int tie_flag = 0;
 
   for (size_t country_index = 0; country_index < n_countries; country_index++) {
     for (size_t day = 0; day < n_days; day++) {
