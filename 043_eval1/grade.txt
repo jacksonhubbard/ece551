@@ -1,6 +1,6 @@
-Grading at 09/29/2021:18:17:35.900585
-For commit ID bb300f3c34ce2e52ad0be793ce60efbae065ac9b
-Grading at Wed Sep 29 14:17:33 EDT 2021
+Grading at 09/29/2021:18:21:36.305010
+For commit ID d47d398d5f1e9ac7a4f6dd64a5ff3bb901d3acd4
+Grading at Wed Sep 29 14:21:33 EDT 2021
 Running your test cases
 
 Compiling printCountries
@@ -24,6 +24,6 @@ gcc -std=gnu99 -Werror -Wall -pedantic -ggdb3 pandemic.c printCumulative.o -o pr
 Test case printCumulative population.csv
 Your program successfully indicated a failure case
 Program must be one of printCountries printRunningAvg printCumulative printDailyMax
-But found "printCumalative"
+But found "printRunningAverage"
 
 Overall Grade: NO GRADE YET
