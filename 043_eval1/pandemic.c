@@ -11,9 +11,9 @@ country_t parseLine(char * line) {
   size_t len_name = strlen(name);
 
   // country_t allots 64 spaces for country name so if it is longer than 63 (leave room for \0) it is error
-  if (len_name > 64) {
+  if (len_name > 63) {
     char error_desc[] = "The country name is too long";
-    printf("%s\n", error_desc);
+    fprintf(stderr, "%s\n", error_desc);
     exit(EXIT_FAILURE);
   }
   // assign the country name currently stored in name to ans.name
