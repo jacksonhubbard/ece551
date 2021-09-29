@@ -6,6 +6,10 @@ printDailyMax population.csv
 printCountries population.csv
 
 printRunningAvg population.csv daily_small.csv
+printRunningAvg population.csv daily_cases.csv
+printRunningAvg test_population.csv test_daily_small.csv
+printRunningAvg test_population_tie.csv test_daily_small_tie.csv
+
 
 printCumulative population.csv daily_small.csv
 printCumulative test_population.csv test_daily_small.csv
