@@ -110,9 +110,45 @@ void printBoard(board_t * b) {
   }
   printf("\nFound %d of %d mines\n", found, b->totalMines);
 }
+
+int checkForMine(board_t * b, int x, int y) {
+  if (x >= 0 && y < b->height && y >= 0 && x < b->width) {
+    if (IS_MINE(b->board[y][x])) {
+      return 1;
+    }
+  }
+  return 0;
+}
+
 int countMines(board_t * b, int x, int y) {
   //WRITE ME!
-  return 0;
+  int count = 0;
+
+  if (checkForMine(b, x - 1, y) == 1) {
+    count += 1;
+  }
+  if (checkForMine(b, x + 1, y) == 1) {
+    count += 1;
+  }
+  if (checkForMine(b, x, y - 1) == 1) {
+    count += 1;
+  }
+  if (checkForMine(b, x, y + 1) == 1) {
+    count += 1;
+  }
+  if (checkForMine(b, x - 1, y + 1) == 1) {
+    count += 1;
+  }
+  if (checkForMine(b, x - 1, y - 1) == 1) {
+    count += 1;
+  }
+  if (checkForMine(b, x + 1, y + 1) == 1) {
+    count += 1;
+  }
+  if (checkForMine(b, x + 1, y - 1) == 1) {
+    count += 1;
+  }
+  return count;
 }
 int click(board_t * b, int x, int y) {
   if (x < 0 || x >= b->width || y < 0 || y >= b->height) {
@@ -134,11 +170,23 @@ int click(board_t * b, int x, int y) {
 
 int checkWin(board_t * b) {
   //WRITE ME!
-  return 0;
+  for (int i = 0; i < b->height; i++) {
+    for (int j = 0; j < b->width; j++) {
+      if (b->board[i][j] == UNKNOWN) {
+        return 0;
+      }
+    }
+  }
+
+  return 1;
 }
 
 void freeBoard(board_t * b) {
   //WRITE ME!
+  for (int i = 0; i < b->height; i++) {
+    free(b->board[i]);
+  }
+  free(b->board);
 }
 
 int readInt(char ** linep, size_t * lineszp) {
