@@ -42,10 +42,10 @@ void addRandomMine(board_t * b) {
 board_t * makeBoard(int w, int h, int numMines) {
   //WRITE ME!
   board_t * ans = malloc(sizeof(*ans));
-  ans->board = malloc(h * sizeof(int));
+  ans->board = malloc(h * sizeof(*ans->board));
 
   for (int i = 0; i < h; i++) {
-    ans->board[i] = malloc(sizeof(w * sizeof(int)));
+    ans->board[i] = malloc(w * sizeof((*ans->board[i])));
     for (int j = 0; j < w; j++) {
       ans->board[i][j] = UNKNOWN;
     }
@@ -187,6 +187,7 @@ void freeBoard(board_t * b) {
     free(b->board[i]);
   }
   free(b->board);
+  free(b);
 }
 
 int readInt(char ** linep, size_t * lineszp) {
