@@ -6,14 +6,18 @@
 
 kvpair_t * parseLine(char * line) {
   char * key = strtok(line, "=");
-  char * value = strtok(NULL, "");
-  printf("key: %s\n", key);
-  printf("value: %s", value);
+  char * value = strtok(NULL, "\n");
+  //  printf("key: %s\n", key);
+  // printf("value: %s", value);
 
   kvpair_t * pair = malloc(sizeof(*pair));
-  pair->key = key;
-  pair->value = value;
-
+  //  pair->key = key;
+  //pair->value = value;
+  pair->key = malloc(strlen(key) + 1);
+  pair->value = malloc(strlen(value) + 1);
+  strcpy(pair->key, key);
+  strcpy(pair->value, value);
+  //printf("%s\n", pair->key);
   return pair;
 }
 
@@ -31,28 +35,29 @@ kvarray_t * readKVs(const char * fname) {
   int pairCount = 0;
 
   kvarray_t * kv_struct = malloc(1 * sizeof(*kv_struct));
-  kv_struct->len = 1;
+  kv_struct->len = 0;
   kv_struct->arr = malloc(kv_struct->len * sizeof(*kv_struct->arr));
 
   int i = 0;
 
   while ((read_size = getline(&line, &len, f)) != -1) {
     kvpair_t * currPair = parseLine(line);
-    printf("%s\n", currPair->key);
+    //printf("%s\n", currPair->key);
 
     pairCount++;
     kv_struct->len++;
     kv_struct->arr = realloc(kv_struct->arr, kv_struct->len * sizeof(*kv_struct->arr));
+    kv_struct->arr[i].key = malloc(strlen(currPair->key) + 1);
+    kv_struct->arr[i].value = malloc(strlen(currPair->value) + 1);
+    strcpy(kv_struct->arr[i].key, currPair->key);
+    strcpy(kv_struct->arr[i].value, currPair->value);
 
-    strcpy(currPair->key, kv_struct->arr[i].key);
-    strcpy(currPair->value, kv_struct->arr[i].value);
-
-    printf("pairArr[%d]: %s, %s\n\n", i, kv_struct->arr[i].key, kv_struct->arr[i].value);
+    //printf("pairArr[%d]: %s, %s\n\n", i, kv_struct->arr[i].key, kv_struct->arr[i].value);
     i++;
   }
-  printf("%s\n", "Done reading lines, Testing some values");
-  printf("Key of pairArr[0] = %s, should be apple\n", kv_struct->arr[0].key);
-  printf("Key of pairArr[3] = %s, should be grapes\n\n", kv_struct->arr[3].key);
+  //printf("%s\n", "Done reading lines, Testing some values");
+  //printf("Key of pairArr[0] = %s, should be apple\n", kv_struct->arr[0].key);
+  //printf("Key of pairArr[3] = %s, should be grapes\n\n", kv_struct->arr[3].key);
 
   fclose(f);
   if (line) {
@@ -64,11 +69,11 @@ kvarray_t * readKVs(const char * fname) {
   //kv_arr->len = pairCount;
   //kv_arr->arr = pairArr;
 
-  printf("%s\n", "looping over arr assigned to struct");
-  for (int j = 0; j < pairCount; j++) {
-    printf("key: %s value: %s\n", kv_struct->arr[j].key, kv_struct->arr[j].value);
-  }
-  return kv_arr;
+  //  printf("%s\n", "looping over arr assigned to struct");
+  //for (int j = 0; j < pairCount; j++) {
+  //printf("key: %s value:' %s'\n", kv_struct->arr[j].key, kv_struct->arr[j].value);
+  //}
+  return kv_struct;
 }
 
 void freeKVs(kvarray_t * pairs) {
@@ -83,13 +88,13 @@ void freeKVs(kvarray_t * pairs) {
   free(pairs);
 }
 
-void printKVs(kvarray_t * pairs) {
+void printKVs(kvarray_t * kv_struct) {
   //WRITE ME
-  printf("%s", "in print func\n");
+  //printf("%s", "in print func\n");
 
-  int size = pairs->len;
-  for (int i = 0; i < size; i++) {
-    printf("key = '%s' value = '%s'\n", pairs->arr[i].key, pairs->arr[i].value);
+  int size = kv_struct->len;
+  for (int j = 0; j < size; j++) {
+    printf("key = '%s' value = '%s'\n", kv_struct->arr[j].key, kv_struct->arr[j].value);
   }
 }
 
