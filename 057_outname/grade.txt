@@ -1,0 +1,15 @@
+Grading at 10/09/2021:03:52:12.121129
+For commit ID 79b229f00810f4d825663be2a977f574dc9705bc
+Grading at Fri Oct  8 23:52:10 EDT 2021
+Attempting to compile:
+#################################################
+testcase1:
+valgrind reported memory errors
+#################################################
+testcase2:
+valgrind reported memory errors
+#################################################
+testcase3:
+valgrind reported memory errors
+
+Overall Grade: F
