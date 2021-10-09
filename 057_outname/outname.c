@@ -8,7 +8,7 @@ char * computeOutputFileName(const char * inputName) {
   //WRITE ME
   size_t size = strlen(inputName);
 
-  char * ans = malloc((size + 7) * sizeof(char));
+  char * ans = malloc((size + 8) * sizeof(char));
 
   for (size_t i = 0; i < size; i++) {
     ans[i] = inputName[i];
@@ -20,6 +20,8 @@ char * computeOutputFileName(const char * inputName) {
     ans[j] = test[i];
     i++;
   }
+
+  ans[size + 7] = '\0';
 
   return ans;
 }
