@@ -1,47 +1,128 @@
-Grading at 10/09/2021:03:32:31.223912
-For commit ID c7b923b7b428c22f3fed19c0504263c3b3d23f7f
-Grading at Fri Oct  8 23:32:28 EDT 2021
+Grading at 10/09/2021:03:41:49.859345
+For commit ID a4d10225858f1a06c6834bfb46e1949df096ad35
+Grading at Fri Oct  8 23:41:45 EDT 2021
 Attempting to compile:
 #################################################
 testcase1:
-valgrind reported memory errors
+Your output is correct
+  - Valgrind reported errors
+valgrind was not clean
+==49294== Memcheck, a memory error detector
+==49294== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==49294== Using Valgrind-3.13.0 and LibVEX; rerun with -h for copyright info
+==49294== 
+==49294== Parent PID: 49293
+==49294== 
+==49294== 
+==49294== HEAP SUMMARY:
+==49294==     in use at exit: 276 bytes in 31 blocks
+==49294==   total heap usage: 43 allocs, 12 frees, 9,492 bytes allocated
+==49294== 
+==49294== 16 bytes in 1 blocks are definitely lost in loss record 1 of 6
+==49294==    at 0x4C2FB0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==49294==    by 0x108CE8: readKVs (in kv_test)
+==49294==    by 0x108E56: main (in kv_test)
+==49294== 
+==49294== 39 bytes in 6 blocks are definitely lost in loss record 3 of 6
+==49294==    at 0x4C2FB0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==49294==    by 0x108C39: readKVs (in kv_test)
+==49294==    by 0x108E56: main (in kv_test)
+==49294== 
+==49294== 43 bytes in 6 blocks are definitely lost in loss record 5 of 6
+==49294==    at 0x4C2FB0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==49294==    by 0x108C04: readKVs (in kv_test)
+==49294==    by 0x108E56: main (in kv_test)
+==49294== 
+==49294== 178 (96 direct, 82 indirect) bytes in 6 blocks are definitely lost in loss record 6 of 6
+==49294==    at 0x4C2FB0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==49294==    by 0x108A5B: parseLine (in kv_test)
+==49294==    by 0x108B8D: readKVs (in kv_test)
+==49294==    by 0x108E56: main (in kv_test)
+==49294== 
+==49294== LEAK SUMMARY:
+==49294==    definitely lost: 194 bytes in 19 blocks
+==49294==    indirectly lost: 82 bytes in 12 blocks
+==49294==      possibly lost: 0 bytes in 0 blocks
+==49294==    still reachable: 0 bytes in 0 blocks
+==49294==         suppressed: 0 bytes in 0 blocks
+==49294== 
+==49294== For counts of detected and suppressed errors, rerun with: -v
+==49294== ERROR SUMMARY: 4 errors from 4 contexts (suppressed: 0 from 0)
 #################################################
 testcase2:
-valgrind reported memory errors
+Your output is correct
+  - Valgrind reported errors
+valgrind was not clean
+==49311== Memcheck, a memory error detector
+==49311== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==49311== Using Valgrind-3.13.0 and LibVEX; rerun with -h for copyright info
+==49311== 
+==49311== Parent PID: 49310
+==49311== 
+==49311== 
+==49311== HEAP SUMMARY:
+==49311==     in use at exit: 364 bytes in 31 blocks
+==49311==   total heap usage: 43 allocs, 12 frees, 9,580 bytes allocated
+==49311== 
+==49311== 16 bytes in 1 blocks are definitely lost in loss record 1 of 6
+==49311==    at 0x4C2FB0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==49311==    by 0x108CE8: readKVs (in kv_test)
+==49311==    by 0x108E56: main (in kv_test)
+==49311== 
+==49311== 43 bytes in 6 blocks are definitely lost in loss record 3 of 6
+==49311==    at 0x4C2FB0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==49311==    by 0x108C04: readKVs (in kv_test)
+==49311==    by 0x108E56: main (in kv_test)
+==49311== 
+==49311== 83 bytes in 6 blocks are definitely lost in loss record 5 of 6
+==49311==    at 0x4C2FB0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==49311==    by 0x108C39: readKVs (in kv_test)
+==49311==    by 0x108E56: main (in kv_test)
+==49311== 
+==49311== 222 (96 direct, 126 indirect) bytes in 6 blocks are definitely lost in loss record 6 of 6
+==49311==    at 0x4C2FB0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==49311==    by 0x108A5B: parseLine (in kv_test)
+==49311==    by 0x108B8D: readKVs (in kv_test)
+==49311==    by 0x108E56: main (in kv_test)
+==49311== 
+==49311== LEAK SUMMARY:
+==49311==    definitely lost: 238 bytes in 19 blocks
+==49311==    indirectly lost: 126 bytes in 12 blocks
+==49311==      possibly lost: 0 bytes in 0 blocks
+==49311==    still reachable: 0 bytes in 0 blocks
+==49311==         suppressed: 0 bytes in 0 blocks
+==49311== 
+==49311== For counts of detected and suppressed errors, rerun with: -v
+==49311== ERROR SUMMARY: 4 errors from 4 contexts (suppressed: 0 from 0)
 #################################################
 testcase3:
 Your output is correct
   - Valgrind reported errors
 valgrind was not clean
-==47097== Memcheck, a memory error detector
-==47097== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
-==47097== Using Valgrind-3.13.0 and LibVEX; rerun with -h for copyright info
-==47097== 
-==47097== Parent PID: 47096
-==47097== 
-==47097== 
-==47097== HEAP SUMMARY:
-==47097==     in use at exit: 16 bytes in 2 blocks
-==47097==   total heap usage: 7 allocs, 5 frees, 8,896 bytes allocated
-==47097== 
-==47097== 0 bytes in 1 blocks are definitely lost in loss record 1 of 2
-==47097==    at 0x4C2FB0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
-==47097==    by 0x108B6A: readKVs (in kv_test)
-==47097==    by 0x108EB6: main (in kv_test)
-==47097== 
-==47097== 16 bytes in 1 blocks are definitely lost in loss record 2 of 2
-==47097==    at 0x4C2FB0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
-==47097==    by 0x108CE8: readKVs (in kv_test)
-==47097==    by 0x108EB6: main (in kv_test)
-==47097== 
-==47097== LEAK SUMMARY:
-==47097==    definitely lost: 16 bytes in 2 blocks
-==47097==    indirectly lost: 0 bytes in 0 blocks
-==47097==      possibly lost: 0 bytes in 0 blocks
-==47097==    still reachable: 0 bytes in 0 blocks
-==47097==         suppressed: 0 bytes in 0 blocks
-==47097== 
-==47097== For counts of detected and suppressed errors, rerun with: -v
-==47097== ERROR SUMMARY: 2 errors from 2 contexts (suppressed: 0 from 0)
+==49342== Memcheck, a memory error detector
+==49342== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==49342== Using Valgrind-3.13.0 and LibVEX; rerun with -h for copyright info
+==49342== 
+==49342== Parent PID: 49341
+==49342== 
+==49342== 
+==49342== HEAP SUMMARY:
+==49342==     in use at exit: 16 bytes in 1 blocks
+==49342==   total heap usage: 7 allocs, 6 frees, 8,896 bytes allocated
+==49342== 
+==49342== 16 bytes in 1 blocks are definitely lost in loss record 1 of 1
+==49342==    at 0x4C2FB0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==49342==    by 0x108CE8: readKVs (in kv_test)
+==49342==    by 0x108E56: main (in kv_test)
+==49342== 
+==49342== LEAK SUMMARY:
+==49342==    definitely lost: 16 bytes in 1 blocks
+==49342==    indirectly lost: 0 bytes in 0 blocks
+==49342==      possibly lost: 0 bytes in 0 blocks
+==49342==    still reachable: 0 bytes in 0 blocks
+==49342==         suppressed: 0 bytes in 0 blocks
+==49342== 
+==49342== For counts of detected and suppressed errors, rerun with: -v
+==49342== ERROR SUMMARY: 1 errors from 1 contexts (suppressed: 0 from 0)
 
-Overall Grade: F
+Overall Grade: B
