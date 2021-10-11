@@ -10,10 +10,22 @@ counts_t * countFile(const char * filename, kvarray_t * kvPairs) {
   //WRITE ME
   counts_t * countsStruct = createCounts();  // has an countsArr ** arr and size
 
-  // read line by line and call addCount
-  for (size_t i = 0; i < kvPairs->len; i++) {
-    addCount(countsStruct, kvPairs->arr[i].value);
+  size_t sz = 0;
+  ssize_t len = 0;
+  char * line = NULL;
+
+  char ** data = malloc(1 * sizeof(*data));
+  FILE * f = fopen(filename, "r");
+  while ((len = getline(&line, &sz, f)) >= 0) {
+    char * color = lookupValue(kvPairs, line);
+    //printf("%s\n", color);
+    addCount(countsStruct, color);
   }
+
+  // read line by line and call addCount
+  //for (size_t i = 0; i < kvPairs->len; i++) {
+  //addCount(countsStruct, kvPairs->arr[i].value);
+  // }
   //printCounts(countsStruct, stdout);
 
   return countsStruct;
