@@ -57,6 +57,7 @@ void printCounts(counts_t * c, FILE * outFile) {
   int nullCount = 0;
 
   for (int i = 0; i < c->size; i++) {
+    //    printf("%s\n", c->countsArr[i]->string);
     if (strcmp(c->countsArr[i]->string, "") != 0) {
       fprintf(outFile, "%s: %d\n", c->countsArr[i]->string, c->countsArr[i]->count);
     }
