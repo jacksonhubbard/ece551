@@ -39,7 +39,7 @@ int main(int argc, char ** argv) {
     char * outName = computeOutputFileName(argv[i]);
 
     //open the file named by outName (call that f)
-    FILE * f = fopen(outName, "W");
+    FILE * f = fopen(outName, "w");
     //print the counts from c into the FILE f
     printCounts(c, f);
 
