@@ -14,7 +14,7 @@ counts_t * countFile(const char * filename, kvarray_t * kvPairs) {
   for (size_t i = 0; i < kvPairs->len; i++) {
     addCount(countsStruct, kvPairs->arr[i].value);
   }
-  printCounts(countsStruct, stdout);
+  //printCounts(countsStruct, stdout);
 
   return countsStruct;
 }
@@ -49,7 +49,7 @@ int main(int argc, char ** argv) {
     //free the memory for outName and c
     free(outName);
     free(c);
-    printf("%s", "new inputfile\n");
+    //    printf("%s", "new inputfile\n");
   }
   //free the memory for kv
   freeKVs(kv);
