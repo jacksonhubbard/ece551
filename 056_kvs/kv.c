@@ -102,6 +102,7 @@ void printKVs(kvarray_t * kv_struct) {
 char * lookupValue(kvarray_t * pairs, const char * key) {
   //WRITE ME
   int size = pairs->len;
+  //  printf("key looking up: %s\n", key);
 
   for (int i = 0; i < size; i++) {
     if (strcmp(pairs->arr[i].key, key) == 0) {
