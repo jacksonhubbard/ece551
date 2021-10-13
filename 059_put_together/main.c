@@ -8,7 +8,8 @@
 
 counts_t * countFile(const char * filename, kvarray_t * kvPairs) {
   //WRITE ME
-  counts_t * countsStruct = createCounts();  // has an countsArr ** arr and size
+  counts_t * countsStruct =
+      createCounts();  // has an countsArr ** arr and size get rid of this in main
 
   size_t sz = 0;
   ssize_t len = 0;
@@ -16,23 +17,18 @@ counts_t * countFile(const char * filename, kvarray_t * kvPairs) {
 
   FILE * f = fopen(filename, "r");
   while ((len = getline(&line, &sz, f)) >= 0) {
-    char * color1 = strtok(line, "\n");
-    char * color = lookupValue(kvPairs, color1);
+    char * newline = strchr(line, '\n');
+    *newline = '\0';
 
-    //printf("%s\n", color);
+    char * color = lookupValue(kvPairs, line);
+    // printf("%s\n", color);
     addCount(countsStruct, color);
     free(color);
-    free(color1);
   }
 
-  // read line by line and call addCount
-  //for (size_t i = 0; i < kvPairs->len; i++) {
-  //addCount(countsStruct, kvPairs->arr[i].value);
-  // }
-  //printCounts(countsStruct, stdout);
   fclose(f);
   free(line);
-  free(f);
+
   return countsStruct;
 }
 
@@ -65,10 +61,21 @@ int main(int argc, char ** argv) {
 
     //free the memory for outName and c
     free(outName);
+
+    for (int i = 0; i < c->size; i++) {
+      free(c->countsArr[i]->string);
+      free(c->countsArr[i]);
+    }
+    free(c->countsArr);
     free(c);
     //    printf("%s", "new inputfile\n");
   }
+
   //free the memory for kv
+  //for (size_t i = 0; i < kv->len; i++) {
+  //  free(kv->arr[i].key);
+  //  free(kv->arr[i].value);
+  // }
   freeKVs(kv);
 
   return EXIT_SUCCESS;
