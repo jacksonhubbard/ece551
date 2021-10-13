@@ -54,6 +54,9 @@ kvarray_t * readKVs(const char * fname) {
 
     //printf("pairArr[%d]: %s, %s\n\n", i, kv_struct->arr[i].key, kv_struct->arr[i].value);
     i++;
+    free(currPair->key);
+    free(currPair->value);
+    free(currPair);
   }
   //printf("%s\n", "Done reading lines, Testing some values");
   //printf("Key of pairArr[0] = %s, should be apple\n", kv_struct->arr[0].key);
@@ -64,7 +67,7 @@ kvarray_t * readKVs(const char * fname) {
     free(line);
   }
 
-  kvarray_t * kv_arr = malloc(1 * sizeof(*kv_arr));
+  //kvarray_t * kv_arr = malloc(1 * sizeof(*kv_arr));
 
   //kv_arr->len = pairCount;
   //kv_arr->arr = pairArr;
@@ -78,13 +81,13 @@ kvarray_t * readKVs(const char * fname) {
 
 void freeKVs(kvarray_t * pairs) {
   //WRITE ME
-  //int size = pairs->len;
+  int size = pairs->len;
 
-  //for (int i = 0; i < size; i++) {
-  //free(pairs->arr[i].key);
-  //free(pairs->arr[i].value);
-  //free(pairs->arr);
-  //}
+  for (int i = 0; i < size; i++) {
+    free(pairs->arr[i].key);
+    free(pairs->arr[i].value);
+    //free(pairs->arr);
+  }
   free(pairs->arr);
   free(pairs);
 }

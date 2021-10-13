@@ -8,7 +8,7 @@ counts_t * createCounts(void) {
   //WRITE ME
   counts_t * counts = malloc(sizeof(*counts));
   counts->size = 0;
-  counts->countsArr = malloc(1 * sizeof(*counts->countsArr));
+  counts->countsArr = malloc(1 * sizeof(*counts->countsArr));  // maybe set as NULL
   return counts;
 }
 
