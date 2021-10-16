@@ -1,9 +1,9 @@
-Grading at 10/16/2021:21:31:18.304370
-For commit ID 43dd96573a5480aef9d116165d151a42b4e31c35
-Grading at Sat Oct 16 17:31:18 EDT 2021
+Grading at 10/16/2021:21:34:28.633713
+For commit ID 8b74f979c45c3045bee1fb029185fb35b4f31322
+Grading at Sat Oct 16 17:34:28 EDT 2021
 Attempting to compile:
-g++    -c -o code.o code.cpp
-g++ -Wall -pedantic -std=gnu99 code.cpp
-Your Makefile did not produce a binary called 'code'.   Please correct that
+g++ -o -Wall -pedantic -std=gnu99 code code.cpp
+Makefile:3: recipe for target 'code' failed
+The code did not compile!
 
 Overall Grade: FAILED
