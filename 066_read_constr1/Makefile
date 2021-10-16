@@ -1,3 +1,3 @@
 CFLAGS=-Wall -pedantic -std=gnu99
-code: code.o
-	g++ $(CFLAGS) code.cpp
+code: code.cpp
+	g++ -o $(CFLAGS) code code.cpp
