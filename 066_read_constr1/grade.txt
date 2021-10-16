@@ -1,8 +1,9 @@
-Grading at 10/16/2021:21:34:28.633713
-For commit ID 8b74f979c45c3045bee1fb029185fb35b4f31322
-Grading at Sat Oct 16 17:34:28 EDT 2021
+Grading at 10/16/2021:21:44:59.271026
+For commit ID 78504fac98d62326530cf280082bf835eff448c6
+Grading at Sat Oct 16 17:44:59 EDT 2021
 Attempting to compile:
-g++ -o -Wall -pedantic -std=gnu99 code code.cpp
+g++ -Wall -pedantic -std=gnu99 -c code.cpp
+g++ -o -Wall -pedantic -std=gnu99 code code.o
 Makefile:3: recipe for target 'code' failed
 The code did not compile!
 
