@@ -1,0 +1,15 @@
+#include "point.hpp"
+
+#include <stdio.h>
+#include <stdlib.h>
+
+#include <cmath>
+
+void move(double dx, double dy) {
+  this.x = x + dx;
+  this.y = y + dy;
+}
+
+double distanceFrom(const Point & p) {
+  return sqrt(pow(this.x - p.x, 2) + pow(this.y - p.x, 2));
+}
