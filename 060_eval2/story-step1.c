@@ -10,10 +10,10 @@ void parseFile(FILE * f) {
 
   while ((c = fgetc(f)) != EOF) {
     // if it is a space, go to next char
-    if (c == ' ') {
-      printf("%c", c);
-    }
-    else if (c == '_') {
+    //if (c == ' ') {
+    //  printf("%c", c);
+    //}
+    if (c == '_') {
       if (foundStartUnderscore == 0) {  // indicates underscore at start of word
         foundStartUnderscore = 1;
         continue;
