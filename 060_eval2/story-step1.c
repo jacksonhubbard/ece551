@@ -6,19 +6,14 @@
 
 void parseFile(FILE * f) {
   int c;
-  int foundStartUnderscore = 0;
+  int foundStartUnderscore = 0;  // flag to indicate if found start underscore
 
   while ((c = fgetc(f)) != EOF) {
-    // if it is a space, go to next char
-    //if (c == ' ') {
-    //  printf("%c", c);
-    //}
     if (c == '_') {
-      if (foundStartUnderscore == 0) {  // indicates underscore at start of word
+      if (foundStartUnderscore == 0) {
         foundStartUnderscore = 1;
-        continue;
       }
-      else {  // found end underscore so print cat and reset flag
+      else {  // already found start underscore -> print "cat" and reset flag
         printf("%s", chooseWord("verb", NULL));
         foundStartUnderscore = 0;
       }
@@ -32,8 +27,7 @@ void parseFile(FILE * f) {
         printf("%c", c);
       }
     }
-    // if it is non underscore and we are not in middle of word, print it
-    else if (foundStartUnderscore == 0) {
+    else if (foundStartUnderscore == 0) {  // not underscore, so print it
       printf("%c", c);
     }
   }
