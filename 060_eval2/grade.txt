@@ -1,7 +1,25 @@
-Grading at 10/18/2021:21:25:38.035180
-For commit ID 8face9109f156414a33aab87870b20743e621b8c
-Grading at Mon Oct 18 17:25:37 EDT 2021
+Grading at 10/18/2021:21:27:22.464189
+For commit ID 76b3077d54a94cdbc3a6325e843d38e636848656
+Grading at Mon Oct 18 17:27:20 EDT 2021
 Running your test cases
-Cannot proceed without testcases.txt
+
+Compiling story-step1
+rm -f *~ story-step1 story-step2 story-step3 story-step4 story-step1.o story-step2.o story-step3.o story-step4.o rand_story.o
+gcc -std=gnu99 -pedantic -Wall -Werror -ggdb3 -c rand_story.c
+gcc -std=gnu99 -pedantic -Wall -Werror -ggdb3 -c story-step1.c
+gcc -o story-step1 story-step1.o rand_story.o provided.o
+rm story-step1.o
++-----------------------------------------------------------------------+
+Test case story-step1 invalid.txt
+Your program successfully indicated a failure case
++-----------------------------------------------------------------------+
+Test case story-step1 story.txt
+Your file matched the expected output
++-----------------------------------------------------------------------+
+Test case story-step1 story2.txt
+Your file matched the expected output
+
+You have PASSED all of your test cases
+Keep adding test cases until you are satisfied your program is correct
 
 Overall Grade: NO GRADE YET
