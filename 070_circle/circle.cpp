@@ -14,12 +14,12 @@ double Circle::intersectionArea(const Circle & otherCircle) {
                 acos((d * d + this->r * this->r - otherCircle.r * otherCircle.r) /
                      (2 * d * this->r));
   double arg2 = otherCircle.r * otherCircle.r *
-                acos((d * d + this->r * this->r + otherCircle.r * otherCircle.r) /
+                acos((d * d - this->r * this->r + otherCircle.r * otherCircle.r) /
                      (2 * d * otherCircle.r));
   double arg3 =
       0.5 * sqrt((d + this->r - otherCircle.r) * (d - this->r + otherCircle.r) *
                  ((-1 * d) + this->r + otherCircle.r) * (d + this->r + otherCircle.r));
   double ans = arg1 + arg2 - arg3;
-  printf("%f", ans);
+
   return ans;
 }
