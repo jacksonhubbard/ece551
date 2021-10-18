@@ -8,7 +8,7 @@ void Circle::move(double dx, double dy) {
   this->p.move(dx, dy);
 }
 double Circle::intersectionArea(const Circle & otherCircle) {
-  double d = p.getX() - otherCircle.p.getX();
+  double d = abs(p.getX() - otherCircle.p.getX());
 
   double arg1 =
       this->r * this->r *
