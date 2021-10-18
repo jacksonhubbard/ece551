@@ -19,5 +19,7 @@ double Circle::intersectionArea(const Circle & otherCircle) {
   double arg3 =
       0.5 * sqrt((d + this->r - otherCircle.r) * (d - this->r + otherCircle.r) *
                  ((-1 * d) + this->r + otherCircle.r) * (d + this->r + otherCircle.r));
-  return arg1 + arg2 - arg3;
+  double ans = arg1 + arg2 - arg3;
+  printf("%f", ans);
+  return ans;
 }
