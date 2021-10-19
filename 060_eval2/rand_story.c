@@ -5,17 +5,25 @@
 #include <string.h>
 
 // step 1
-void parseFile(FILE * f) {
+void parseFile(FILE * f, catarray_t * categories) {
   int c;
   int foundStartUnderscore = 0;  // flag to indicate if found start underscore
+  char * currentCategory = malloc(1 * sizeof(*currentCategory));
+  int sizeOfCategory = 0;
+  int i = 0;
+  category_t * previousWords = malloc(1 * sizeof(*previousWords));
+  previousWords->n_words = 0;
 
   while ((c = fgetc(f)) != EOF) {
     if (c == '_') {
       if (foundStartUnderscore == 0) {
         foundStartUnderscore = 1;
+        currentCategory = NULL;
+        sizeOfCategory = 0;
+        i = 0;
       }
       else {  // already found start underscore -> print "cat" and reset flag
-        printf("%s", chooseWord("verb", NULL));
+        handleReplacement(categories, currentCategory, previousWords);
         foundStartUnderscore = 0;
       }
     }
@@ -28,13 +36,77 @@ void parseFile(FILE * f) {
         printf("%c", c);
       }
     }
+    //
     else if (foundStartUnderscore == 0) {  // not underscore, so print it
       printf("%c", c);
+    }
+    else {  // middle of an underscore word
+      sizeOfCategory++;
+      currentCategory =
+          realloc(currentCategory, sizeOfCategory * sizeof(*currentCategory));
+      currentCategory[i] = c;
+      i++;
+    }
+  }
+}
+int isNumber(char * category) {
+  int int_value = atoi(category);
+  if (int_value != 0) {
+    return 1;
+  }
+  return 0;
+}
+
+void addWordToPrevWords(category_t * prevWords, const char * currentWord) {
+  prevWords->n_words++;
+  prevWords->words =
+      realloc(prevWords->words, prevWords->n_words * sizeof(*prevWords->words));
+  prevWords->words[prevWords->n_words - 1] =
+      realloc(prevWords->words[prevWords->n_words - 1], strlen(currentWord));
+  strcpy(prevWords->words[prevWords->n_words - 1], currentWord);
+}
+
+void handleReplacement(catarray_t * categories,
+                       char * currentCategory,
+                       category_t * prevWords) {
+  if (categories == NULL) {
+    printf("%s", chooseWord("verb", NULL));
+  }
+  else {
+    if (isNumber(currentCategory) == 0) {
+      const char * chosenWord = chooseWord(currentCategory, categories);
+      printf("%s", chosenWord);
+      addWordToPrevWords(prevWords, chosenWord);
+    }
+    else {  // it is a num
+      size_t indexToGoBackTo = atoi(currentCategory);
+      size_t numberOfWords = prevWords->n_words;
+      size_t indexOfPrevWord = numberOfWords - indexToGoBackTo;
+      if (indexToGoBackTo <= prevWords->n_words) {
+        char * wordToPrint = prevWords->words[indexOfPrevWord];
+        addWordToPrevWords(prevWords, wordToPrint);
+        printf("%s", wordToPrint);
+      }
+      else {
+        perror("Index to go back is greater than number of previous words");
+        exit(EXIT_FAILURE);
+      }
     }
   }
 }
 
 // step 2
+catarray_t * setupCategories() {
+  category_t * one_category = malloc(1 * sizeof(*one_category));
+  one_category->name = NULL;
+  one_category->n_words = 0;
+
+  catarray_t * all_categories = malloc(1 * sizeof(*all_categories));
+  all_categories->n = 0;
+  all_categories->arr = one_category;
+  return all_categories;
+}
+
 int checkIndexForCategory(char * currentCategory, catarray_t * all_categories) {
   for (size_t i = 0; i < all_categories->n; i++) {
     if (strcmp(all_categories->arr[i].name, currentCategory) == 0) {

@@ -16,14 +16,7 @@ int main(int argc, char ** argv) {
     perror("Could not open file");
     return EXIT_FAILURE;
   }
-
-  category_t * one_category = malloc(1 * sizeof(*one_category));
-  one_category->name = NULL;
-  one_category->n_words = 0;
-
-  catarray_t * all_categories = malloc(1 * sizeof(*all_categories));
-  all_categories->n = 0;
-  all_categories->arr = one_category;
+  catarray_t * all_categories = setupCategories();
 
   all_categories = parseFileForPairs(f, all_categories);
   if (fclose(f) != 0) {

@@ -7,9 +7,7 @@
 
 // step1
 void parseFile(FILE * f, catarray_t * categories);
-void handleReplacement(catarray_t * categories,
-                       char * currentCategory,
-                       category_t * prevWords);
+char * handleReplacement(printf("%s", prevWords->words [indexToGoBackTo]););
 
 // step2
 catarray_t * setupCategories();
