@@ -1,6 +1,7 @@
 #ifndef __PROVIDED_H__
 #define __PROVIDED_H__
 
+#include <stdio.h>
 #include <stdlib.h>
 
 struct category_tag {

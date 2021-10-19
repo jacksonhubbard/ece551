@@ -6,21 +6,20 @@
 #include "rand_story.h"
 
 int main(int argc, char ** argv) {
-  if (argc != 2) {
+  if (argc != 3) {
     perror("incorrect arguments");
     return EXIT_FAILURE;
   }
 
-  FILE * f = fopen(argv[1], "r");
-  if (f == NULL) {
+  FILE * fCategories = fopen(argv[1], "r");
+  if (fCategories == NULL) {
     perror("Could not open file");
     return EXIT_FAILURE;
   }
-  parseFile(f);
 
-  if (fclose(f) != 0) {
-    perror("Failed to close the input file!");
+  FILE * fStoryTemplate = fopen(argv[2], "r");
+  if (fStoryTemplate == NULL) {
+    perror("Could not open file");
     return EXIT_FAILURE;
   }
-  return EXIT_SUCCESS;
 }
