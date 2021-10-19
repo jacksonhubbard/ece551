@@ -4,3 +4,6 @@ story-step1 invalid.txt
 #success
 story-step1 story.txt
 story-step1 story2.txt
+story-step2 words.txt
+
+
