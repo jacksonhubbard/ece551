@@ -45,4 +45,10 @@ int main(int argc, char ** argv) {
     return EXIT_FAILURE;
   }
   parseFile(f);
+
+  if (fclose(f) != 0) {
+    perror("Failed to close the input file!");
+    return EXIT_FAILURE;
+  }
+  return EXIT_SUCCESS;
 }

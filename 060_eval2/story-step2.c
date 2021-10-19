@@ -36,7 +36,7 @@ catarray_t * parseLine(char * line, catarray_t * all_categories) {
     all_categories->n++;
     all_categories->arr =
         realloc(all_categories->arr, all_categories->n * sizeof(*all_categories->arr));
-    all_categories->arr[currentIndex].name = malloc(strlen(key));
+    all_categories->arr[currentIndex].name = malloc(strlen(key) + 1);
     strcpy(all_categories->arr[currentIndex].name, key);
     all_categories->arr[currentIndex].n_words = 1;
     all_categories->arr[currentIndex].words =
@@ -64,17 +64,20 @@ void freeSingleCategory(category_t * currCategory) {
   for (size_t i = 0; i < numWords; i++) {
     free(currCategory->words[i]);
   }
+  free(currCategory->words);
   free(currCategory->name);
-  free(currCategory);
+  //free(currCategory);
 }
 
 void freeCatArray(catarray_t * all_categories) {
   size_t numCategories = all_categories->n;
 
   for (size_t i = 0; i < numCategories; i++) {
-    category_t * currCategory = &all_categories->arr[i];
-    free(currCategory);
+    //    printf("%lu\n", i);
+    category_t * currCategory = &(all_categories->arr[i]);
+    freeSingleCategory(currCategory);
   }
+  free(all_categories->arr);
   free(all_categories);
 }
 
@@ -116,6 +119,17 @@ int main(int argc, char ** argv) {
   all_categories->arr = one_category;
 
   all_categories = parseFileForPairs(f, all_categories);
-
+  if (fclose(f) != 0) {
+    perror("Failed to close the input file!");
+    return EXIT_FAILURE;
+  }
   printWords(all_categories);
+
+  //  free(one_category->name);
+  free(one_category->words);
+  //  free(one_category);
+
+  freeCatArray(all_categories);
+
+  return EXIT_SUCCESS;
 }
