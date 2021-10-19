@@ -78,6 +78,7 @@ void freeCatArray(catarray_t * all_categories) {
     freeSingleCategory(currCategory);
   }
   free(all_categories->arr);
+  
   free(all_categories);
 }
 
@@ -111,7 +112,7 @@ int main(int argc, char ** argv) {
 
   category_t * one_category = malloc(1 * sizeof(*one_category));
   one_category->name = NULL;
-  //  one_category->words = malloc(sizeof(*one_category->words));
+  one_category->words = malloc(sizeof(*one_category->words));
   one_category->n_words = 0;
 
   catarray_t * all_categories = malloc(1 * sizeof(*all_categories));
@@ -128,7 +129,7 @@ int main(int argc, char ** argv) {
   //  free(one_category->name);
   //  free(one_category->words);
   //  free(one_category);
-  //free(one_category->words);
+
   freeCatArray(all_categories);
 
   return EXIT_SUCCESS;
