@@ -1,6 +1,6 @@
-Grading at 10/19/2021:16:16:14.290093
-For commit ID a7238d6ac208b136af481f7c68e9d597f7123ea1
-Grading at Tue Oct 19 12:16:09 EDT 2021
+Grading at 10/19/2021:16:20:25.337236
+For commit ID bff8d767c5dd395ae24b78ad38af4959bbbf65ec
+Grading at Tue Oct 19 12:20:20 EDT 2021
 Running your test cases
 
 Compiling story-step1
@@ -14,10 +14,10 @@ Test case story-step1 invalid.txt
 Your program successfully indicated a failure case
 +-----------------------------------------------------------------------+
 Test case story-step1 story.txt
-Valgrind reported memory errors
+Your file matched the expected output
 +-----------------------------------------------------------------------+
 Test case story-step1 story2.txt
-Valgrind reported memory errors
+Your file matched the expected output
 
 Compiling story-step2
 rm -f *~ story-step1 story-step2 story-step3 story-step4 story-step1.o story-step2.o story-step3.o story-step4.o rand_story.o
