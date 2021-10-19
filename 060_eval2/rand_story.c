@@ -25,6 +25,7 @@ void parseFile(FILE * f, catarray_t * categories) {
       else {  // already found start underscore -> print "cat" and reset flag
         handleReplacement(categories, currentCategory, previousWords);
         foundStartUnderscore = 0;
+        free(currentCategory);
       }
     }
     else if (c == '\n') {
@@ -36,18 +37,21 @@ void parseFile(FILE * f, catarray_t * categories) {
         printf("%c", c);
       }
     }
-    //
+
     else if (foundStartUnderscore == 0) {  // not underscore, so print it
       printf("%c", c);
     }
     else {  // middle of an underscore word
       sizeOfCategory++;
+
       currentCategory =
           realloc(currentCategory, sizeOfCategory * sizeof(*currentCategory));
       currentCategory[i] = c;
       i++;
     }
   }
+  free(previousWords);
+  free(categories);
 }
 int isNumber(char * category) {
   int int_value = atoi(category);
