@@ -8,7 +8,8 @@
 void parseFile(FILE * f, catarray_t * categories) {
   int c;
   int foundStartUnderscore = 0;  // flag to indicate if found start underscore
-  char * currentCategory = malloc(1 * sizeof(*currentCategory));
+  //char * currentCategory = malloc(1 * sizeof(*currentCategory));
+  char * currentCategory;
   int sizeOfCategory = 0;
   int i = 0;
   category_t * previousWords = malloc(1 * sizeof(*previousWords));
