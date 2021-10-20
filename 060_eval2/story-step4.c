@@ -7,7 +7,7 @@
 
 int main(int argc, char ** argv) {
   if (argc < 3 || argc > 4) {
-    perror("incorrect arguments");
+    fprintf(stderr, "incorrect arguments");
     return EXIT_FAILURE;
   }
   int file1Index = 1;
@@ -16,21 +16,18 @@ int main(int argc, char ** argv) {
     file1Index = 2;
     file2Index = 3;
   }
-
   FILE * fCategories = fopen(argv[file1Index], "r");
   if (fCategories == NULL) {
-    perror("Could not open file");
+    fprintf(stderr, "Could not open file");
     return EXIT_FAILURE;
   }
-
   FILE * fStoryTemplate = fopen(argv[file2Index], "r");
   if (fStoryTemplate == NULL) {
-    perror("Could not open file");
+    fprintf(stderr, "Could not open file");
     return EXIT_FAILURE;
   }
   catarray_t * all_categories = setupCategories();
   all_categories = parseFileForPairs(fCategories, all_categories);
-  //  printWords(all_categories);
 
   if (argc == 4) {
     parseFile(fStoryTemplate, all_categories, 1, 1);
@@ -39,15 +36,13 @@ int main(int argc, char ** argv) {
     parseFile(fStoryTemplate, all_categories, 1, 0);
   }
   if (fclose(fCategories) != 0) {
-    perror("Failed to close the input file!");
+    fprintf(stderr, "Failed to close the input file!");
     return EXIT_FAILURE;
   }
   if (fclose(fStoryTemplate) != 0) {
-    perror("Failed to close the input file!");
+    fprintf(stderr, "Failed to close the input file!");
     return EXIT_FAILURE;
   }
-
   freeCatArray(all_categories);
-
   return EXIT_SUCCESS;
 }
