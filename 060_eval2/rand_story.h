@@ -6,10 +6,11 @@
 //any functions you want your main to use
 
 // step1
-void parseFile(FILE * f, catarray_t * categories, int needPrevWords);
+void parseFile(FILE * f, catarray_t * categories, int needPrevWords, int removeWords);
 void handleReplacement(catarray_t * categories,
                        char * currentCategory,
-                       category_t * prevWords);
+                       category_t * prevWords,
+                       int removeWords);
 
 // step2
 catarray_t * setupCategories();

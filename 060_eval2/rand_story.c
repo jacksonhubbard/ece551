@@ -14,7 +14,7 @@ void freePreviousWords(category_t * prevWords) {
   free(prevWords);
 }
 
-void parseFile(FILE * f, catarray_t * categories, int needPrevWords) {
+void parseFile(FILE * f, catarray_t * categories, int needPrevWords, int removeWords) {
   int c;
   int foundStartUnderscore = 0;  // flag to indicate if found start underscore
   //char * currentCategory = malloc(1 * sizeof(*currentCategory));
@@ -50,7 +50,7 @@ void parseFile(FILE * f, catarray_t * categories, int needPrevWords) {
         currentCategory =
             realloc(currentCategory, (sizeOfCategory + 1) * sizeof(*currentCategory));
         currentCategory[i] = '\0';
-        handleReplacement(categories, currentCategory, previousWords);
+        handleReplacement(categories, currentCategory, previousWords, removeWords);
         foundStartUnderscore = 0;
         free(currentCategory);
       }
@@ -104,9 +104,40 @@ void addWordToPrevWords(category_t * prevWords, const char * currentWord) {
   strcpy(prevWords->words[currentIndex], currentWord);
 }
 
+void removeWordFromCategory(const char * currentWord,
+                            char * currentCategory,
+                            catarray_t * categories) {
+  for (size_t i = 0; i < categories->n; i++) {
+    if (strcmp(categories->arr[i].name, currentCategory) == 0) {
+      for (size_t j = 0; j < categories->arr[i].n_words; j++) {
+        if (strcmp(categories->arr[i].words[j], currentWord) == 0) {
+          // know that j = position of word to remove
+
+          for (size_t k = j; k < (categories->arr[i].n_words - 1); k++) {
+            categories->arr[i].words[k] = realloc(
+                categories->arr[i].words[k], strlen(categories->arr[i].words[k + 1]) + 1);
+            strcpy(categories->arr[i].words[k], categories->arr[i].words[k + 1]);
+          }
+          free(categories->arr[i].words[categories->arr[i].n_words - 1]);
+          categories->arr[i].words = realloc(
+              categories->arr[i].words,
+              (categories->arr[i].n_words - 1) * sizeof(*categories->arr[i].words));
+
+          categories->arr[i].n_words--;
+
+          // wokring, but mem errors
+          //free(categories->arr[i].words[j]);
+          //categories->arr[i].n_words--;
+        }
+      }
+    }
+  }
+}
+
 void handleReplacement(catarray_t * categories,
                        char * currentCategory,
-                       category_t * prevWords) {
+                       category_t * prevWords,
+                       int removeWords) {
   if (categories == NULL) {
     printf("%s", chooseWord("verb", NULL));
   }
@@ -115,6 +146,10 @@ void handleReplacement(catarray_t * categories,
       const char * chosenWord = chooseWord(currentCategory, categories);
       printf("%s", chosenWord);
       addWordToPrevWords(prevWords, chosenWord);
+
+      if (removeWords) {
+        removeWordFromCategory(chosenWord, currentCategory, categories);
+      }
     }
     else {  // it is a num
       size_t indexToGoBackTo = atoi(currentCategory);
@@ -191,7 +226,10 @@ void freeSingleCategory(category_t * currCategory) {
   size_t numWords = currCategory->n_words;
 
   for (size_t i = 0; i < numWords; i++) {
-    free(currCategory->words[i]);
+    //    printf("%s\n", currCategory->words[i]);
+    if (currCategory->words[i] != NULL) {
+      free(currCategory->words[i]);
+    }
   }
   free(currCategory->words);
   free(currCategory->name);

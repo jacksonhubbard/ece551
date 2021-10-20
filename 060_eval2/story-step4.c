@@ -6,18 +6,24 @@
 #include "rand_story.h"
 
 int main(int argc, char ** argv) {
-  if (argc != 3) {
+  if (argc < 3 || argc > 4) {
     perror("incorrect arguments");
     return EXIT_FAILURE;
   }
+  int file1Index = 1;
+  int file2Index = 2;
+  if (argc == 4) {
+    file1Index = 2;
+    file2Index = 3;
+  }
 
-  FILE * fCategories = fopen(argv[1], "r");
+  FILE * fCategories = fopen(argv[file1Index], "r");
   if (fCategories == NULL) {
     perror("Could not open file");
     return EXIT_FAILURE;
   }
 
-  FILE * fStoryTemplate = fopen(argv[2], "r");
+  FILE * fStoryTemplate = fopen(argv[file2Index], "r");
   if (fStoryTemplate == NULL) {
     perror("Could not open file");
     return EXIT_FAILURE;
@@ -26,8 +32,12 @@ int main(int argc, char ** argv) {
   all_categories = parseFileForPairs(fCategories, all_categories);
   //  printWords(all_categories);
 
-  parseFile(fStoryTemplate, all_categories, 1, 0);
-
+  if (argc == 4) {
+    parseFile(fStoryTemplate, all_categories, 1, 1);
+  }
+  else {
+    parseFile(fStoryTemplate, all_categories, 1, 0);
+  }
   if (fclose(fCategories) != 0) {
     perror("Failed to close the input file!");
     return EXIT_FAILURE;

@@ -16,7 +16,7 @@ int main(int argc, char ** argv) {
     perror("Could not open file");
     return EXIT_FAILURE;
   }
-  parseFile(f, NULL, 0);
+  parseFile(f, NULL, 0, 0);
 
   if (fclose(f) != 0) {
     perror("Failed to close the input file!");
