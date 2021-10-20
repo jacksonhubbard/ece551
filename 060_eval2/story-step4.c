@@ -28,7 +28,6 @@ int main(int argc, char ** argv) {
   }
   catarray_t * all_categories = setupCategories();
   all_categories = parseFileForPairs(fCategories, all_categories);
-
   if (argc == 4) {
     parseFile(fStoryTemplate, all_categories, 1, 1);
   }
