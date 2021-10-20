@@ -17,7 +17,6 @@ void freePreviousWords(category_t * prevWords) {
 void parseFile(FILE * f, catarray_t * categories, int needPrevWords, int removeWords) {
   int c;
   int foundStartUnderscore = 0;  // flag to indicate if found start underscore
-  //char * currentCategory = malloc(1 * sizeof(*currentCategory));
   char * currentCategory;
   int sizeOfCategory = 0;
   int i = 0;
@@ -25,18 +24,11 @@ void parseFile(FILE * f, catarray_t * categories, int needPrevWords, int removeW
   category_t * previousWords = NULL;
   if (needPrevWords == 1) {
     previousWords = malloc(1 * sizeof(*previousWords));
-
     previousWords->words = malloc(1 * sizeof(*previousWords->words));
     previousWords->words[0] = malloc(1 * sizeof(*previousWords->words[0]));
     previousWords->words[0][0] = '\0';
     previousWords->n_words = 0;
   }
-
-  //previousWords->words[0] = malloc(1 * sizeof(*previousWords->words[0]));
-
-  //  previousWords->name = malloc(1 * sizeof(*previousWords->name));
-  // previousWords->words = malloc(1 * sizeof(*previousWords->words));
-  //previousWords->words[0] = malloc(1 * sizeof(*(previousWords->words[0])));
 
   while ((c = fgetc(f)) != EOF) {
     if (c == '_') {
@@ -92,7 +84,6 @@ int isNumber(char * category) {
 
 void addWordToPrevWords(category_t * prevWords, const char * currentWord) {
   prevWords->n_words++;
-  //  printf("%lu\n", prevWords->n_words);
   int currentIndex = prevWords->n_words - 1;
   if (currentIndex == 0) {
     free(prevWords->words[0]);
@@ -122,12 +113,7 @@ void removeWordFromCategory(const char * currentWord,
           categories->arr[i].words = realloc(
               categories->arr[i].words,
               (categories->arr[i].n_words - 1) * sizeof(*categories->arr[i].words));
-
           categories->arr[i].n_words--;
-
-          // wokring, but mem errors
-          //free(categories->arr[i].words[j]);
-          //categories->arr[i].n_words--;
         }
       }
     }
@@ -218,15 +204,12 @@ catarray_t * parseLine(char * line, catarray_t * all_categories) {
     all_categories->arr[indexOfKey].words[currentIndex] = malloc(strlen(value) + 1);
     strcpy(all_categories->arr[indexOfKey].words[currentIndex], value);
   }
-
   return all_categories;
 }
 
 void freeSingleCategory(category_t * currCategory) {
   size_t numWords = currCategory->n_words;
-
   for (size_t i = 0; i < numWords; i++) {
-    //    printf("%s\n", currCategory->words[i]);
     if (currCategory->words[i] != NULL) {
       free(currCategory->words[i]);
     }
@@ -237,7 +220,6 @@ void freeSingleCategory(category_t * currCategory) {
 
 void freeCatArray(catarray_t * all_categories) {
   size_t numCategories = all_categories->n;
-
   for (size_t i = 0; i < numCategories; i++) {
     category_t * currCategory = &(all_categories->arr[i]);
     freeSingleCategory(currCategory);
@@ -250,7 +232,6 @@ catarray_t * parseFileForPairs(FILE * f, catarray_t * all_categories) {
   char * line = NULL;
   size_t len = 0;
   ssize_t read_size;
-
   while ((read_size = getline(&line, &len, f)) != -1) {
     parseLine(line, all_categories);
   }
