@@ -5,6 +5,15 @@
 #include <string.h>
 
 // step 1
+void freePreviousWords(category_t * prevWords) {
+  for (size_t i = 0; i < prevWords->n_words; i++) {
+    free(prevWords->words[i]);
+  }
+
+  free(prevWords->words);
+  free(prevWords);
+}
+
 void parseFile(FILE * f, catarray_t * categories) {
   int c;
   int foundStartUnderscore = 0;  // flag to indicate if found start underscore
@@ -13,7 +22,17 @@ void parseFile(FILE * f, catarray_t * categories) {
   int sizeOfCategory = 0;
   int i = 0;
   category_t * previousWords = malloc(1 * sizeof(*previousWords));
+
+  previousWords->words = malloc(1 * sizeof(*previousWords->words));
+  previousWords->words[0] = malloc(1 * sizeof(*previousWords->words[0]));
+  previousWords->words[0][0] = '\0';
   previousWords->n_words = 0;
+
+  //previousWords->words[0] = malloc(1 * sizeof(*previousWords->words[0]));
+
+  //  previousWords->name = malloc(1 * sizeof(*previousWords->name));
+  // previousWords->words = malloc(1 * sizeof(*previousWords->words));
+  //previousWords->words[0] = malloc(1 * sizeof(*(previousWords->words[0])));
 
   while ((c = fgetc(f)) != EOF) {
     if (c == '_') {
@@ -24,6 +43,9 @@ void parseFile(FILE * f, catarray_t * categories) {
         i = 0;
       }
       else {  // already found start underscore -> print "cat" and reset flag
+        currentCategory =
+            realloc(currentCategory, (sizeOfCategory + 1) * sizeof(*currentCategory));
+        currentCategory[i] = '\0';
         handleReplacement(categories, currentCategory, previousWords);
         foundStartUnderscore = 0;
         free(currentCategory);
@@ -51,9 +73,11 @@ void parseFile(FILE * f, catarray_t * categories) {
       i++;
     }
   }
-  free(previousWords);
-  free(categories);
+
+  freePreviousWords(previousWords);
+  //  free(categories);
 }
+
 int isNumber(char * category) {
   int int_value = atoi(category);
   if (int_value != 0) {
@@ -64,11 +88,16 @@ int isNumber(char * category) {
 
 void addWordToPrevWords(category_t * prevWords, const char * currentWord) {
   prevWords->n_words++;
+  //  printf("%lu\n", prevWords->n_words);
+  int currentIndex = prevWords->n_words - 1;
+  if (currentIndex == 0) {
+    free(prevWords->words[0]);
+  }
   prevWords->words =
       realloc(prevWords->words, prevWords->n_words * sizeof(*prevWords->words));
-  prevWords->words[prevWords->n_words - 1] =
-      realloc(prevWords->words[prevWords->n_words - 1], strlen(currentWord));
-  strcpy(prevWords->words[prevWords->n_words - 1], currentWord);
+  prevWords->words[currentIndex] =
+      malloc((strlen(currentWord) + 1) * sizeof(*(prevWords->words[currentIndex])));
+  strcpy(prevWords->words[currentIndex], currentWord);
 }
 
 void handleReplacement(catarray_t * categories,
