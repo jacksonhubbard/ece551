@@ -26,7 +26,7 @@ int main(int argc, char ** argv) {
   all_categories = parseFileForPairs(fCategories, all_categories);
   //  printWords(all_categories);
 
-  parseFile(fStoryTemplate, all_categories);
+  parseFile(fStoryTemplate, all_categories, 1);
 
   if (fclose(fCategories) != 0) {
     perror("Failed to close the input file!");

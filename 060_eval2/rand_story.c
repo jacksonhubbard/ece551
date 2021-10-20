@@ -14,19 +14,23 @@ void freePreviousWords(category_t * prevWords) {
   free(prevWords);
 }
 
-void parseFile(FILE * f, catarray_t * categories) {
+void parseFile(FILE * f, catarray_t * categories, int needPrevWords) {
   int c;
   int foundStartUnderscore = 0;  // flag to indicate if found start underscore
   //char * currentCategory = malloc(1 * sizeof(*currentCategory));
   char * currentCategory;
   int sizeOfCategory = 0;
   int i = 0;
-  category_t * previousWords = malloc(1 * sizeof(*previousWords));
 
-  previousWords->words = malloc(1 * sizeof(*previousWords->words));
-  previousWords->words[0] = malloc(1 * sizeof(*previousWords->words[0]));
-  previousWords->words[0][0] = '\0';
-  previousWords->n_words = 0;
+  category_t * previousWords = NULL;
+  if (needPrevWords == 1) {
+    previousWords = malloc(1 * sizeof(*previousWords));
+
+    previousWords->words = malloc(1 * sizeof(*previousWords->words));
+    previousWords->words[0] = malloc(1 * sizeof(*previousWords->words[0]));
+    previousWords->words[0][0] = '\0';
+    previousWords->n_words = 0;
+  }
 
   //previousWords->words[0] = malloc(1 * sizeof(*previousWords->words[0]));
 
@@ -73,9 +77,9 @@ void parseFile(FILE * f, catarray_t * categories) {
       i++;
     }
   }
-
-  freePreviousWords(previousWords);
-  //  free(categories);
+  if (needPrevWords) {
+    freePreviousWords(previousWords);
+  }
 }
 
 int isNumber(char * category) {
