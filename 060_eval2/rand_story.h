@@ -4,7 +4,6 @@
 #include "provided.h"
 
 //any functions you want your main to use
-
 // story functions
 void parseFile(FILE * f, catarray_t * categories, int usePrevWords, int removeWords);
 void handleReplacement(catarray_t * categories,

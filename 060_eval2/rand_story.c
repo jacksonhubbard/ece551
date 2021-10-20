@@ -5,6 +5,7 @@
 #include <string.h>
 
 // MALLOC/FREE FUNCTIONS
+
 /*
 This is a helper funciton used to malloc space for the previous
 words array. It takes in a pointer and returns a pointer to the 
@@ -27,7 +28,6 @@ catarray_t * setupCategories() {
   category_t * one_category = malloc(1 * sizeof(*one_category));
   one_category->name = NULL;
   one_category->n_words = 0;
-
   catarray_t * all_categories = malloc(1 * sizeof(*all_categories));
   all_categories->n = 0;
   all_categories->arr = one_category;
@@ -43,7 +43,6 @@ void freePreviousWords(category_t * prevWords) {
   for (size_t i = 0; i < prevWords->n_words; i++) {
     free(prevWords->words[i]);
   }
-
   free(prevWords->words);
   free(prevWords);
 }
@@ -116,6 +115,7 @@ void removeWordFromCategory(const char * currentWord,
                 categories->arr[i].words[k], strlen(categories->arr[i].words[k + 1]) + 1);
             strcpy(categories->arr[i].words[k], categories->arr[i].words[k + 1]);
           }
+          // now, free extra element and resize array using realloc
           free(categories->arr[i].words[categories->arr[i].n_words - 1]);
           categories->arr[i].words = realloc(
               categories->arr[i].words,
@@ -159,7 +159,6 @@ void handleReplacement(catarray_t * categories,
       const char * chosenWord = chooseWord(currentCategory, categories);
       printf("%s", chosenWord);
       addWordToPrevWords(prevWords, chosenWord);
-
       if (removeWords) {  // if removeWords flag is set, delete the word we just used
         removeWordFromCategory(chosenWord, currentCategory, categories);
       }
@@ -228,21 +227,22 @@ catarray_t * parseLine(char * line, catarray_t * all_categories) {
   char * word = strtok(NULL, "\n");
 
   int indexOfKey = checkIndexForCategory(category, all_categories);
-  if (indexOfKey == -1) {
-    // add a category to all_categories
+  if (indexOfKey == -1) {  // category not found in all_categories
     int currentIndex = all_categories->n;
+    // add category
     all_categories->n++;
     all_categories->arr =
         realloc(all_categories->arr, all_categories->n * sizeof(*all_categories->arr));
     all_categories->arr[currentIndex].name = malloc(strlen(category) + 1);
     strcpy(all_categories->arr[currentIndex].name, category);
+    // add word to category
     all_categories->arr[currentIndex].n_words = 1;
     all_categories->arr[currentIndex].words =
         malloc(1 * sizeof(*all_categories->arr[currentIndex].words));
     all_categories->arr[currentIndex].words[0] = malloc(strlen(word) + 1);
     strcpy(all_categories->arr[currentIndex].words[0], word);
   }
-  else {
+  else {  // category already exists, so just add word
     int currentIndex = all_categories->arr[indexOfKey].n_words;
     all_categories->arr[indexOfKey].n_words++;
     all_categories->arr[indexOfKey].words =
@@ -280,7 +280,7 @@ void parseFile(FILE * f, catarray_t * categories, int usePrevWords, int removeWo
         sizeOfCategory = 0;
         i = 0;
       }
-      else {  // already found start underscore -> print "cat" and reset flag
+      else {  // already found start underscore -> print word and reset flag
         currentCategory =
             realloc(currentCategory, (sizeOfCategory + 1) * sizeof(*currentCategory));
         currentCategory[i] = '\0';
@@ -298,13 +298,11 @@ void parseFile(FILE * f, catarray_t * categories, int usePrevWords, int removeWo
         printf("%c", c);
       }
     }
-
     else if (foundStartUnderscore == 0) {  // not underscore, so print it
       printf("%c", c);
     }
     else {  // middle of an underscore word
       sizeOfCategory++;
-
       currentCategory =
           realloc(currentCategory, sizeOfCategory * sizeof(*currentCategory));
       currentCategory[i] = c;
