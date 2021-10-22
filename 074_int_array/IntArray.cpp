@@ -10,8 +10,7 @@ IntArray::IntArray() {
 }
 IntArray::IntArray(int n) {
   numElements = n;
-  int * dataTemp = new int[n];
-  data = dataTemp;
+  data = new int[n];
 }
 
 IntArray::IntArray(const IntArray & rhs) {
