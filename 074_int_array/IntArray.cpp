@@ -10,7 +10,9 @@ IntArray::IntArray() {
 }
 IntArray::IntArray(int n) {
   numElements = n;
-  data = new int[n];
+  if (n >= 0) {
+    data = new int[n];
+  }
 }
 
 IntArray::IntArray(const IntArray & rhs) {
