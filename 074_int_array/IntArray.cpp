@@ -39,7 +39,7 @@ IntArray & IntArray::operator=(const IntArray & rhs) {
 
 const int & IntArray::operator[](int index) const {
   assert(index < numElements);
-  assert(index >= 0);
+  //  assert(index >= 0);
   return data[index];
 }
 
