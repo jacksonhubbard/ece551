@@ -26,7 +26,7 @@ IntArray::~IntArray() {
 }
 
 IntArray & IntArray::operator=(const IntArray & rhs) {
-  free(data);
+  delete[] data;
   data = new int[rhs.numElements];
   for (int i = 0; i < rhs.numElements; i++) {
     data[i] = rhs[i];
