@@ -26,7 +26,11 @@ IntArray::~IntArray() {
 }
 
 IntArray & IntArray::operator=(const IntArray & rhs) {
-  data = rhs.data;
+  free(data);
+  data = new int[rhs.numElements];
+  for (int i = 0; i < rhs.numElements; i++) {
+    data[i] = rhs[i];
+  }
   numElements = rhs.numElements;
   return *this;
 }
