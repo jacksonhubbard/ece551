@@ -11,7 +11,7 @@ IntArray::IntArray() {
 IntArray::IntArray(int n) {
   numElements = n;
   if (n >= 0) {
-    data = new int[n];
+    data = new int[n]();
   }
 }
 
@@ -39,7 +39,7 @@ IntArray & IntArray::operator=(const IntArray & rhs) {
 
 const int & IntArray::operator[](int index) const {
   assert(index < numElements);
-  //  assert(index >= 0);
+  assert(index >= 0);
   return data[index];
 }
 
@@ -68,7 +68,7 @@ bool IntArray::operator==(const IntArray & rhs) const {
 bool IntArray::operator!=(const IntArray & rhs) const {
   if (numElements == rhs.numElements) {
     for (int i = 0; i < numElements; i++) {
-      if (data[i] != rhs.data[i]) {
+      if (data[i] != rhs[i]) {
         return true;
       }
     }
