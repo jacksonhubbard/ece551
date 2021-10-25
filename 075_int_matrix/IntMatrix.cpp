@@ -33,21 +33,16 @@ IntMatrix::~IntMatrix() {
 
 IntMatrix & IntMatrix::operator=(const IntMatrix & rhs) {
   if (this != &rhs) {
-    delete[] rows;
-    rows = new IntArray *[rhs.numRows];
-    //for (int i = 0; i < rhs.numRows; i++) {
-    //IntArray currRow = IntArray(rhs.numColumns);
-    //rows[i] = &currRow;
-    //rows[i] = new IntArray(rhs.numColumns);
-    //}
+    IntArray ** temp = new IntArray *[rhs.numRows];
     numRows = rhs.numRows;
     numColumns = rhs.numColumns;
-    //std::cout << numRows << ", " << numColumns << std::endl;
+
     for (int i = 0; i < numRows; i++) {
-      //std::cout << i << std::endl;
-      rows[i] = new IntArray(rhs[i]);
-      //std::cout << i << std::endl;
+      temp[i] = new IntArray(rhs[i]);
     }
+
+    delete[] rows;
+    rows = temp;
   }
   return *this;
 }
