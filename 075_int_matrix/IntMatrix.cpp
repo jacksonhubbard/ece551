@@ -98,16 +98,16 @@ IntMatrix IntMatrix::operator+(const IntMatrix & rhs) const {
 
 std::ostream & operator<<(std::ostream & s, const IntMatrix & rhs) {
   IntArray a;
-  s << "{";
+  s << "[";
   for (int i = 0; i < rhs.getRows() - 1; i++) {
     s << rhs[i] << "\n";
   }
   if (rhs.getRows() != 0) {
     s << rhs[rhs.getRows() - 1];
-    s << "}";
+    s << "]";
   }
   else {
-    s << "}";
+    s << "]";
   }
   return s;
 }
