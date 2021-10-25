@@ -60,10 +60,12 @@ int IntMatrix::getColumns() const {
 }
 const IntArray & IntMatrix::operator[](int index) const {
   assert(index < numRows);
+  assert(index >= 0);
   return *rows[index];
 }
 IntArray & IntMatrix::operator[](int index) {
   assert(index < numRows);
+  assert(index >= 0);
   return *rows[index];
 }
 
