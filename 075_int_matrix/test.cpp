@@ -22,7 +22,7 @@ int main(void) {
     }
   }
   std::cout << "Now, b is:\n" << b << std::endl;
-  std::cout << "Now, a is:\n" << a << std::endl;
+  //  std::cout << "Now, a is:\n" << a << std::endl;
   if (a == b) {
     std::cout << "a and b have the same contents" << std::endl;
   }
