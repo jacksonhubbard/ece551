@@ -67,10 +67,8 @@ IntArray & IntMatrix::operator[](int index) {
 bool IntMatrix::operator==(const IntMatrix & rhs) const {
   if (numRows == rhs.numRows && numColumns == rhs.numColumns) {
     for (int i = 0; i < numRows; i++) {
-      for (int j = 0; j < numColumns; j++) {
-        if ((*this)[i][j] != rhs[i][j]) {
-          return false;
-        }
+      if ((*this)[i] != rhs[i]) {
+        return false;
       }
     }
     return true;
@@ -104,7 +102,7 @@ std::ostream & operator<<(std::ostream & s, const IntMatrix & rhs) {
     s << "]";
   }
   else {
-    s << "]";
+    s << " ]";
   }
   return s;
 }

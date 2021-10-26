@@ -16,11 +16,13 @@ IntArray::IntArray(int n) {
 }
 
 IntArray::IntArray(const IntArray & rhs) {
-  data = new int[rhs.numElements];
-  for (int i = 0; i < rhs.numElements; i++) {
-    data[i] = rhs.data[i];
+  if (this != &rhs) {
+    data = new int[rhs.numElements];
+    for (int i = 0; i < rhs.numElements; i++) {
+      data[i] = rhs.data[i];
+    }
+    numElements = rhs.numElements;
   }
-  numElements = rhs.numElements;
 }
 
 IntArray::~IntArray() {
@@ -28,12 +30,15 @@ IntArray::~IntArray() {
 }
 
 IntArray & IntArray::operator=(const IntArray & rhs) {
-  delete[] data;
-  data = new int[rhs.numElements];
-  for (int i = 0; i < rhs.numElements; i++) {
-    data[i] = rhs[i];
+  if (this != &rhs) {
+    delete[] data;
+    data = new int[rhs.numElements];
+    for (int i = 0; i < rhs.numElements; i++) {
+      data[i] = rhs[i];
+    }
+    numElements = rhs.numElements;
+    return *this;
   }
-  numElements = rhs.numElements;
   return *this;
 }
 
@@ -54,27 +59,37 @@ int IntArray::size() const {
 }
 
 bool IntArray::operator==(const IntArray & rhs) const {
-  if (numElements == rhs.numElements) {
-    for (int i = 0; i < numElements; i++) {
-      if (data[i] != rhs.data[i]) {
-        return false;
+  if (this != &rhs) {
+    if (numElements == rhs.numElements) {
+      for (int i = 0; i < numElements; i++) {
+        if (data[i] != rhs.data[i]) {
+          return false;
+        }
       }
-    }
-    return true;
-  }
-  return false;
-}
-
-bool IntArray::operator!=(const IntArray & rhs) const {
-  if (numElements == rhs.numElements) {
-    for (int i = 0; i < numElements; i++) {
-      if (data[i] != rhs[i]) {
-        return true;
-      }
+      return true;
     }
     return false;
   }
-  return true;
+  else {
+    return true;
+  }
+}
+
+bool IntArray::operator!=(const IntArray & rhs) const {
+  if (this != &rhs) {
+    if (numElements == rhs.numElements) {
+      for (int i = 0; i < numElements; i++) {
+        if (data[i] != rhs[i]) {
+          return true;
+        }
+      }
+      return false;
+    }
+    return true;
+  }
+  else {
+    return false;
+  }
 }
 
 std::ostream & operator<<(std::ostream & s, const IntArray & rhs) {
