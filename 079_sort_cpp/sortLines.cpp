@@ -31,6 +31,9 @@ void inputs(char * filename) {
     }
     file.close();
   }
+  else {
+    exit(EXIT_FAILURE);
+  }
   std::sort(strings.begin(), strings.end());
   for (std::vector<string>::iterator it = strings.begin(); it != strings.end(); ++it)
     std::cout << *it << "\n";
