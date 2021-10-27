@@ -32,6 +32,8 @@ void inputs(char * filename) {
     file.close();
   }
   else {
+    perror("Could not open file");
+    cout << "Unable to open file";
     exit(EXIT_FAILURE);
   }
   std::sort(strings.begin(), strings.end());
