@@ -122,16 +122,16 @@ std::ostream & operator<<(std::ostream & s, const Matrix<T> & rhs) {
 
 template<typename T>
 std::ostream & operator<<(std::ostream & s, const vector<T> & rhs) {
-  s << "[ ";
+  s << "{";
   for (size_t i = 0; i < rhs.size() - 1; i++) {
-    s << rhs[i] << ",\n";
+    s << rhs[i];
   }
   if (rhs.size() != 0) {
     s << rhs[rhs.size() - 1];
-    s << "]";
+    s << "}";
   }
   else {
-    s << "]";
+    s << "}";
   }
   return s;
 }
