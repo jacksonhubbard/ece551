@@ -124,7 +124,7 @@ template<typename T>
 std::ostream & operator<<(std::ostream & s, const vector<T> & rhs) {
   s << "{";
   for (size_t i = 0; i < rhs.size() - 1; i++) {
-    s << rhs[i];
+    s << rhs[i] << ", ";
   }
   if (rhs.size() != 0) {
     s << rhs[rhs.size() - 1];
