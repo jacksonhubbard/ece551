@@ -1,0 +1,290 @@
+Grading at 10/29/2021:22:24:39.336368
+For commit ID a56d69ed53dd4d639352b51b64ae12a279da68cc
+Grading at Fri Oct 29 18:24:32 EDT 2021
+-----------------------------------------------
+testcase 1 : Testing with Matrix<int>
+...compiling...
+The code compiled.
+  - Valgrind was clean (no errors, no memory leaks)
+Line_4_did_not_match
+Line_5_did_not_match
+Line_6_did_not_match
+Line_7_did_not_match
+Line_8_did_not_match
+Line_9_did_not_match
+Line_10_did_not_match
+Line_11_did_not_match
+Line_12_did_not_match
+Line_13_did_not_match
+Line_14_did_not_match
+Line_15_did_not_match
+Line_16_did_not_match
+Line_17_did_not_match
+Line_18_did_not_match
+Line_19_did_not_match
+Line_20_did_not_match
+Line_21_did_not_match
+Line_22_did_not_match
+Line_23_did_not_match
+Line_27_did_not_match
+Line_28_did_not_match
+Line_29_did_not_match
+Line_30_did_not_match
+Line_31_did_not_match
+Line_32_did_not_match
+Line_33_did_not_match
+Line_34_did_not_match
+Line_35_did_not_match
+Line_36_did_not_match
+Line_37_did_not_match
+Line_38_did_not_match
+Line_39_did_not_match
+Line_40_did_not_match
+Line_41_did_not_match
+Line_42_did_not_match
+Line_43_did_not_match
+Line_44_did_not_match
+Line_45_did_not_match
+Line_46_did_not_match
+Line_49_did_not_match
+Line_50_did_not_match
+Line_51_did_not_match
+Line_52_did_not_match
+Line_53_did_not_match
+Line_54_did_not_match
+Line_55_did_not_match
+Line_56_did_not_match
+Line_57_did_not_match
+Line_58_did_not_match
+Line_59_did_not_match
+Line_60_did_not_match
+Line_61_did_not_match
+Line_62_did_not_match
+Line_63_did_not_match
+Line_64_did_not_match
+Line_65_did_not_match
+Line_66_did_not_match
+Line_67_did_not_match
+Line_68_did_not_match
+Line_74_did_not_match
+Line_75_did_not_match
+Line_76_did_not_match
+Line_77_did_not_match
+Line_78_did_not_match
+Line_79_did_not_match
+Line_80_did_not_match
+Line_81_did_not_match
+Line_82_did_not_match
+Line_83_did_not_match
+Line_84_did_not_match
+Line_85_did_not_match
+Line_86_did_not_match
+Line_87_did_not_match
+Line_88_did_not_match
+Line_89_did_not_match
+Line_90_did_not_match
+Line_91_did_not_match
+Line_92_did_not_match
+Line_93_did_not_match
+Your file did not match the expected output
+Testcase failed 
+-----------------------------------------------
+testcase 2 : Testing with Matrix<std::string>
+...compiling...
+The code compiled.
+  - Valgrind was clean (no errors, no memory leaks)
+Line_4_did_not_match
+Line_5_did_not_match
+Line_6_did_not_match
+Line_7_did_not_match
+Line_8_did_not_match
+Line_9_did_not_match
+Line_10_did_not_match
+Line_11_did_not_match
+Line_12_did_not_match
+Line_13_did_not_match
+Line_14_did_not_match
+Line_15_did_not_match
+Line_16_did_not_match
+Line_17_did_not_match
+Line_18_did_not_match
+Line_19_did_not_match
+Line_20_did_not_match
+Line_21_did_not_match
+Line_22_did_not_match
+Line_23_did_not_match
+Line_27_did_not_match
+Line_28_did_not_match
+Line_29_did_not_match
+Line_30_did_not_match
+Line_31_did_not_match
+Line_32_did_not_match
+Line_33_did_not_match
+Line_34_did_not_match
+Line_35_did_not_match
+Line_36_did_not_match
+Line_37_did_not_match
+Line_38_did_not_match
+Line_39_did_not_match
+Line_40_did_not_match
+Line_41_did_not_match
+Line_42_did_not_match
+Line_43_did_not_match
+Line_44_did_not_match
+Line_45_did_not_match
+Line_46_did_not_match
+Line_49_did_not_match
+Line_50_did_not_match
+Line_51_did_not_match
+Line_52_did_not_match
+Line_53_did_not_match
+Line_54_did_not_match
+Line_55_did_not_match
+Line_56_did_not_match
+Line_57_did_not_match
+Line_58_did_not_match
+Line_59_did_not_match
+Line_60_did_not_match
+Line_61_did_not_match
+Line_62_did_not_match
+Line_63_did_not_match
+Line_64_did_not_match
+Line_65_did_not_match
+Line_66_did_not_match
+Line_67_did_not_match
+Line_68_did_not_match
+Line_74_did_not_match
+Line_75_did_not_match
+Line_76_did_not_match
+Line_77_did_not_match
+Line_78_did_not_match
+Line_79_did_not_match
+Line_80_did_not_match
+Line_81_did_not_match
+Line_82_did_not_match
+Line_83_did_not_match
+Line_84_did_not_match
+Line_85_did_not_match
+Line_86_did_not_match
+Line_87_did_not_match
+Line_88_did_not_match
+Line_89_did_not_match
+Line_90_did_not_match
+Line_91_did_not_match
+Line_92_did_not_match
+Line_93_did_not_match
+Your file did not match the expected output
+Testcase failed 
+-----------------------------------------------
+testcase 3 : Testing with Matrix<(a custom class we wrote)>
+...compiling...
+The code compiled.
+  - Valgrind was clean (no errors, no memory leaks)
+Line_4_did_not_match
+Line_5_did_not_match
+Line_6_did_not_match
+Line_7_did_not_match
+Line_8_did_not_match
+Line_9_did_not_match
+Line_10_did_not_match
+Line_11_did_not_match
+Line_12_did_not_match
+Line_13_did_not_match
+Line_14_did_not_match
+Line_15_did_not_match
+Line_16_did_not_match
+Line_17_did_not_match
+Line_18_did_not_match
+Line_19_did_not_match
+Line_20_did_not_match
+Line_21_did_not_match
+Line_22_did_not_match
+Line_23_did_not_match
+Line_27_did_not_match
+Line_28_did_not_match
+Line_29_did_not_match
+Line_30_did_not_match
+Line_31_did_not_match
+Line_32_did_not_match
+Line_33_did_not_match
+Line_34_did_not_match
+Line_35_did_not_match
+Line_36_did_not_match
+Line_37_did_not_match
+Line_38_did_not_match
+Line_39_did_not_match
+Line_40_did_not_match
+Line_41_did_not_match
+Line_42_did_not_match
+Line_43_did_not_match
+Line_44_did_not_match
+Line_45_did_not_match
+Line_46_did_not_match
+Line_49_did_not_match
+Line_50_did_not_match
+Line_51_did_not_match
+Line_52_did_not_match
+Line_53_did_not_match
+Line_54_did_not_match
+Line_55_did_not_match
+Line_56_did_not_match
+Line_57_did_not_match
+Line_58_did_not_match
+Line_59_did_not_match
+Line_60_did_not_match
+Line_61_did_not_match
+Line_62_did_not_match
+Line_63_did_not_match
+Line_64_did_not_match
+Line_65_did_not_match
+Line_66_did_not_match
+Line_67_did_not_match
+Line_68_did_not_match
+Line_74_did_not_match
+Line_75_did_not_match
+Line_76_did_not_match
+Line_77_did_not_match
+Line_78_did_not_match
+Line_79_did_not_match
+Line_80_did_not_match
+Line_81_did_not_match
+Line_82_did_not_match
+Line_83_did_not_match
+Line_84_did_not_match
+Line_85_did_not_match
+Line_86_did_not_match
+Line_87_did_not_match
+Line_88_did_not_match
+Line_89_did_not_match
+Line_90_did_not_match
+Line_91_did_not_match
+Line_92_did_not_match
+Line_93_did_not_match
+Your file did not match the expected output
+Testcase failed 
+--------------------------------------------
+Preparing to test assert fails...
+Compiling assertion failure tester...
+Compiled.
+-----------------------------------------------
+testcase 4 :  operator[]: row number too high
+  - Valgrind was clean (no errors, no memory leaks)
+Your file matched the expected output
+Testcase passed
+-----------------------------------------------
+testcase 5 :  operator[]: row number too low
+  - Valgrind was clean (no errors, no memory leaks)
+Your file matched the expected output
+Testcase passed
+-----------------------------------------------
+testcase 6 :  operator+: different number of rows
+  - Valgrind was clean (no errors, no memory leaks)
+Your file matched the expected output
+Testcase passed
+-----------------------------------------------
+testcase 7 :  operator+: different number of columns
+  - Valgrind was clean (no errors, no memory leaks)
+Your file matched the expected output
+Testcase passed
+
+Overall Grade: F
