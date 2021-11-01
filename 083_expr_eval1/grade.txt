@@ -1,27 +1,19 @@
-Grading at 11/01/2021:18:32:10.499988
-For commit ID 13770d0e01b8ff888579078b2380a15b3c9471a4
-Grading at Mon Nov  1 14:32:10 EDT 2021
+Grading at 11/01/2021:18:37:43.388330
+For commit ID 371866a6e9b7dea85853bcc077488d6331a65f17
+Grading at Mon Nov  1 14:37:40 EDT 2021
 Compiling code
-In file included from expr.cpp:1:0:
-expr.hpp: In member function ‘virtual std::__cxx11::string NumExpression::toString() const’:
-expr.hpp:15:54: error: ‘to_string’ is not a member of ‘std’
-   virtual std::string toString() const { return std::to_string(number); }
-                                                      ^~~~~~~~~
-expr.hpp:15:54: note: suggested alternative: ‘__sso_string’
-   virtual std::string toString() const { return std::to_string(number); }
-                                                      ^~~~~~~~~
-                                                      __sso_string
-expr.cpp: In function ‘Expression* parse(const char**)’:
-expr.cpp:81:33: error: no matching function for call to ‘NumExpression::NumExpression(long int&)’
-     return new NumExpression(num);
-                                 ^
-In file included from expr.cpp:1:0:
-expr.hpp:11:7: note: candidate: NumExpression::NumExpression()
- class NumExpression : public Expression {
-       ^~~~~~~~~~~~~
-expr.hpp:11:7: note:   candidate expects 0 arguments, 1 provided
-expr.hpp:11:7: note: candidate: NumExpression::NumExpression(const NumExpression&)
-expr.hpp:11:7: note:   no known conversion for argument 1 from ‘long int’ to ‘const NumExpression&’
-The code did not compile.
+The code compiled.
+---------------------
+Test case 1
+  - Valgrind reported errors
+Valgrind reported errors (test failed).
+---------------------
+Test case 2
+  - Valgrind reported errors
+Valgrind reported errors (test failed).
+---------------------
+Test case 3
+  - Valgrind reported errors
+Valgrind reported errors (test failed).
 
 Overall Grade: F
