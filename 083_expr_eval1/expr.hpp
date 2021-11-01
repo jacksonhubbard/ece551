@@ -35,4 +35,9 @@ class PlusExpression : public Expression {
     ss << "(" << lhs->toString() << " + " << rhs->toString() << ")";
     return ss.str();
   }
+
+  virtual ~PlusExpression() {
+    delete lhs;
+    delete rhs;
+  }
 };
