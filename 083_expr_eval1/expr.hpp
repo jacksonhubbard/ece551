@@ -1,6 +1,7 @@
 #include <cstdlib>
 #include <iostream>
 #include <sstream>
+#include <string>
 
 class Expression {
  public:
@@ -12,7 +13,14 @@ class NumExpression : public Expression {
  protected:
   long number;
 
-  virtual std::string toString() const { return std::to_string(number); }
+ public:
+  NumExpression(long num) : number(num) {}
+
+  virtual std::string toString() const {
+    std::stringstream ss;
+    ss << number;
+    return ss.str();
+  }
 };
 
 class PlusExpression : public Expression {
