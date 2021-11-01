@@ -1,0 +1,16 @@
+#include <cstdlib>
+#include <iostream>
+
+class Expression {
+  virtual std::string toString() const = 0;
+  virtual ~Expression() {}
+};
+
+class PlusExpression : public Expression {
+  long l;
+
+ public:
+  PlusExpression(long param) : l(param) {}
+
+  virtual std::string toString() const {}
+};
