@@ -98,24 +98,21 @@ class Tester {
     IntList l2(l1);
 
     assert(l1.getSize() == l2.getSize());
+    assert(l1.tail->data == l2.tail->data);
 
     IntList::Node * n1 = l1.head;
     IntList::Node * n2 = l2.head;
+    assert(l1.head->prev == l2.head->prev);
 
     while (n1 != NULL && n2 != NULL) {
       assert(n1->data == n2->data);
+      if (n1->next != NULL) {
+        assert(n1->next->data == n2->next->data);
+        //        assert(n1->prev->data == n2->prev->data);
+      }
       n1 = n1->next;
       n2 = n2->next;
     }
-  }
-
-  void testDestructor() {
-    IntList l1;
-    l1.addBack(1);
-    l1.addBack(2);
-    l1.addBack(3);
-
-    //assert(l1 == NULL);
   }
 
   void testAssignment() {
@@ -125,15 +122,22 @@ class Tester {
     l1.addBack(3);
 
     IntList l2;
+    l2.addFront(5);
+
     l2 = l1;
 
     assert(l1.getSize() == l2.getSize());
+    assert(l1.tail->data == l2.tail->data);
 
     IntList::Node * n1 = l1.head;
     IntList::Node * n2 = l2.head;
 
     while (n1 != NULL && n2 != NULL) {
       assert(n1->data == n2->data);
+      if (n1->next != NULL) {
+        assert(n1->next->data == n2->next->data);
+        //        assert(n1->prev->data == n2->prev->data);
+      }
       n1 = n1->next;
       n2 = n2->next;
     }
@@ -211,6 +215,10 @@ class Tester {
     assert(il.head->next->next == NULL);
     assert(il.head->next->prev->data == 1);
     assert(il.tail->prev->data == 1);
+
+    // assert find fails for removed element
+    //assert(il.find() == false);
+    assert(il[1] == 3);
   }
 
   void testReturnValueofRemove() {
@@ -218,11 +226,11 @@ class Tester {
     il.addFront(1);
 
     int a = il.remove(1);
-    assert(a == 1);
+    assert(a == true);
 
     il.addFront(1);
     int b = il.remove(3);
-    assert(b == 0);
+    assert(b == false);
   }
 
   void testNextPrev() {
@@ -247,7 +255,6 @@ int main(void) {
 
   t.testCopy();
   t.testAssignment();
-  t.testDestructor();
 
   t.testRemoveFront();
   t.testRemoveBack();
