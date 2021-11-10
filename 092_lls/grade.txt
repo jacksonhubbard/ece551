@@ -1,0 +1,38 @@
+Grading at 11/10/2021:19:45:26.365500
+For commit ID 7cc58a36d0d5704c33da52bb10f6ab2cf783c268
+Grading at Wed Nov 10 14:45:25 EST 2021
+-----------------------------------------------
+testcase 1 : Testing with LinkedList<int>
+...compiling...
+In file included from tester.cpp:5:0:
+ll.hpp: In instantiation of ‘LinkedList<T>& LinkedList<T>::operator=(const LinkedList<T>&) [with T = int]’:
+tester.cpp:100:11:   required from here
+ll.hpp:59:3: error: no return statement in function returning non-void [-Werror=return-type]
+   }
+   ^
+cc1plus: all warnings being treated as errors
+The code did not compile.  This test failed.
+-----------------------------------------------
+testcase 2 : Testing with LinkedList<std::string>
+...compiling...
+In file included from tester.cpp:5:0:
+ll.hpp: In instantiation of ‘LinkedList<T>& LinkedList<T>::operator=(const LinkedList<T>&) [with T = std::__cxx11::basic_string<char>]’:
+tester.cpp:100:11:   required from here
+ll.hpp:59:3: error: no return statement in function returning non-void [-Werror=return-type]
+   }
+   ^
+cc1plus: all warnings being treated as errors
+The code did not compile.  This test failed.
+-----------------------------------------------
+testcase 3 : Testing with LinkedList<(a custom class we wrote)>
+...compiling...
+In file included from tester.cpp:5:0:
+ll.hpp: In instantiation of ‘LinkedList<T>& LinkedList<T>::operator=(const LinkedList<T>&) [with T = Tester]’:
+tester.cpp:100:11:   required from here
+ll.hpp:59:3: error: no return statement in function returning non-void [-Werror=return-type]
+   }
+   ^
+cc1plus: all warnings being treated as errors
+The code did not compile.  This test failed.
+
+Overall Grade: F
