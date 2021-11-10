@@ -56,7 +56,7 @@ class LinkedList {
       addBack(n->data);
       n = n->next;
     }
-    return head;
+    return this;
   }
 
   ~LinkedList() {
