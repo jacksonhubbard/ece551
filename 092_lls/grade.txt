@@ -1,14 +1,14 @@
-Grading at 11/10/2021:19:46:59.559046
-For commit ID 358c63183fca938f6170de830f47089d315d8c9a
-Grading at Wed Nov 10 14:46:59 EST 2021
+Grading at 11/10/2021:19:48:06.043518
+For commit ID b55bf50c3f8c8c0a60cc2468cf6ac472f2b961f7
+Grading at Wed Nov 10 14:48:05 EST 2021
 -----------------------------------------------
 testcase 1 : Testing with LinkedList<int>
 ...compiling...
 In file included from tester.cpp:5:0:
 ll.hpp: In instantiation of ‘LinkedList<T>& LinkedList<T>::operator=(const LinkedList<T>&) [with T = int]’:
 tester.cpp:100:11:   required from here
-ll.hpp:59:12: error: invalid initialization of reference of type ‘LinkedList<int>&’ from expression of type ‘LinkedList<int>::Node*’
-     return head;
+ll.hpp:59:12: error: invalid initialization of non-const reference of type ‘LinkedList<int>&’ from an rvalue of type ‘LinkedList<int>*’
+     return this;
             ^~~~
 The code did not compile.  This test failed.
 -----------------------------------------------
@@ -17,8 +17,8 @@ testcase 2 : Testing with LinkedList<std::string>
 In file included from tester.cpp:5:0:
 ll.hpp: In instantiation of ‘LinkedList<T>& LinkedList<T>::operator=(const LinkedList<T>&) [with T = std::__cxx11::basic_string<char>]’:
 tester.cpp:100:11:   required from here
-ll.hpp:59:12: error: invalid initialization of reference of type ‘LinkedList<std::__cxx11::basic_string<char> >&’ from expression of type ‘LinkedList<std::__cxx11::basic_string<char> >::Node*’
-     return head;
+ll.hpp:59:12: error: invalid initialization of non-const reference of type ‘LinkedList<std::__cxx11::basic_string<char> >&’ from an rvalue of type ‘LinkedList<std::__cxx11::basic_string<char> >*’
+     return this;
             ^~~~
 The code did not compile.  This test failed.
 -----------------------------------------------
@@ -27,8 +27,8 @@ testcase 3 : Testing with LinkedList<(a custom class we wrote)>
 In file included from tester.cpp:5:0:
 ll.hpp: In instantiation of ‘LinkedList<T>& LinkedList<T>::operator=(const LinkedList<T>&) [with T = Tester]’:
 tester.cpp:100:11:   required from here
-ll.hpp:59:12: error: invalid initialization of reference of type ‘LinkedList<Tester>&’ from expression of type ‘LinkedList<Tester>::Node*’
-     return head;
+ll.hpp:59:12: error: invalid initialization of non-const reference of type ‘LinkedList<Tester>&’ from an rvalue of type ‘LinkedList<Tester>*’
+     return this;
             ^~~~
 The code did not compile.  This test failed.
 
