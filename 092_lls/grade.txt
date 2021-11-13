@@ -1,23 +1,23 @@
-Grading at 11/13/2021:15:22:20.818142
-For commit ID 8b39abdd3654d09df98afeb9323430f87b4c89af
-Grading at Sat Nov 13 10:22:17 EST 2021
+Grading at 11/13/2021:17:42:46.273508
+For commit ID ec18c437a5987eae83ab08e4a2eef04adecc2bf3
+Grading at Sat Nov 13 12:42:42 EST 2021
 -----------------------------------------------
 testcase 1 : Testing with LinkedList<int>
 ...compiling...
 The code compiled.
-  - Valgrind reported errors
+  - Valgrind showed memory leaks
 Valgrind reported errors (test failed).
 -----------------------------------------------
 testcase 2 : Testing with LinkedList<std::string>
 ...compiling...
 The code compiled.
-  - Valgrind reported errors
+  - Valgrind showed memory leaks
 Valgrind reported errors (test failed).
 -----------------------------------------------
 testcase 3 : Testing with LinkedList<(a custom class we wrote)>
 ...compiling...
 The code compiled.
-  - Valgrind reported errors
+  - Valgrind showed memory leaks
 Valgrind reported errors (test failed).
 
 Overall Grade: F
