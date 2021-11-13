@@ -26,7 +26,7 @@ class LinkedList {
     Node * prev;
     Node() : data(NULL), next(NULL), prev(NULL){};
     Node(T d, Node * n, Node * p) : data(d), next(n), prev(p){};
-    Node(T d, Node * p) : data(d), next(NULL), prev(p){};
+    Node(T d, Node * n) : data(d), next(n), prev(NULL){};
   };
   Node * head;
   Node * tail;
@@ -43,7 +43,7 @@ class LinkedList {
 
     //Node * currRhs = rhs.head;
 
-    Node * curr = head;
+    Node * curr = rhs.head;
     while (curr != NULL) {
       //  Node * next = new Node(currRhs->next.data, currRhs->next.next, currRhs->next.prev);
       addBack(curr->data);
@@ -62,7 +62,7 @@ class LinkedList {
     }
     // addBack incrments size
     //size = rhs->size;
-
+    size = 0;
     Node * n = rhs.head;
     while (n != NULL) {
       addBack(n->data);
@@ -105,25 +105,28 @@ class LinkedList {
     if (current == NULL) {
       return NULL;
     }
-    if (data == current->data) {
-      Node * ans = current->next;
-
-      // treat prev case
-      if (current->prev != NULL) {
-        ans->prev = current->prev;
+    if (current->data == data) {
+      Node * next = current->next;
+      if (next == NULL) {  //deleting from back of list
+        tail = current->prev;
+        current->prev->next = NULL;
       }
-
-      // deal with if current is last element
-      if (current->next == NULL) {
-        tail = ans;
+      else if (current->prev == NULL) {  //deleting from front
+        head = current->next;
+        current->next->prev = NULL;
       }
-
+      else {  //middle of list
+        current->prev->next = current->next;
+        current->next->prev = current->prev;
+      }
       delete current;
       size--;
-      return ans;
+      return head;
     }
-    current->next = removeHelper(data, current->next);
-    return current;
+    else {
+      current->next = removeHelper(data, current->next);
+      return head;
+    }
   }
 
   bool remove(const T & item) {
