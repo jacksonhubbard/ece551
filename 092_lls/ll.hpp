@@ -26,6 +26,7 @@ class LinkedList {
     Node * prev;
     Node() : data(NULL), next(NULL), prev(NULL){};
     Node(T d, Node * n, Node * p) : data(d), next(n), prev(p){};
+    Node(T d, Node * p) : data(d), next(NULL), prev(p){};
   };
   Node * head;
   Node * tail;
@@ -68,7 +69,7 @@ class LinkedList {
   }
 
   void addFront(const T & item) {
-    head = new Node(item, head, NULL);
+    head = new Node(item, head);
     if (tail == NULL) {  // list is currently empty
       tail = head;
     }
@@ -174,6 +175,6 @@ class LinkedList {
   }
 
   int getSize() const { return size; }
+  friend class Tester;
 };
-
 #endif
