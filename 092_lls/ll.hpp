@@ -35,15 +35,26 @@ class LinkedList {
  public:
   LinkedList() : head(NULL), tail(NULL), size(0) {}
 
-  LinkedList(const LinkedList & rhs) {
+  LinkedList(const LinkedList & rhs) : head(NULL), tail(NULL), size(0) {
     //size = rhs->size;
-    Node * n = rhs.head;
-    while (n != NULL) {
-      addBack(n->data);
-      n = n->next;
+    //Node * n = rhs.head;
+    // Node * n = new Node(rhs.head->data, rhs.head->next, rhs.head->prev);
+    //head = n;
+
+    //Node * currRhs = rhs.head;
+
+    Node * curr = head;
+    while (curr != NULL) {
+      //  Node * next = new Node(currRhs->next.data, currRhs->next.next, currRhs->next.prev);
+      addBack(curr->data);
+      curr = curr->next;
     }
   }
   LinkedList & operator=(const LinkedList & rhs) {
+    if (this == &rhs) {
+      return *this;
+    }
+
     while (head != NULL) {
       Node * temp = head->next;
       delete head;
