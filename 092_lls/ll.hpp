@@ -139,12 +139,9 @@ class LinkedList {
   }
 
   bool remove(const T & item) {
-    //cout << "in helper bool";
     size_t sizeBefore = size;
     head = removeHelper(item, head);
     size_t sizeAfter = size;
-    //cout << sizeBefore;
-    //cout << sizeAfter;
     if (sizeBefore == sizeAfter) {
       return false;
     }
