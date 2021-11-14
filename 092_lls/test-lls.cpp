@@ -228,6 +228,7 @@ class Tester {
     il.addFront(1);
 
     int a = il.remove(1);
+    cout << a;
     assert(a == true);
 
     il.addFront(1);

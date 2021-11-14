@@ -5,6 +5,7 @@
 
 #include <cstdlib>
 #include <exception>
+#include <iostream>
 #include <string>
 
 using namespace std;
@@ -106,6 +107,14 @@ class LinkedList {
       return NULL;
     }
     if (current->data == data) {
+      if (size == 1) {
+        delete current;
+        head = NULL;
+        tail = NULL;
+        size--;
+        return NULL;
+      }
+
       Node * next = current->next;
       if (next == NULL) {  //deleting from back of list
         tail = current->prev;
@@ -121,23 +130,26 @@ class LinkedList {
       }
       delete current;
       size--;
-      return head;
+      return next;
     }
     else {
       current->next = removeHelper(data, current->next);
-      return head;
+      return current;
     }
   }
 
   bool remove(const T & item) {
+    //cout << "in helper bool";
     size_t sizeBefore = size;
     head = removeHelper(item, head);
     size_t sizeAfter = size;
+    //cout << sizeBefore;
+    //cout << sizeAfter;
     if (sizeBefore == sizeAfter) {
-      return true;
+      return false;
     }
     else {
-      return false;
+      return true;
     }
   }
 
