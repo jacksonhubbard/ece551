@@ -140,7 +140,7 @@ class LinkedList {
 
   bool remove(const T & item) {
     size_t sizeBefore = size;
-    head = removeHelper(item, head);
+    removeHelper(item, head);
     size_t sizeAfter = size;
     if (sizeBefore == sizeAfter) {
       return false;
