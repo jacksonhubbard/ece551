@@ -27,7 +27,7 @@ class Page {
       if (lineCount == 0 && line == "WIN") {
         winLossIndicator = 1;
       }
-      else if (lineCount == 0 && line == "WIN") {
+      else if (lineCount == 0 && line == "LOSE") {
         winLossIndicator = 0;
       }
       if (!navSectionDone && line.find("#") == 0) {
@@ -75,7 +75,7 @@ int main(int argc, char * argv[]) {
   if (inputFile.is_open()) {
     Page pageObject;
     //1. parse file and print line as we go
-    Page currentPage = pageObject.parseFile(inputFile);
+    pageObject.parseFile(inputFile);
 
     //2.
     cout << "\n";
@@ -87,8 +87,10 @@ int main(int argc, char * argv[]) {
       switch (pageObject.winLossIndicator) {
         case 0:
           cout << "Sorry, you have lost. Better luck next time!\n";
+          break;
         case 1:
           cout << "Congratulations! You have won. Hooray!\n";
+          break;
       }
     }
     inputFile.close();
