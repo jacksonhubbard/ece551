@@ -6,6 +6,7 @@
 #include <string>
 
 #include "function.h"
+// low is mid +1 instead of low being mid
 
 using namespace std;
 int binarySearchForZero(Function<int, int> * f, int low, int high);
@@ -41,6 +42,16 @@ class LinearFunc : public Function<int, int> {
   virtual int invoke(int arg) { return arg; }
 };
 
+class ConstantFunc : public Function<int, int> {
+ public:
+  virtual int invoke(int arg) { return 7; }
+};
+
+class ConstantFunc2 : public Function<int, int> {
+ public:
+  virtual int invoke(int arg) { return -7; }
+};
+
 void check(Function<int, int> * f,
            int low,
            int high,
@@ -60,7 +71,6 @@ void check(Function<int, int> * f,
     expected_count = 1;
   }
 
-  //SinFunction sf;
   CountedIntFn cif(expected_count, f, char_arr);
   int ans = binarySearchForZero(&cif, low, high);
   if (ans != expected_ans) {
@@ -89,6 +99,20 @@ void test3() {
   char * char_arr = &msg[0];
   check(&sf, 0, 0, 0, char_arr);
 }
+// when reach near ans
+void test8() {
+  ConstantFunc sf;
+  string msg = "const func";
+  char * char_arr = &msg[0];
+  check(&sf, -5, -2, -5, char_arr);
+}
+
+void test9() {
+  ConstantFunc2 sf;
+  string msg = "const func2";
+  char * char_arr = &msg[0];
+  check(&sf, -5, 3, 2, char_arr);
+}
 
 void test4() {
   LinearFunc sf;
@@ -110,6 +134,13 @@ void test6() {
   char * char_arr = &msg[0];
   check(&sf, 100, -100, 100, char_arr);
 }
+// low is mid +1 instead of low being mid
+void test7() {
+  LinearFunc sf;
+  string msg = "linear func";
+  char * char_arr = &msg[0];
+  check(&sf, -4, 0, -1, char_arr);
+}
 
 int main(void) {
   test();
@@ -118,6 +149,8 @@ int main(void) {
   test4();
   test5();
   test6();
-
+  test7();
+  test8();
+  test9();
   return EXIT_SUCCESS;
 }
