@@ -23,7 +23,7 @@ class Page {
     Page currentPage;
     while (std::getline(file, line)) {
       //      printf("%s\n", line.c_str());
-      if (!navSectionDone && line == "#") {
+      if (!navSectionDone && line.find("#") == 0) {
         navSectionDone = true;
       }
       else if (!navSectionDone) {
