@@ -47,7 +47,7 @@ class Page {
       }
       else {
         string currentChoice = it->substr(indexColon + 1);
-        cout << choiceNumber << ". " << currentChoice << "\n";
+        cout << " " << choiceNumber << ". " << currentChoice << "\n";
       }
       choiceNumber++;
     }
