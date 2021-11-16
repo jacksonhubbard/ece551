@@ -21,8 +21,15 @@ class Page {
     string line;
     bool navSectionDone = false;
     Page currentPage;
+    int lineCount = 0;
     while (std::getline(file, line)) {
       //      printf("%s\n", line.c_str());
+      if (lineCount == 0 && line == "WIN") {
+        winLossIndicator = 1;
+      }
+      else if (lineCount == 0 && line == "WIN") {
+        winLossIndicator = 0;
+      }
       if (!navSectionDone && line.find("#") == 0) {
         navSectionDone = true;
       }
@@ -33,6 +40,7 @@ class Page {
         text.push_back(line);
         printf("%s\n", line.c_str());
       }
+      lineCount++;
     }
     return currentPage;
   };
