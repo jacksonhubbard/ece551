@@ -22,7 +22,7 @@ class Page {
     bool navSectionDone = false;
     Page currentPage;
     while (std::getline(file, line)) {
-      printf("%s\n", line.c_str());
+      //      printf("%s\n", line.c_str());
       if (!navSectionDone && line == "#") {
         navSectionDone = true;
       }
@@ -31,6 +31,7 @@ class Page {
       }
       else {
         text.push_back(line);
+        printf("%s\n", line.c_str());
       }
     }
     return currentPage;
