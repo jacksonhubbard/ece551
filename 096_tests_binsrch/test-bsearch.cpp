@@ -42,12 +42,12 @@ class LinearFunc : public Function<int, int> {
   virtual int invoke(int arg) { return arg; }
 };
 
-class ConstantFunc : public Function<int, int> {
+class ConstantFuncPos : public Function<int, int> {
  public:
   virtual int invoke(int arg) { return 7; }
 };
 
-class ConstantFunc2 : public Function<int, int> {
+class ConstantFuncNeg : public Function<int, int> {
  public:
   virtual int invoke(int arg) { return -7; }
 };
@@ -88,7 +88,7 @@ void test() {
 
 void test2() {
   LinearFunc sf;
-  string msg = "ositive to negative";
+  string msg = "negative to positive linear ";
   char * char_arr = &msg[0];
   check(&sf, -5, 5, 0, char_arr);
 }
@@ -97,21 +97,7 @@ void test3() {
   LinearFunc sf;
   string msg = "0 range";
   char * char_arr = &msg[0];
-  check(&sf, 0, 0, 0, char_arr);
-}
-// when reach near ans
-void test8() {
-  ConstantFunc sf;
-  string msg = "const func";
-  char * char_arr = &msg[0];
-  check(&sf, -5, -2, -5, char_arr);
-}
-
-void test9() {
-  ConstantFunc2 sf;
-  string msg = "const func2";
-  char * char_arr = &msg[0];
-  check(&sf, -5, 3, 2, char_arr);
+  check(&sf, 0, 1, 0, char_arr);
 }
 
 void test4() {
@@ -130,16 +116,93 @@ void test5() {
 
 void test6() {
   LinearFunc sf;
-  string msg = "high is less than low";
+  string msg = "neg pos uneven";
   char * char_arr = &msg[0];
-  check(&sf, 100, -100, 100, char_arr);
+  check(&sf, -1, 10, 0, char_arr);
 }
-// low is mid +1 instead of low being mid
+
 void test7() {
   LinearFunc sf;
   string msg = "linear func";
   char * char_arr = &msg[0];
   check(&sf, -4, 0, -1, char_arr);
+}
+
+void test8() {
+  LinearFunc sf;
+  string msg = "only pos with big numbers";
+  char * char_arr = &msg[0];
+  //  check(&sf, -200000000, -10000000, -10000000, char_arr);
+}
+
+void test9() {
+  ConstantFuncPos sf;
+  string msg = "negative to positive constfuncpos";
+  char * char_arr = &msg[0];
+  check(&sf, -5, 5, -5, char_arr);
+}
+
+void test10() {
+  ConstantFuncPos sf;
+  string msg = "0 range";
+  char * char_arr = &msg[0];
+  check(&sf, 0, 1, 0, char_arr);
+}
+
+void test11() {
+  ConstantFuncPos sf;
+  string msg = "only pos";
+  char * char_arr = &msg[0];
+  check(&sf, 4, 150000, 4, char_arr);
+}
+
+void test12() {
+  ConstantFuncPos sf;
+  string msg = "only neg";
+  char * char_arr = &msg[0];
+  check(&sf, -100, -1, -100, char_arr);
+}
+
+void test13() {
+  ConstantFuncPos sf;
+  string msg = "neg pos uneven";
+  char * char_arr = &msg[0];
+  check(&sf, -1, 10, -1, char_arr);
+}
+
+void test14() {
+  ConstantFuncNeg sf;
+  string msg = "negative to positive constfuncpos";
+  char * char_arr = &msg[0];
+  check(&sf, -5, 5, 4, char_arr);
+}
+
+void test15() {
+  ConstantFuncNeg sf;
+  string msg = "0 range";
+  char * char_arr = &msg[0];
+  check(&sf, 0, 1, 0, char_arr);
+}
+
+void test16() {
+  ConstantFuncNeg sf;
+  string msg = "only pos";
+  char * char_arr = &msg[0];
+  check(&sf, 4, 150000, 149999, char_arr);
+}
+
+void test17() {
+  ConstantFuncNeg sf;
+  string msg = "only neg";
+  char * char_arr = &msg[0];
+  check(&sf, -100, -1, -2, char_arr);
+}
+
+void test18() {
+  ConstantFuncNeg sf;
+  string msg = "neg pos uneven";
+  char * char_arr = &msg[0];
+  check(&sf, -1, 10, 9, char_arr);
 }
 
 int main(void) {
@@ -152,5 +215,14 @@ int main(void) {
   test7();
   test8();
   test9();
+  test10();
+  test11();
+  test12();
+  test13();
+  test14();
+  test15();
+  test16();
+  test17();
+  test18();
   return EXIT_SUCCESS;
 }
