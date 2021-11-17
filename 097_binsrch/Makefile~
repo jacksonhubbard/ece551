@@ -1,0 +1,2 @@
+tester: test-lls.cpp function.h
+	g++ -o tester -ggdb3 -Wall -Werror -pedantic -std=gnu++98 test-lls.cpp
