@@ -5,25 +5,29 @@
 #include "function.h"
 
 int binarySearchForZero(Function<int, int> * f, int low, int high) {
-  while (high > low) {
-    int mid = (high + low) / 2;
-    int value = f->invoke(mid);
-    if (value == 0) {
-      return mid;
-    }
-    else if (value > 0) {
-      //return binarySearchForZero(f, low, mid);
-      high = mid;
-    }
-    else {  // less than 0
-      //return binarySearchForZero(f, mid, high);
-      low = mid;
-    }
-  }
-  if (low > 0) {
+  if ((high - low) <= 1) {
     return low;
   }
-  else {
-    return high - 1;
+
+  //while (high > low) {
+  int mid = (high + low) / 2;
+  int value = f->invoke(mid);
+  if (value == 0) {
+    return mid;
   }
+  else if (value > 0) {
+    //high = mid
+    return binarySearchForZero(f, low, mid);
+  }
+  else {  // less than 0
+    //low = mid;
+    return binarySearchForZero(f, mid, high);
+  }
+  //}
+  //if (low > 0) {
+  //return low;
+  //}
+  //else {
+  //return high - 1;
+  //}
 }
