@@ -1,0 +1,25 @@
+Grading at 11/16/2021:21:32:24.472166
+For commit ID a93caf723a5ba39b399464be0b3872cca886605d
+Grading at Tue Nov 16 16:32:22 EST 2021
+**Testing broken implementation 1 **
+-------------------------------------
+
+
+**Testing broken implementation 2 **
+-------------------------------------
+
+
+**Testing broken implementation 3 **
+-------------------------------------
+
+
+**Testing broken implementation 4 **
+-------------------------------------
+
+
+**Testing broken implementation 5 **
+-------------------------------------
+
+Your test program did not identify /usr/local/ece551/bin_search/bsearch5.o as broken!
+
+Overall Grade: FAILED
