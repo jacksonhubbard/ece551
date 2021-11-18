@@ -20,8 +20,9 @@ int main(int argc, char * argv[]) {
   inputFile.open(filename);
   if (inputFile.is_open()) {
     Page pageObject;
+
     //1. parse file and print line as we go
-    pageObject.parseFile(inputFile, true);
+    pageObject.parseFile(inputFile, -1, true);
     pageObject.addPageNumber();
     //2.
     cout << "\n";
