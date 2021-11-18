@@ -1,6 +1,6 @@
-Grading at 11/18/2021:14:22:22.071882
-For commit ID bccc65c0e34df690bb2ae73856c73bcc1b4b7c0b
-Grading at Thu Nov 18 09:21:57 EST 2021
+Grading at 11/18/2021:16:15:14.533179
+For commit ID 754f951a14d4652d3a339d4a9a3c61fc7d514645
+Grading at Thu Nov 18 11:14:49 EST 2021
 Checking Step 1 test cases required for extra credit
 
 Compiling cyoa-step1
@@ -70,37 +70,15 @@ Input to story is
 
 +-----------------------------------------------------------------------+
 Test case 14 (success): cyoa-step2 /usr/local/ece551/cyoa/story2 < pregrader_input.txt
-1,12c1,10
-< parsing page 2
-< parsing page 3
-< parsing page 4
-< parsing page 5
-< parsing page 6
-< parsing page 7
-< parsing page 8
-< parsing page 9
-< parsing page 10
-< parsing page 11
-< parsing page 12
-< One bright weekend afternoon, you decide to adventure, putting on your Ringof the Niebelungen and traveler's cloak and strapping the famed sword Iceto your back.Half-way up the mountain Matterhorn, you see a cave opening with steamcoming out. You enter the cave and tiptoe inside, straining your eyes inthe gloomy mist.You encounter a dragon.
----
-> One bright weekend afternoon, you decide to adventure, putting on your Ring
-> of the Niebelungen and traveler's cloak and strapping the famed sword Ice
-> to your back.
-> 
-> Half-way up the mountain Matterhorn, you see a cave opening with steam
-> coming out. You enter the cave and tiptoe inside, straining your eyes in
-> the gloomy mist.
-> 
-> You encounter a dragon.
-> 
-18,19c16,19
-< Enter the page number of your choice: You enjoy a quiet evening at home with a mug of herbal tea and your cats,who only think they are tiny dragons.
-< Congratulations! You have won. Hooray!
+16,17c16,17
+< Enter the page number of your choice: You enjoy a quiet evening at home with a mug of herbal tea and your cats,
+< who only think they are tiny dragons.
 ---
 > Your famed sword Ice becomes embedded in the dragon's neck scales, and the
 > dragon rolls over, crushing you.
-> 
+19c19
+< Congratulations! You have won. Hooray!
+---
 > Sorry, you have lost. Better luck next time!
 Your file did not match the expected output
 Step 2: Failed test cases as above
