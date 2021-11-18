@@ -1,6 +1,6 @@
-Grading at 11/18/2021:16:26:27.016084
-For commit ID b2326b3e587f7ba06f3d6fbeabda63fb616b52a9
-Grading at Thu Nov 18 11:26:14 EST 2021
+Grading at 11/18/2021:16:28:19.505438
+For commit ID 14efe3b9544a07ad391bff2227d90b7f492aaa89
+Grading at Thu Nov 18 11:28:07 EST 2021
 Checking Step 1 test cases required for extra credit
 
 Compiling cyoa-step1
@@ -48,34 +48,14 @@ Input to story is
 
 +-----------------------------------------------------------------------+
 Test case 11 (success): cyoa-step2 /usr/local/ece551/cyoa/story1 < pregrader_input.txt
-25c25
-< Enter the page number of your choice: As you take the magic whistle from the wizard's hand, he disappears in a
----
-> As you take the magic whistle from the wizard's hand, he disappears in a
-49c49
-< Enter the page number of your choice: After thinking about it a bit, you decide that Denevieve is probably a
----
-> After thinking about it a bit, you decide that Denevieve is probably a
-69c69
-< Enter the page number of your choice: You take out your whistle and Denevieve starts to sing
----
-> You take out your whistle and Denevieve starts to sing
-Your file did not match the expected output
+Your file matched the expected output
 Input to story is
 3
 2
 
 +-----------------------------------------------------------------------+
 Test case 12 (success): cyoa-step2 /usr/local/ece551/cyoa/story1 < pregrader_input.txt
-25c25
-< Enter the page number of your choice: As you take the magic toaster from the wizard's hand, he disappears in a
----
-> As you take the magic toaster from the wizard's hand, he disappears in a
-53c53
-< Enter the page number of your choice: After thinking about it for a bit, you decide to go to Grew for help. When
----
-> After thinking about it for a bit, you decide to go to Grew for help. When
-Your file did not match the expected output
+Your file matched the expected output
 Input to story is
 1
 2
@@ -84,34 +64,14 @@ Input to story is
 
 +-----------------------------------------------------------------------+
 Test case 13 (success): cyoa-step2 /usr/local/ece551/cyoa/story2 < pregrader_input.txt
-16c16
-< Enter the page number of your choice: As you tiptoe past the sleeping dragon, steam rising from her nostrils, you
----
-> As you tiptoe past the sleeping dragon, steam rising from her nostrils, you
-25c25
-< Enter the page number of your choice: A mountain of treasure rises before you, but two things are more
----
-> A mountain of treasure rises before you, but two things are more
-34c34
-< Enter the page number of your choice: The book is the original copy of All of Programming. You pore over its
----
-> The book is the original copy of All of Programming. You pore over its
-44c44
-< Enter the page number of your choice: You return home, where your cats are very impressed with your programming
----
-> You return home, where your cats are very impressed with your programming
-Your file did not match the expected output
+Your file matched the expected output
 Input to story is
 3
 
 +-----------------------------------------------------------------------+
 Test case 14 (success): cyoa-step2 /usr/local/ece551/cyoa/story2 < pregrader_input.txt
-16c16
-< Enter the page number of your choice: Your famed sword Ice becomes embedded in the dragon's neck scales, and the
----
-> Your famed sword Ice becomes embedded in the dragon's neck scales, and the
-Your file did not match the expected output
-Step 2: Failed test cases as above
+Your file matched the expected output
+Step 2: PASSED Pre-Grader Test Cases
 
 Compiling cyoa-step3
 The code did not compile!
