@@ -1,6 +1,6 @@
-Grading at 11/16/2021:19:36:10.560579
-For commit ID 4716b89b5a876eb31146d4a8de701640f575ee27
-Grading at Tue Nov 16 14:36:01 EST 2021
+Grading at 11/18/2021:14:22:22.071882
+For commit ID bccc65c0e34df690bb2ae73856c73bcc1b4b7c0b
+Grading at Thu Nov 18 09:21:57 EST 2021
 Checking Step 1 test cases required for extra credit
 
 Compiling cyoa-step1
@@ -39,8 +39,71 @@ Your file matched the expected output
 Step 1: PASSED Pre-Grader Test Cases
 
 Compiling cyoa-step2
-The code did not compile!
-Did not compile for step 2
+make: 'cyoa-step2' is up to date.
+Compiled for step 2
+Input to story is
+1
+1
+1
+
++-----------------------------------------------------------------------+
+Test case 11 (success): cyoa-step2 /usr/local/ece551/cyoa/story1 < pregrader_input.txt
+Valgrind reported memory errors
+Input to story is
+3
+2
+
++-----------------------------------------------------------------------+
+Test case 12 (success): cyoa-step2 /usr/local/ece551/cyoa/story1 < pregrader_input.txt
+Valgrind reported memory errors
+Input to story is
+1
+2
+2
+1
+
++-----------------------------------------------------------------------+
+Test case 13 (success): cyoa-step2 /usr/local/ece551/cyoa/story2 < pregrader_input.txt
+Valgrind reported memory errors
+Input to story is
+3
+
++-----------------------------------------------------------------------+
+Test case 14 (success): cyoa-step2 /usr/local/ece551/cyoa/story2 < pregrader_input.txt
+1,12c1,10
+< parsing page 2
+< parsing page 3
+< parsing page 4
+< parsing page 5
+< parsing page 6
+< parsing page 7
+< parsing page 8
+< parsing page 9
+< parsing page 10
+< parsing page 11
+< parsing page 12
+< One bright weekend afternoon, you decide to adventure, putting on your Ringof the Niebelungen and traveler's cloak and strapping the famed sword Iceto your back.Half-way up the mountain Matterhorn, you see a cave opening with steamcoming out. You enter the cave and tiptoe inside, straining your eyes inthe gloomy mist.You encounter a dragon.
+---
+> One bright weekend afternoon, you decide to adventure, putting on your Ring
+> of the Niebelungen and traveler's cloak and strapping the famed sword Ice
+> to your back.
+> 
+> Half-way up the mountain Matterhorn, you see a cave opening with steam
+> coming out. You enter the cave and tiptoe inside, straining your eyes in
+> the gloomy mist.
+> 
+> You encounter a dragon.
+> 
+18,19c16,19
+< Enter the page number of your choice: You enjoy a quiet evening at home with a mug of herbal tea and your cats,who only think they are tiny dragons.
+< Congratulations! You have won. Hooray!
+---
+> Your famed sword Ice becomes embedded in the dragon's neck scales, and the
+> dragon rolls over, crushing you.
+> 
+> Sorry, you have lost. Better luck next time!
+Your file did not match the expected output
+Step 2: Failed test cases as above
 
 Compiling cyoa-step3
 The code did not compile!
