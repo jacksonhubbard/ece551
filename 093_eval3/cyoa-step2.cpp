@@ -73,7 +73,7 @@ class Story {
     int nextPage;
     int maxNum = currentPage.referencedPages.size();
 
-    cout << "Enter the page number of your choice: ";
+    //cout << "Enter the page number of your choice: ";
     while (!(cin >> nextPage) || nextPage < 1 || nextPage > maxNum) {
       cin.clear();
       cin.ignore();
