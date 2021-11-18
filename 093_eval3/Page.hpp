@@ -54,7 +54,7 @@ class Page {
 
   void displayPage() {
     for (vector<string>::iterator it = text.begin(); it != text.end(); it++) {
-      cout << *it;
+      cout << *it << "\n";
     }
     cout << "\n";
 

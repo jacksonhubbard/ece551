@@ -126,7 +126,7 @@ int main(int argc, char * argv[]) {
       lookingForFiles = false;
     }
     else {
-      cout << "parsing page " << i << "\n";
+      //      cout << "parsing page " << i << "\n";
       Page pageObject;
       pageObject.parseFile(input, i, false);  // do not print as we go
       pageObject.addPageNumber();
