@@ -80,8 +80,8 @@ class Story {
       cout << "That is not a valid choice, please try again\n";
       cout << "Enter the page number of your choice: ";
     }
-
-    return nextPage;
+    return currentPage.referencedPages[nextPage - 1];
+    //return nextPage;
   }
 };
 int main(int argc, char * argv[]) {
