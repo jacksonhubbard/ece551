@@ -49,14 +49,14 @@ class BstMap : public Map<K, V> {
     }
     return curr;
   }
-  void removeHelper(Node * curr, K & key) {
+  Node * removeHelper(Node * curr, K & key) {
     if (curr == NULL) {
       return;
     }
     else if (key < curr->key) {
       curr->left = removeHelper(curr->left, key);
     }
-    else if (key > curr->data) {
+    else if (key > curr->key) {
       curr->right = removeHelper(curr->right, key);
     }
     else {
@@ -83,7 +83,7 @@ class BstMap : public Map<K, V> {
       }
     }
 
-    return curr;
+    //    return curr;
   }
 
   virtual void remove(const K & key) { removeHelper(root, key); }
