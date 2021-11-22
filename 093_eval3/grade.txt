@@ -1,6 +1,6 @@
-Grading at 11/22/2021:14:51:05.424378
-For commit ID 0b05e41985f32261f735ff54b23b49ff6e1d5847
-Grading at Mon Nov 22 09:50:49 EST 2021
+Grading at 11/22/2021:14:54:01.794792
+For commit ID 2653be397204ea99129a978d4cbef7a863ad5d1a
+Grading at Mon Nov 22 09:53:45 EST 2021
 Checking Step 1 test cases required for extra credit
 
 Compiling cyoa-step1
@@ -77,11 +77,11 @@ Compiling cyoa-step3
 make: 'cyoa-step3' is up to date.
 +-----------------------------------------------------------------------+
 Test case 15 (success): cyoa-step3 /usr/local/ece551/cyoa/story1
-Valgrind reported memory errors
+Your file matched the expected output
 +-----------------------------------------------------------------------+
 Test case 16 (success): cyoa-step3 /usr/local/ece551/cyoa/story2
-Valgrind reported memory errors
-Step 3: Failed test cases as above
+Your file matched the expected output
+Step 3: PASSED Pre-Grader Test Cases
 
 Compiling cyoa-step4
 The code did not compile!
