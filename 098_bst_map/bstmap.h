@@ -83,7 +83,7 @@ class BstMap : public Map<K, V> {
       }
     }
 
-    //    return curr;
+    return curr;
   }
 
   virtual void remove(const K & key) { removeHelper(root, key); }
