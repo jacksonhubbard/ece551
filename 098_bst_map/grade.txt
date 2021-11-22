@@ -1,149 +1,176 @@
-Grading at 11/22/2021:23:54:14.820110
-For commit ID f75a032897493a92126679c56e3a35687e18bc25
-Grading at Mon Nov 22 18:54:13 EST 2021
+Grading at 11/22/2021:23:58:08.485294
+For commit ID 0ef6b558f334e5315115f75a8b748c3bbca7a483
+Grading at Mon Nov 22 18:58:07 EST 2021
 -----------------------------------------------
 testcase 1 : Testing with BstMap<int,int>
 ...compiling...
 In file included from 89-tester.cpp:1:0:
-bstmap.h:98:22: error: declaration of ‘~Map<K, V>’ as member of ‘BstMap<K, V>’
-   virtual ~Map<K, V>() { destry(root); }
-                      ^
-bstmap.h: In instantiation of ‘void BstMap<K, V>::remove(const K&) [with K = int; V = int]’:
-89-tester.cpp:197:1:   required from here
-bstmap.h:89:52: error: binding reference of type ‘int&’ to ‘const int’ discards qualifiers
-   virtual void remove(const K & key) { removeHelper(root, key); }
-                                        ~~~~~~~~~~~~^~~~~~~~~~~
-bstmap.h:52:10: note:   initializing argument 2 of ‘BstMap<K, V>::Node* BstMap<K, V>::removeHelper(BstMap<K, V>::Node*, K&) [with K = int; V = int]’
-   Node * removeHelper(Node * curr, K & key) {
-          ^~~~~~~~~~~~
+bstmap.h: In instantiation of ‘BstMap<K, V>::~BstMap() [with K = int; V = int]’:
+89-tester.cpp:164:10:   required from here
+bstmap.h:98:35: error: ‘destry’ was not declared in this scope
+   virtual ~BstMap<K, V>() { destry(root); }
+                             ~~~~~~^~~~~~
+bstmap.h:98:35: note: suggested alternative: ‘destroy’
+   virtual ~BstMap<K, V>() { destry(root); }
+                             ~~~~~~^~~~~~
+                             destroy
+bstmap.h: In member function ‘BstMap<K, V>::Node* BstMap<K, V>::removeHelper(BstMap<K, V>::Node*, const K&) [with K = int; V = int]’:
+bstmap.h:87:3: error: control reaches end of non-void function [-Werror=return-type]
+   }
+   ^
+cc1plus: all warnings being treated as errors
 The code did not compile.  This test failed.
 -----------------------------------------------
 testcase 2 : Testing with BstMap<int,std::string>
 ...compiling...
 In file included from 89-tester.cpp:1:0:
-bstmap.h:98:22: error: declaration of ‘~Map<K, V>’ as member of ‘BstMap<K, V>’
-   virtual ~Map<K, V>() { destry(root); }
-                      ^
-bstmap.h: In instantiation of ‘void BstMap<K, V>::remove(const K&) [with K = int; V = std::__cxx11::basic_string<char>]’:
-89-tester.cpp:197:1:   required from here
-bstmap.h:89:52: error: binding reference of type ‘int&’ to ‘const int’ discards qualifiers
-   virtual void remove(const K & key) { removeHelper(root, key); }
-                                        ~~~~~~~~~~~~^~~~~~~~~~~
-bstmap.h:52:10: note:   initializing argument 2 of ‘BstMap<K, V>::Node* BstMap<K, V>::removeHelper(BstMap<K, V>::Node*, K&) [with K = int; V = std::__cxx11::basic_string<char>]’
-   Node * removeHelper(Node * curr, K & key) {
-          ^~~~~~~~~~~~
+bstmap.h: In instantiation of ‘BstMap<K, V>::~BstMap() [with K = int; V = std::__cxx11::basic_string<char>]’:
+89-tester.cpp:164:10:   required from here
+bstmap.h:98:35: error: ‘destry’ was not declared in this scope
+   virtual ~BstMap<K, V>() { destry(root); }
+                             ~~~~~~^~~~~~
+bstmap.h:98:35: note: suggested alternative: ‘destroy’
+   virtual ~BstMap<K, V>() { destry(root); }
+                             ~~~~~~^~~~~~
+                             destroy
+bstmap.h: In member function ‘BstMap<K, V>::Node* BstMap<K, V>::removeHelper(BstMap<K, V>::Node*, const K&) [with K = int; V = std::__cxx11::basic_string<char>]’:
+bstmap.h:87:3: error: control reaches end of non-void function [-Werror=return-type]
+   }
+   ^
+cc1plus: all warnings being treated as errors
 The code did not compile.  This test failed.
 -----------------------------------------------
 testcase 3 : Testing with BstMap<int,(a custom class we wrote)>
 ...compiling...
 In file included from 89-tester.cpp:1:0:
-bstmap.h:98:22: error: declaration of ‘~Map<K, V>’ as member of ‘BstMap<K, V>’
-   virtual ~Map<K, V>() { destry(root); }
-                      ^
-bstmap.h: In instantiation of ‘void BstMap<K, V>::remove(const K&) [with K = int; V = Tester]’:
-89-tester.cpp:197:1:   required from here
-bstmap.h:89:52: error: binding reference of type ‘int&’ to ‘const int’ discards qualifiers
-   virtual void remove(const K & key) { removeHelper(root, key); }
-                                        ~~~~~~~~~~~~^~~~~~~~~~~
-bstmap.h:52:10: note:   initializing argument 2 of ‘BstMap<K, V>::Node* BstMap<K, V>::removeHelper(BstMap<K, V>::Node*, K&) [with K = int; V = Tester]’
-   Node * removeHelper(Node * curr, K & key) {
-          ^~~~~~~~~~~~
+bstmap.h: In instantiation of ‘BstMap<K, V>::~BstMap() [with K = int; V = Tester]’:
+89-tester.cpp:164:10:   required from here
+bstmap.h:98:35: error: ‘destry’ was not declared in this scope
+   virtual ~BstMap<K, V>() { destry(root); }
+                             ~~~~~~^~~~~~
+bstmap.h:98:35: note: suggested alternative: ‘destroy’
+   virtual ~BstMap<K, V>() { destry(root); }
+                             ~~~~~~^~~~~~
+                             destroy
+bstmap.h: In member function ‘BstMap<K, V>::Node* BstMap<K, V>::removeHelper(BstMap<K, V>::Node*, const K&) [with K = int; V = Tester]’:
+bstmap.h:87:3: error: control reaches end of non-void function [-Werror=return-type]
+   }
+   ^
+cc1plus: all warnings being treated as errors
 The code did not compile.  This test failed.
 -----------------------------------------------
 testcase 4 : Testing with BstMap<std::string,int>
 ...compiling...
 In file included from 89-tester.cpp:1:0:
-bstmap.h:98:22: error: declaration of ‘~Map<K, V>’ as member of ‘BstMap<K, V>’
-   virtual ~Map<K, V>() { destry(root); }
-                      ^
-bstmap.h: In instantiation of ‘void BstMap<K, V>::remove(const K&) [with K = std::__cxx11::basic_string<char>; V = int]’:
-89-tester.cpp:197:1:   required from here
-bstmap.h:89:52: error: binding reference of type ‘std::__cxx11::basic_string<char>&’ to ‘const std::__cxx11::basic_string<char>’ discards qualifiers
-   virtual void remove(const K & key) { removeHelper(root, key); }
-                                        ~~~~~~~~~~~~^~~~~~~~~~~
-bstmap.h:52:10: note:   initializing argument 2 of ‘BstMap<K, V>::Node* BstMap<K, V>::removeHelper(BstMap<K, V>::Node*, K&) [with K = std::__cxx11::basic_string<char>; V = int]’
-   Node * removeHelper(Node * curr, K & key) {
-          ^~~~~~~~~~~~
+bstmap.h: In instantiation of ‘BstMap<K, V>::~BstMap() [with K = std::__cxx11::basic_string<char>; V = int]’:
+89-tester.cpp:164:10:   required from here
+bstmap.h:98:35: error: ‘destry’ was not declared in this scope
+   virtual ~BstMap<K, V>() { destry(root); }
+                             ~~~~~~^~~~~~
+bstmap.h:98:35: note: suggested alternative: ‘destroy’
+   virtual ~BstMap<K, V>() { destry(root); }
+                             ~~~~~~^~~~~~
+                             destroy
+bstmap.h: In member function ‘BstMap<K, V>::Node* BstMap<K, V>::removeHelper(BstMap<K, V>::Node*, const K&) [with K = std::__cxx11::basic_string<char>; V = int]’:
+bstmap.h:87:3: error: control reaches end of non-void function [-Werror=return-type]
+   }
+   ^
+cc1plus: all warnings being treated as errors
 The code did not compile.  This test failed.
 -----------------------------------------------
 testcase 5 : Testing with BstMap<std::string,std::string>
 ...compiling...
 In file included from 89-tester.cpp:1:0:
-bstmap.h:98:22: error: declaration of ‘~Map<K, V>’ as member of ‘BstMap<K, V>’
-   virtual ~Map<K, V>() { destry(root); }
-                      ^
-bstmap.h: In instantiation of ‘void BstMap<K, V>::remove(const K&) [with K = std::__cxx11::basic_string<char>; V = std::__cxx11::basic_string<char>]’:
-89-tester.cpp:197:1:   required from here
-bstmap.h:89:52: error: binding reference of type ‘std::__cxx11::basic_string<char>&’ to ‘const std::__cxx11::basic_string<char>’ discards qualifiers
-   virtual void remove(const K & key) { removeHelper(root, key); }
-                                        ~~~~~~~~~~~~^~~~~~~~~~~
-bstmap.h:52:10: note:   initializing argument 2 of ‘BstMap<K, V>::Node* BstMap<K, V>::removeHelper(BstMap<K, V>::Node*, K&) [with K = std::__cxx11::basic_string<char>; V = std::__cxx11::basic_string<char>]’
-   Node * removeHelper(Node * curr, K & key) {
-          ^~~~~~~~~~~~
+bstmap.h: In instantiation of ‘BstMap<K, V>::~BstMap() [with K = std::__cxx11::basic_string<char>; V = std::__cxx11::basic_string<char>]’:
+89-tester.cpp:164:10:   required from here
+bstmap.h:98:35: error: ‘destry’ was not declared in this scope
+   virtual ~BstMap<K, V>() { destry(root); }
+                             ~~~~~~^~~~~~
+bstmap.h:98:35: note: suggested alternative: ‘destroy’
+   virtual ~BstMap<K, V>() { destry(root); }
+                             ~~~~~~^~~~~~
+                             destroy
+bstmap.h: In member function ‘BstMap<K, V>::Node* BstMap<K, V>::removeHelper(BstMap<K, V>::Node*, const K&) [with K = std::__cxx11::basic_string<char>; V = std::__cxx11::basic_string<char>]’:
+bstmap.h:87:3: error: control reaches end of non-void function [-Werror=return-type]
+   }
+   ^
+cc1plus: all warnings being treated as errors
 The code did not compile.  This test failed.
 -----------------------------------------------
 testcase 6 : Testing with BstMap<std::string,(a custom class we wrote)>
 ...compiling...
 In file included from 89-tester.cpp:1:0:
-bstmap.h:98:22: error: declaration of ‘~Map<K, V>’ as member of ‘BstMap<K, V>’
-   virtual ~Map<K, V>() { destry(root); }
-                      ^
-bstmap.h: In instantiation of ‘void BstMap<K, V>::remove(const K&) [with K = std::__cxx11::basic_string<char>; V = Tester]’:
-89-tester.cpp:197:1:   required from here
-bstmap.h:89:52: error: binding reference of type ‘std::__cxx11::basic_string<char>&’ to ‘const std::__cxx11::basic_string<char>’ discards qualifiers
-   virtual void remove(const K & key) { removeHelper(root, key); }
-                                        ~~~~~~~~~~~~^~~~~~~~~~~
-bstmap.h:52:10: note:   initializing argument 2 of ‘BstMap<K, V>::Node* BstMap<K, V>::removeHelper(BstMap<K, V>::Node*, K&) [with K = std::__cxx11::basic_string<char>; V = Tester]’
-   Node * removeHelper(Node * curr, K & key) {
-          ^~~~~~~~~~~~
+bstmap.h: In instantiation of ‘BstMap<K, V>::~BstMap() [with K = std::__cxx11::basic_string<char>; V = Tester]’:
+89-tester.cpp:164:10:   required from here
+bstmap.h:98:35: error: ‘destry’ was not declared in this scope
+   virtual ~BstMap<K, V>() { destry(root); }
+                             ~~~~~~^~~~~~
+bstmap.h:98:35: note: suggested alternative: ‘destroy’
+   virtual ~BstMap<K, V>() { destry(root); }
+                             ~~~~~~^~~~~~
+                             destroy
+bstmap.h: In member function ‘BstMap<K, V>::Node* BstMap<K, V>::removeHelper(BstMap<K, V>::Node*, const K&) [with K = std::__cxx11::basic_string<char>; V = Tester]’:
+bstmap.h:87:3: error: control reaches end of non-void function [-Werror=return-type]
+   }
+   ^
+cc1plus: all warnings being treated as errors
 The code did not compile.  This test failed.
 -----------------------------------------------
 testcase 7 : Testing with BstMap<(a custom class we wrote),int>
 ...compiling...
 In file included from 89-tester.cpp:1:0:
-bstmap.h:98:22: error: declaration of ‘~Map<K, V>’ as member of ‘BstMap<K, V>’
-   virtual ~Map<K, V>() { destry(root); }
-                      ^
-bstmap.h: In instantiation of ‘void BstMap<K, V>::remove(const K&) [with K = Tester; V = int]’:
-89-tester.cpp:197:1:   required from here
-bstmap.h:89:52: error: binding reference of type ‘Tester&’ to ‘const Tester’ discards qualifiers
-   virtual void remove(const K & key) { removeHelper(root, key); }
-                                        ~~~~~~~~~~~~^~~~~~~~~~~
-bstmap.h:52:10: note:   initializing argument 2 of ‘BstMap<K, V>::Node* BstMap<K, V>::removeHelper(BstMap<K, V>::Node*, K&) [with K = Tester; V = int]’
-   Node * removeHelper(Node * curr, K & key) {
-          ^~~~~~~~~~~~
+bstmap.h: In instantiation of ‘BstMap<K, V>::~BstMap() [with K = Tester; V = int]’:
+89-tester.cpp:164:10:   required from here
+bstmap.h:98:35: error: ‘destry’ was not declared in this scope
+   virtual ~BstMap<K, V>() { destry(root); }
+                             ~~~~~~^~~~~~
+bstmap.h:98:35: note: suggested alternative: ‘destroy’
+   virtual ~BstMap<K, V>() { destry(root); }
+                             ~~~~~~^~~~~~
+                             destroy
+bstmap.h: In member function ‘BstMap<K, V>::Node* BstMap<K, V>::removeHelper(BstMap<K, V>::Node*, const K&) [with K = Tester; V = int]’:
+bstmap.h:87:3: error: control reaches end of non-void function [-Werror=return-type]
+   }
+   ^
+cc1plus: all warnings being treated as errors
 The code did not compile.  This test failed.
 -----------------------------------------------
 testcase 8 : Testing with BstMap<(a custom class we wrote),std::string>
 ...compiling...
 In file included from 89-tester.cpp:1:0:
-bstmap.h:98:22: error: declaration of ‘~Map<K, V>’ as member of ‘BstMap<K, V>’
-   virtual ~Map<K, V>() { destry(root); }
-                      ^
-bstmap.h: In instantiation of ‘void BstMap<K, V>::remove(const K&) [with K = Tester; V = std::__cxx11::basic_string<char>]’:
-89-tester.cpp:197:1:   required from here
-bstmap.h:89:52: error: binding reference of type ‘Tester&’ to ‘const Tester’ discards qualifiers
-   virtual void remove(const K & key) { removeHelper(root, key); }
-                                        ~~~~~~~~~~~~^~~~~~~~~~~
-bstmap.h:52:10: note:   initializing argument 2 of ‘BstMap<K, V>::Node* BstMap<K, V>::removeHelper(BstMap<K, V>::Node*, K&) [with K = Tester; V = std::__cxx11::basic_string<char>]’
-   Node * removeHelper(Node * curr, K & key) {
-          ^~~~~~~~~~~~
+bstmap.h: In instantiation of ‘BstMap<K, V>::~BstMap() [with K = Tester; V = std::__cxx11::basic_string<char>]’:
+89-tester.cpp:164:10:   required from here
+bstmap.h:98:35: error: ‘destry’ was not declared in this scope
+   virtual ~BstMap<K, V>() { destry(root); }
+                             ~~~~~~^~~~~~
+bstmap.h:98:35: note: suggested alternative: ‘destroy’
+   virtual ~BstMap<K, V>() { destry(root); }
+                             ~~~~~~^~~~~~
+                             destroy
+bstmap.h: In member function ‘BstMap<K, V>::Node* BstMap<K, V>::removeHelper(BstMap<K, V>::Node*, const K&) [with K = Tester; V = std::__cxx11::basic_string<char>]’:
+bstmap.h:87:3: error: control reaches end of non-void function [-Werror=return-type]
+   }
+   ^
+cc1plus: all warnings being treated as errors
 The code did not compile.  This test failed.
 -----------------------------------------------
 testcase 9 : Testing with BstMap<(a custom class we wrote),(a custom class we wrote)>
 ...compiling...
 In file included from 89-tester.cpp:1:0:
-bstmap.h:98:22: error: declaration of ‘~Map<K, V>’ as member of ‘BstMap<K, V>’
-   virtual ~Map<K, V>() { destry(root); }
-                      ^
-bstmap.h: In instantiation of ‘void BstMap<K, V>::remove(const K&) [with K = Tester; V = Tester]’:
-89-tester.cpp:197:1:   required from here
-bstmap.h:89:52: error: binding reference of type ‘Tester&’ to ‘const Tester’ discards qualifiers
-   virtual void remove(const K & key) { removeHelper(root, key); }
-                                        ~~~~~~~~~~~~^~~~~~~~~~~
-bstmap.h:52:10: note:   initializing argument 2 of ‘BstMap<K, V>::Node* BstMap<K, V>::removeHelper(BstMap<K, V>::Node*, K&) [with K = Tester; V = Tester]’
-   Node * removeHelper(Node * curr, K & key) {
-          ^~~~~~~~~~~~
+bstmap.h: In instantiation of ‘BstMap<K, V>::~BstMap() [with K = Tester; V = Tester]’:
+89-tester.cpp:164:10:   required from here
+bstmap.h:98:35: error: ‘destry’ was not declared in this scope
+   virtual ~BstMap<K, V>() { destry(root); }
+                             ~~~~~~^~~~~~
+bstmap.h:98:35: note: suggested alternative: ‘destroy’
+   virtual ~BstMap<K, V>() { destry(root); }
+                             ~~~~~~^~~~~~
+                             destroy
+bstmap.h: In member function ‘BstMap<K, V>::Node* BstMap<K, V>::removeHelper(BstMap<K, V>::Node*, const K&) [with K = Tester; V = Tester]’:
+bstmap.h:87:3: error: control reaches end of non-void function [-Werror=return-type]
+   }
+   ^
+cc1plus: all warnings being treated as errors
 The code did not compile.  This test failed.
 
 Overall Grade: F
