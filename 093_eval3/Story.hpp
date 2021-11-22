@@ -129,6 +129,10 @@ class Story {
       //currentDepth++;
     }
     printDepths(depthArr);
+    //    free(depthArr);
+    //free(visitedArr);
+    delete[] depthArr;
+    delete[] visitedArr;
   }
 
   void printDepths(int * depthArr) {
