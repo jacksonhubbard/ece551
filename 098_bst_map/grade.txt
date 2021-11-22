@@ -1,6 +1,6 @@
-Grading at 11/22/2021:23:49:31.643085
-For commit ID 87edf0c4c953fdb13c9983bdec333447ef9f0e09
-Grading at Mon Nov 22 18:49:30 EST 2021
+Grading at 11/22/2021:23:52:43.231374
+For commit ID dbc93cb3f8400676263c1596122a9fb24f8c2f58
+Grading at Mon Nov 22 18:52:41 EST 2021
 -----------------------------------------------
 testcase 1 : Testing with BstMap<int,int>
 ...compiling...
@@ -8,32 +8,24 @@ In file included from 89-tester.cpp:1:0:
 bstmap.h:98:22: error: declaration of ‘~Map<K, V>’ as member of ‘BstMap<K, V>’
    virtual ~Map<K, V>() { destry(root); }
                       ^
+bstmap.h: In member function ‘BstMap<K, V>::Node* BstMap<K, V>::removeHelper(BstMap<K, V>::Node*, K&)’:
+bstmap.h:54:7: error: return-statement with no value, in function returning ‘BstMap<K, V>::Node*’ [-fpermissive]
+       return;
+       ^~~~~~
 bstmap.h: In instantiation of ‘void BstMap<K, V>::remove(const K&) [with K = int; V = int]’:
 89-tester.cpp:197:1:   required from here
 bstmap.h:89:52: error: binding reference of type ‘int&’ to ‘const int’ discards qualifiers
    virtual void remove(const K & key) { removeHelper(root, key); }
                                         ~~~~~~~~~~~~^~~~~~~~~~~
-bstmap.h:52:8: note:   initializing argument 2 of ‘void BstMap<K, V>::removeHelper(BstMap<K, V>::Node*, K&) [with K = int; V = int]’
-   void removeHelper(Node * curr, K & key) {
-        ^~~~~~~~~~~~
-bstmap.h: In instantiation of ‘void BstMap<K, V>::removeHelper(BstMap<K, V>::Node*, K&) [with K = int; V = int]’:
+bstmap.h:52:10: note:   initializing argument 2 of ‘BstMap<K, V>::Node* BstMap<K, V>::removeHelper(BstMap<K, V>::Node*, K&) [with K = int; V = int]’
+   Node * removeHelper(Node * curr, K & key) {
+          ^~~~~~~~~~~~
+bstmap.h: In instantiation of ‘BstMap<K, V>::Node* BstMap<K, V>::removeHelper(BstMap<K, V>::Node*, K&) [with K = int; V = int]’:
 bstmap.h:89:52:   required from ‘void BstMap<K, V>::remove(const K&) [with K = int; V = int]’
 89-tester.cpp:197:1:   required from here
-bstmap.h:57:18: error: void value not ignored as it ought to be
-       curr->left = removeHelper(curr->left, key);
-       ~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-bstmap.h:59:26: error: ‘struct BstMap<int, int>::Node’ has no member named ‘data’
-     else if (key > curr->data) {
-                    ~~~~~~^~~~
-bstmap.h:60:19: error: void value not ignored as it ought to be
-       curr->right = removeHelper(curr->right, key);
-       ~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-bstmap.h:82:21: error: void value not ignored as it ought to be
-         curr->right = removeHelper(curr->right, curr->key);
-         ~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-bstmap.h:86:12: error: return-statement with a value, in function returning 'void' [-fpermissive]
-     return curr;
-            ^~~~
+bstmap.h:54:7: error: return-statement with no value, in function returning ‘BstMap<int, int>::Node*’ [-fpermissive]
+       return;
+       ^~~~~~
 The code did not compile.  This test failed.
 -----------------------------------------------
 testcase 2 : Testing with BstMap<int,std::string>
@@ -42,32 +34,24 @@ In file included from 89-tester.cpp:1:0:
 bstmap.h:98:22: error: declaration of ‘~Map<K, V>’ as member of ‘BstMap<K, V>’
    virtual ~Map<K, V>() { destry(root); }
                       ^
+bstmap.h: In member function ‘BstMap<K, V>::Node* BstMap<K, V>::removeHelper(BstMap<K, V>::Node*, K&)’:
+bstmap.h:54:7: error: return-statement with no value, in function returning ‘BstMap<K, V>::Node*’ [-fpermissive]
+       return;
+       ^~~~~~
 bstmap.h: In instantiation of ‘void BstMap<K, V>::remove(const K&) [with K = int; V = std::__cxx11::basic_string<char>]’:
 89-tester.cpp:197:1:   required from here
 bstmap.h:89:52: error: binding reference of type ‘int&’ to ‘const int’ discards qualifiers
    virtual void remove(const K & key) { removeHelper(root, key); }
                                         ~~~~~~~~~~~~^~~~~~~~~~~
-bstmap.h:52:8: note:   initializing argument 2 of ‘void BstMap<K, V>::removeHelper(BstMap<K, V>::Node*, K&) [with K = int; V = std::__cxx11::basic_string<char>]’
-   void removeHelper(Node * curr, K & key) {
-        ^~~~~~~~~~~~
-bstmap.h: In instantiation of ‘void BstMap<K, V>::removeHelper(BstMap<K, V>::Node*, K&) [with K = int; V = std::__cxx11::basic_string<char>]’:
+bstmap.h:52:10: note:   initializing argument 2 of ‘BstMap<K, V>::Node* BstMap<K, V>::removeHelper(BstMap<K, V>::Node*, K&) [with K = int; V = std::__cxx11::basic_string<char>]’
+   Node * removeHelper(Node * curr, K & key) {
+          ^~~~~~~~~~~~
+bstmap.h: In instantiation of ‘BstMap<K, V>::Node* BstMap<K, V>::removeHelper(BstMap<K, V>::Node*, K&) [with K = int; V = std::__cxx11::basic_string<char>]’:
 bstmap.h:89:52:   required from ‘void BstMap<K, V>::remove(const K&) [with K = int; V = std::__cxx11::basic_string<char>]’
 89-tester.cpp:197:1:   required from here
-bstmap.h:57:18: error: void value not ignored as it ought to be
-       curr->left = removeHelper(curr->left, key);
-       ~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-bstmap.h:59:26: error: ‘struct BstMap<int, std::__cxx11::basic_string<char> >::Node’ has no member named ‘data’
-     else if (key > curr->data) {
-                    ~~~~~~^~~~
-bstmap.h:60:19: error: void value not ignored as it ought to be
-       curr->right = removeHelper(curr->right, key);
-       ~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-bstmap.h:82:21: error: void value not ignored as it ought to be
-         curr->right = removeHelper(curr->right, curr->key);
-         ~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-bstmap.h:86:12: error: return-statement with a value, in function returning 'void' [-fpermissive]
-     return curr;
-            ^~~~
+bstmap.h:54:7: error: return-statement with no value, in function returning ‘BstMap<int, std::__cxx11::basic_string<char> >::Node*’ [-fpermissive]
+       return;
+       ^~~~~~
 The code did not compile.  This test failed.
 -----------------------------------------------
 testcase 3 : Testing with BstMap<int,(a custom class we wrote)>
@@ -76,32 +60,24 @@ In file included from 89-tester.cpp:1:0:
 bstmap.h:98:22: error: declaration of ‘~Map<K, V>’ as member of ‘BstMap<K, V>’
    virtual ~Map<K, V>() { destry(root); }
                       ^
+bstmap.h: In member function ‘BstMap<K, V>::Node* BstMap<K, V>::removeHelper(BstMap<K, V>::Node*, K&)’:
+bstmap.h:54:7: error: return-statement with no value, in function returning ‘BstMap<K, V>::Node*’ [-fpermissive]
+       return;
+       ^~~~~~
 bstmap.h: In instantiation of ‘void BstMap<K, V>::remove(const K&) [with K = int; V = Tester]’:
 89-tester.cpp:197:1:   required from here
 bstmap.h:89:52: error: binding reference of type ‘int&’ to ‘const int’ discards qualifiers
    virtual void remove(const K & key) { removeHelper(root, key); }
                                         ~~~~~~~~~~~~^~~~~~~~~~~
-bstmap.h:52:8: note:   initializing argument 2 of ‘void BstMap<K, V>::removeHelper(BstMap<K, V>::Node*, K&) [with K = int; V = Tester]’
-   void removeHelper(Node * curr, K & key) {
-        ^~~~~~~~~~~~
-bstmap.h: In instantiation of ‘void BstMap<K, V>::removeHelper(BstMap<K, V>::Node*, K&) [with K = int; V = Tester]’:
+bstmap.h:52:10: note:   initializing argument 2 of ‘BstMap<K, V>::Node* BstMap<K, V>::removeHelper(BstMap<K, V>::Node*, K&) [with K = int; V = Tester]’
+   Node * removeHelper(Node * curr, K & key) {
+          ^~~~~~~~~~~~
+bstmap.h: In instantiation of ‘BstMap<K, V>::Node* BstMap<K, V>::removeHelper(BstMap<K, V>::Node*, K&) [with K = int; V = Tester]’:
 bstmap.h:89:52:   required from ‘void BstMap<K, V>::remove(const K&) [with K = int; V = Tester]’
 89-tester.cpp:197:1:   required from here
-bstmap.h:57:18: error: void value not ignored as it ought to be
-       curr->left = removeHelper(curr->left, key);
-       ~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-bstmap.h:59:26: error: ‘struct BstMap<int, Tester>::Node’ has no member named ‘data’
-     else if (key > curr->data) {
-                    ~~~~~~^~~~
-bstmap.h:60:19: error: void value not ignored as it ought to be
-       curr->right = removeHelper(curr->right, key);
-       ~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-bstmap.h:82:21: error: void value not ignored as it ought to be
-         curr->right = removeHelper(curr->right, curr->key);
-         ~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-bstmap.h:86:12: error: return-statement with a value, in function returning 'void' [-fpermissive]
-     return curr;
-            ^~~~
+bstmap.h:54:7: error: return-statement with no value, in function returning ‘BstMap<int, Tester>::Node*’ [-fpermissive]
+       return;
+       ^~~~~~
 The code did not compile.  This test failed.
 -----------------------------------------------
 testcase 4 : Testing with BstMap<std::string,int>
@@ -110,32 +86,24 @@ In file included from 89-tester.cpp:1:0:
 bstmap.h:98:22: error: declaration of ‘~Map<K, V>’ as member of ‘BstMap<K, V>’
    virtual ~Map<K, V>() { destry(root); }
                       ^
+bstmap.h: In member function ‘BstMap<K, V>::Node* BstMap<K, V>::removeHelper(BstMap<K, V>::Node*, K&)’:
+bstmap.h:54:7: error: return-statement with no value, in function returning ‘BstMap<K, V>::Node*’ [-fpermissive]
+       return;
+       ^~~~~~
 bstmap.h: In instantiation of ‘void BstMap<K, V>::remove(const K&) [with K = std::__cxx11::basic_string<char>; V = int]’:
 89-tester.cpp:197:1:   required from here
 bstmap.h:89:52: error: binding reference of type ‘std::__cxx11::basic_string<char>&’ to ‘const std::__cxx11::basic_string<char>’ discards qualifiers
    virtual void remove(const K & key) { removeHelper(root, key); }
                                         ~~~~~~~~~~~~^~~~~~~~~~~
-bstmap.h:52:8: note:   initializing argument 2 of ‘void BstMap<K, V>::removeHelper(BstMap<K, V>::Node*, K&) [with K = std::__cxx11::basic_string<char>; V = int]’
-   void removeHelper(Node * curr, K & key) {
-        ^~~~~~~~~~~~
-bstmap.h: In instantiation of ‘void BstMap<K, V>::removeHelper(BstMap<K, V>::Node*, K&) [with K = std::__cxx11::basic_string<char>; V = int]’:
+bstmap.h:52:10: note:   initializing argument 2 of ‘BstMap<K, V>::Node* BstMap<K, V>::removeHelper(BstMap<K, V>::Node*, K&) [with K = std::__cxx11::basic_string<char>; V = int]’
+   Node * removeHelper(Node * curr, K & key) {
+          ^~~~~~~~~~~~
+bstmap.h: In instantiation of ‘BstMap<K, V>::Node* BstMap<K, V>::removeHelper(BstMap<K, V>::Node*, K&) [with K = std::__cxx11::basic_string<char>; V = int]’:
 bstmap.h:89:52:   required from ‘void BstMap<K, V>::remove(const K&) [with K = std::__cxx11::basic_string<char>; V = int]’
 89-tester.cpp:197:1:   required from here
-bstmap.h:57:18: error: void value not ignored as it ought to be
-       curr->left = removeHelper(curr->left, key);
-       ~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-bstmap.h:59:26: error: ‘struct BstMap<std::__cxx11::basic_string<char>, int>::Node’ has no member named ‘data’
-     else if (key > curr->data) {
-                    ~~~~~~^~~~
-bstmap.h:60:19: error: void value not ignored as it ought to be
-       curr->right = removeHelper(curr->right, key);
-       ~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-bstmap.h:82:21: error: void value not ignored as it ought to be
-         curr->right = removeHelper(curr->right, curr->key);
-         ~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-bstmap.h:86:12: error: return-statement with a value, in function returning 'void' [-fpermissive]
-     return curr;
-            ^~~~
+bstmap.h:54:7: error: return-statement with no value, in function returning ‘BstMap<std::__cxx11::basic_string<char>, int>::Node*’ [-fpermissive]
+       return;
+       ^~~~~~
 The code did not compile.  This test failed.
 -----------------------------------------------
 testcase 5 : Testing with BstMap<std::string,std::string>
@@ -144,32 +112,24 @@ In file included from 89-tester.cpp:1:0:
 bstmap.h:98:22: error: declaration of ‘~Map<K, V>’ as member of ‘BstMap<K, V>’
    virtual ~Map<K, V>() { destry(root); }
                       ^
+bstmap.h: In member function ‘BstMap<K, V>::Node* BstMap<K, V>::removeHelper(BstMap<K, V>::Node*, K&)’:
+bstmap.h:54:7: error: return-statement with no value, in function returning ‘BstMap<K, V>::Node*’ [-fpermissive]
+       return;
+       ^~~~~~
 bstmap.h: In instantiation of ‘void BstMap<K, V>::remove(const K&) [with K = std::__cxx11::basic_string<char>; V = std::__cxx11::basic_string<char>]’:
 89-tester.cpp:197:1:   required from here
 bstmap.h:89:52: error: binding reference of type ‘std::__cxx11::basic_string<char>&’ to ‘const std::__cxx11::basic_string<char>’ discards qualifiers
    virtual void remove(const K & key) { removeHelper(root, key); }
                                         ~~~~~~~~~~~~^~~~~~~~~~~
-bstmap.h:52:8: note:   initializing argument 2 of ‘void BstMap<K, V>::removeHelper(BstMap<K, V>::Node*, K&) [with K = std::__cxx11::basic_string<char>; V = std::__cxx11::basic_string<char>]’
-   void removeHelper(Node * curr, K & key) {
-        ^~~~~~~~~~~~
-bstmap.h: In instantiation of ‘void BstMap<K, V>::removeHelper(BstMap<K, V>::Node*, K&) [with K = std::__cxx11::basic_string<char>; V = std::__cxx11::basic_string<char>]’:
+bstmap.h:52:10: note:   initializing argument 2 of ‘BstMap<K, V>::Node* BstMap<K, V>::removeHelper(BstMap<K, V>::Node*, K&) [with K = std::__cxx11::basic_string<char>; V = std::__cxx11::basic_string<char>]’
+   Node * removeHelper(Node * curr, K & key) {
+          ^~~~~~~~~~~~
+bstmap.h: In instantiation of ‘BstMap<K, V>::Node* BstMap<K, V>::removeHelper(BstMap<K, V>::Node*, K&) [with K = std::__cxx11::basic_string<char>; V = std::__cxx11::basic_string<char>]’:
 bstmap.h:89:52:   required from ‘void BstMap<K, V>::remove(const K&) [with K = std::__cxx11::basic_string<char>; V = std::__cxx11::basic_string<char>]’
 89-tester.cpp:197:1:   required from here
-bstmap.h:57:18: error: void value not ignored as it ought to be
-       curr->left = removeHelper(curr->left, key);
-       ~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-bstmap.h:59:26: error: ‘struct BstMap<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char> >::Node’ has no member named ‘data’
-     else if (key > curr->data) {
-                    ~~~~~~^~~~
-bstmap.h:60:19: error: void value not ignored as it ought to be
-       curr->right = removeHelper(curr->right, key);
-       ~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-bstmap.h:82:21: error: void value not ignored as it ought to be
-         curr->right = removeHelper(curr->right, curr->key);
-         ~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-bstmap.h:86:12: error: return-statement with a value, in function returning 'void' [-fpermissive]
-     return curr;
-            ^~~~
+bstmap.h:54:7: error: return-statement with no value, in function returning ‘BstMap<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char> >::Node*’ [-fpermissive]
+       return;
+       ^~~~~~
 The code did not compile.  This test failed.
 -----------------------------------------------
 testcase 6 : Testing with BstMap<std::string,(a custom class we wrote)>
@@ -178,32 +138,24 @@ In file included from 89-tester.cpp:1:0:
 bstmap.h:98:22: error: declaration of ‘~Map<K, V>’ as member of ‘BstMap<K, V>’
    virtual ~Map<K, V>() { destry(root); }
                       ^
+bstmap.h: In member function ‘BstMap<K, V>::Node* BstMap<K, V>::removeHelper(BstMap<K, V>::Node*, K&)’:
+bstmap.h:54:7: error: return-statement with no value, in function returning ‘BstMap<K, V>::Node*’ [-fpermissive]
+       return;
+       ^~~~~~
 bstmap.h: In instantiation of ‘void BstMap<K, V>::remove(const K&) [with K = std::__cxx11::basic_string<char>; V = Tester]’:
 89-tester.cpp:197:1:   required from here
 bstmap.h:89:52: error: binding reference of type ‘std::__cxx11::basic_string<char>&’ to ‘const std::__cxx11::basic_string<char>’ discards qualifiers
    virtual void remove(const K & key) { removeHelper(root, key); }
                                         ~~~~~~~~~~~~^~~~~~~~~~~
-bstmap.h:52:8: note:   initializing argument 2 of ‘void BstMap<K, V>::removeHelper(BstMap<K, V>::Node*, K&) [with K = std::__cxx11::basic_string<char>; V = Tester]’
-   void removeHelper(Node * curr, K & key) {
-        ^~~~~~~~~~~~
-bstmap.h: In instantiation of ‘void BstMap<K, V>::removeHelper(BstMap<K, V>::Node*, K&) [with K = std::__cxx11::basic_string<char>; V = Tester]’:
+bstmap.h:52:10: note:   initializing argument 2 of ‘BstMap<K, V>::Node* BstMap<K, V>::removeHelper(BstMap<K, V>::Node*, K&) [with K = std::__cxx11::basic_string<char>; V = Tester]’
+   Node * removeHelper(Node * curr, K & key) {
+          ^~~~~~~~~~~~
+bstmap.h: In instantiation of ‘BstMap<K, V>::Node* BstMap<K, V>::removeHelper(BstMap<K, V>::Node*, K&) [with K = std::__cxx11::basic_string<char>; V = Tester]’:
 bstmap.h:89:52:   required from ‘void BstMap<K, V>::remove(const K&) [with K = std::__cxx11::basic_string<char>; V = Tester]’
 89-tester.cpp:197:1:   required from here
-bstmap.h:57:18: error: void value not ignored as it ought to be
-       curr->left = removeHelper(curr->left, key);
-       ~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-bstmap.h:59:26: error: ‘struct BstMap<std::__cxx11::basic_string<char>, Tester>::Node’ has no member named ‘data’
-     else if (key > curr->data) {
-                    ~~~~~~^~~~
-bstmap.h:60:19: error: void value not ignored as it ought to be
-       curr->right = removeHelper(curr->right, key);
-       ~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-bstmap.h:82:21: error: void value not ignored as it ought to be
-         curr->right = removeHelper(curr->right, curr->key);
-         ~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-bstmap.h:86:12: error: return-statement with a value, in function returning 'void' [-fpermissive]
-     return curr;
-            ^~~~
+bstmap.h:54:7: error: return-statement with no value, in function returning ‘BstMap<std::__cxx11::basic_string<char>, Tester>::Node*’ [-fpermissive]
+       return;
+       ^~~~~~
 The code did not compile.  This test failed.
 -----------------------------------------------
 testcase 7 : Testing with BstMap<(a custom class we wrote),int>
@@ -212,32 +164,24 @@ In file included from 89-tester.cpp:1:0:
 bstmap.h:98:22: error: declaration of ‘~Map<K, V>’ as member of ‘BstMap<K, V>’
    virtual ~Map<K, V>() { destry(root); }
                       ^
+bstmap.h: In member function ‘BstMap<K, V>::Node* BstMap<K, V>::removeHelper(BstMap<K, V>::Node*, K&)’:
+bstmap.h:54:7: error: return-statement with no value, in function returning ‘BstMap<K, V>::Node*’ [-fpermissive]
+       return;
+       ^~~~~~
 bstmap.h: In instantiation of ‘void BstMap<K, V>::remove(const K&) [with K = Tester; V = int]’:
 89-tester.cpp:197:1:   required from here
 bstmap.h:89:52: error: binding reference of type ‘Tester&’ to ‘const Tester’ discards qualifiers
    virtual void remove(const K & key) { removeHelper(root, key); }
                                         ~~~~~~~~~~~~^~~~~~~~~~~
-bstmap.h:52:8: note:   initializing argument 2 of ‘void BstMap<K, V>::removeHelper(BstMap<K, V>::Node*, K&) [with K = Tester; V = int]’
-   void removeHelper(Node * curr, K & key) {
-        ^~~~~~~~~~~~
-bstmap.h: In instantiation of ‘void BstMap<K, V>::removeHelper(BstMap<K, V>::Node*, K&) [with K = Tester; V = int]’:
+bstmap.h:52:10: note:   initializing argument 2 of ‘BstMap<K, V>::Node* BstMap<K, V>::removeHelper(BstMap<K, V>::Node*, K&) [with K = Tester; V = int]’
+   Node * removeHelper(Node * curr, K & key) {
+          ^~~~~~~~~~~~
+bstmap.h: In instantiation of ‘BstMap<K, V>::Node* BstMap<K, V>::removeHelper(BstMap<K, V>::Node*, K&) [with K = Tester; V = int]’:
 bstmap.h:89:52:   required from ‘void BstMap<K, V>::remove(const K&) [with K = Tester; V = int]’
 89-tester.cpp:197:1:   required from here
-bstmap.h:57:18: error: void value not ignored as it ought to be
-       curr->left = removeHelper(curr->left, key);
-       ~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-bstmap.h:59:26: error: ‘struct BstMap<Tester, int>::Node’ has no member named ‘data’
-     else if (key > curr->data) {
-                    ~~~~~~^~~~
-bstmap.h:60:19: error: void value not ignored as it ought to be
-       curr->right = removeHelper(curr->right, key);
-       ~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-bstmap.h:82:21: error: void value not ignored as it ought to be
-         curr->right = removeHelper(curr->right, curr->key);
-         ~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-bstmap.h:86:12: error: return-statement with a value, in function returning 'void' [-fpermissive]
-     return curr;
-            ^~~~
+bstmap.h:54:7: error: return-statement with no value, in function returning ‘BstMap<Tester, int>::Node*’ [-fpermissive]
+       return;
+       ^~~~~~
 The code did not compile.  This test failed.
 -----------------------------------------------
 testcase 8 : Testing with BstMap<(a custom class we wrote),std::string>
@@ -246,32 +190,24 @@ In file included from 89-tester.cpp:1:0:
 bstmap.h:98:22: error: declaration of ‘~Map<K, V>’ as member of ‘BstMap<K, V>’
    virtual ~Map<K, V>() { destry(root); }
                       ^
+bstmap.h: In member function ‘BstMap<K, V>::Node* BstMap<K, V>::removeHelper(BstMap<K, V>::Node*, K&)’:
+bstmap.h:54:7: error: return-statement with no value, in function returning ‘BstMap<K, V>::Node*’ [-fpermissive]
+       return;
+       ^~~~~~
 bstmap.h: In instantiation of ‘void BstMap<K, V>::remove(const K&) [with K = Tester; V = std::__cxx11::basic_string<char>]’:
 89-tester.cpp:197:1:   required from here
 bstmap.h:89:52: error: binding reference of type ‘Tester&’ to ‘const Tester’ discards qualifiers
    virtual void remove(const K & key) { removeHelper(root, key); }
                                         ~~~~~~~~~~~~^~~~~~~~~~~
-bstmap.h:52:8: note:   initializing argument 2 of ‘void BstMap<K, V>::removeHelper(BstMap<K, V>::Node*, K&) [with K = Tester; V = std::__cxx11::basic_string<char>]’
-   void removeHelper(Node * curr, K & key) {
-        ^~~~~~~~~~~~
-bstmap.h: In instantiation of ‘void BstMap<K, V>::removeHelper(BstMap<K, V>::Node*, K&) [with K = Tester; V = std::__cxx11::basic_string<char>]’:
+bstmap.h:52:10: note:   initializing argument 2 of ‘BstMap<K, V>::Node* BstMap<K, V>::removeHelper(BstMap<K, V>::Node*, K&) [with K = Tester; V = std::__cxx11::basic_string<char>]’
+   Node * removeHelper(Node * curr, K & key) {
+          ^~~~~~~~~~~~
+bstmap.h: In instantiation of ‘BstMap<K, V>::Node* BstMap<K, V>::removeHelper(BstMap<K, V>::Node*, K&) [with K = Tester; V = std::__cxx11::basic_string<char>]’:
 bstmap.h:89:52:   required from ‘void BstMap<K, V>::remove(const K&) [with K = Tester; V = std::__cxx11::basic_string<char>]’
 89-tester.cpp:197:1:   required from here
-bstmap.h:57:18: error: void value not ignored as it ought to be
-       curr->left = removeHelper(curr->left, key);
-       ~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-bstmap.h:59:26: error: ‘struct BstMap<Tester, std::__cxx11::basic_string<char> >::Node’ has no member named ‘data’
-     else if (key > curr->data) {
-                    ~~~~~~^~~~
-bstmap.h:60:19: error: void value not ignored as it ought to be
-       curr->right = removeHelper(curr->right, key);
-       ~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-bstmap.h:82:21: error: void value not ignored as it ought to be
-         curr->right = removeHelper(curr->right, curr->key);
-         ~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-bstmap.h:86:12: error: return-statement with a value, in function returning 'void' [-fpermissive]
-     return curr;
-            ^~~~
+bstmap.h:54:7: error: return-statement with no value, in function returning ‘BstMap<Tester, std::__cxx11::basic_string<char> >::Node*’ [-fpermissive]
+       return;
+       ^~~~~~
 The code did not compile.  This test failed.
 -----------------------------------------------
 testcase 9 : Testing with BstMap<(a custom class we wrote),(a custom class we wrote)>
@@ -280,32 +216,24 @@ In file included from 89-tester.cpp:1:0:
 bstmap.h:98:22: error: declaration of ‘~Map<K, V>’ as member of ‘BstMap<K, V>’
    virtual ~Map<K, V>() { destry(root); }
                       ^
+bstmap.h: In member function ‘BstMap<K, V>::Node* BstMap<K, V>::removeHelper(BstMap<K, V>::Node*, K&)’:
+bstmap.h:54:7: error: return-statement with no value, in function returning ‘BstMap<K, V>::Node*’ [-fpermissive]
+       return;
+       ^~~~~~
 bstmap.h: In instantiation of ‘void BstMap<K, V>::remove(const K&) [with K = Tester; V = Tester]’:
 89-tester.cpp:197:1:   required from here
 bstmap.h:89:52: error: binding reference of type ‘Tester&’ to ‘const Tester’ discards qualifiers
    virtual void remove(const K & key) { removeHelper(root, key); }
                                         ~~~~~~~~~~~~^~~~~~~~~~~
-bstmap.h:52:8: note:   initializing argument 2 of ‘void BstMap<K, V>::removeHelper(BstMap<K, V>::Node*, K&) [with K = Tester; V = Tester]’
-   void removeHelper(Node * curr, K & key) {
-        ^~~~~~~~~~~~
-bstmap.h: In instantiation of ‘void BstMap<K, V>::removeHelper(BstMap<K, V>::Node*, K&) [with K = Tester; V = Tester]’:
+bstmap.h:52:10: note:   initializing argument 2 of ‘BstMap<K, V>::Node* BstMap<K, V>::removeHelper(BstMap<K, V>::Node*, K&) [with K = Tester; V = Tester]’
+   Node * removeHelper(Node * curr, K & key) {
+          ^~~~~~~~~~~~
+bstmap.h: In instantiation of ‘BstMap<K, V>::Node* BstMap<K, V>::removeHelper(BstMap<K, V>::Node*, K&) [with K = Tester; V = Tester]’:
 bstmap.h:89:52:   required from ‘void BstMap<K, V>::remove(const K&) [with K = Tester; V = Tester]’
 89-tester.cpp:197:1:   required from here
-bstmap.h:57:18: error: void value not ignored as it ought to be
-       curr->left = removeHelper(curr->left, key);
-       ~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-bstmap.h:59:26: error: ‘struct BstMap<Tester, Tester>::Node’ has no member named ‘data’
-     else if (key > curr->data) {
-                    ~~~~~~^~~~
-bstmap.h:60:19: error: void value not ignored as it ought to be
-       curr->right = removeHelper(curr->right, key);
-       ~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-bstmap.h:82:21: error: void value not ignored as it ought to be
-         curr->right = removeHelper(curr->right, curr->key);
-         ~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-bstmap.h:86:12: error: return-statement with a value, in function returning 'void' [-fpermissive]
-     return curr;
-            ^~~~
+bstmap.h:54:7: error: return-statement with no value, in function returning ‘BstMap<Tester, Tester>::Node*’ [-fpermissive]
+       return;
+       ^~~~~~
 The code did not compile.  This test failed.
 
 Overall Grade: F
