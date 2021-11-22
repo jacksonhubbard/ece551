@@ -49,7 +49,7 @@ class BstMap : public Map<K, V> {
     }
     return curr;
   }
-  Node * removeHelper(Node * curr, K & key) {
+  Node * removeHelper(Node * curr, const K & key) {
     if (curr == NULL) {
       return NULL;
     }
@@ -95,5 +95,5 @@ class BstMap : public Map<K, V> {
     destroy(root->right);
     delete root;
   }
-  virtual ~Map<K, V>() { destry(root); }
+  virtual ~BstMap<K, V>() { destry(root); }
 };
