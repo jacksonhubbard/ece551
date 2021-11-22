@@ -2,6 +2,7 @@
 #include <exception>
 #include <fstream>
 #include <iostream>
+#include <queue>
 #include <set>
 #include <string>
 #include <vector>
@@ -82,5 +83,62 @@ class Story {
     }
     return currentPage.referencedPages[nextPage - 1];
     //return nextPage;
+  }
+
+  //  template<typename Worklist>
+  void search(int vertex) {
+    //Worklist todo;
+    queue<int> todo;
+
+    bool * visitedArr = new bool[numPages];
+    for (int i = 0; i < numPages; i++) {
+      visitedArr[i] = false;
+    }
+    visitedArr[vertex] = true;
+    todo.push(vertex);
+
+    Page currentPage;
+
+    int currentDepth = 0;
+    int * depthArr = new int[numPages];
+    for (int i = 0; i < numPages; i++) {
+      depthArr[i] = -1;
+    }
+    depthArr[0] = currentDepth;
+
+    while (todo.size() != 0) {
+      //      cout << "in while\n";
+      currentDepth++;
+      int pageIndex = todo.front();
+      todo.pop();
+      currentPage = pages[pageIndex];
+      if (currentPage.winLossIndicator < 0) {
+        vector<int> referencedPages = currentPage.referencedPages;
+        //        cout << "Page: " << pageIndex << referencedPages[0] << referencedPages[1]
+        //     << referencedPages[2] << "\n";
+
+        for (size_t i = 0; i < referencedPages.size(); i++) {
+          int pageIndex2 = referencedPages[i];
+          if (visitedArr[pageIndex2 - 1] == false) {
+            visitedArr[pageIndex2 - 1] = true;
+            todo.push(pageIndex2 - 1);
+            depthArr[pageIndex2 - 1] = depthArr[pageIndex] + 1;
+          }
+        }
+      }
+      //currentDepth++;
+    }
+    printDepths(depthArr);
+  }
+
+  void printDepths(int * depthArr) {
+    for (int i = 0; i < numPages; i++) {
+      if (depthArr[i] == -1) {
+        cout << "Page " << i + 1 << " is not reachable\n";
+      }
+      else {
+        cout << "Page " << i + 1 << ":" << depthArr[i] << "\n";
+      }
+    }
   }
 };
