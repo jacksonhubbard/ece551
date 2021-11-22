@@ -51,7 +51,7 @@ class BstMap : public Map<K, V> {
   }
   Node * removeHelper(Node * curr, K & key) {
     if (curr == NULL) {
-      return;
+      return NULL;
     }
     else if (key < curr->key) {
       curr->left = removeHelper(curr->left, key);
