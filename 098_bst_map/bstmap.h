@@ -95,5 +95,5 @@ class BstMap : public Map<K, V> {
     destroy(root->right);
     delete root;
   }
-  virtual ~BstMap<K, V>() { destry(root); }
+  virtual ~BstMap<K, V>() { destroy(root); }
 };
