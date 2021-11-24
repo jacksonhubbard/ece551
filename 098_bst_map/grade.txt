@@ -1,122 +1,68 @@
-Grading at 11/24/2021:01:28:37.391693
-For commit ID 804ced6b57eb9862a6974a33f9d409158e06e925
-Grading at Tue Nov 23 20:28:35 EST 2021
+Grading at 11/24/2021:01:32:08.538170
+For commit ID c9188b7846a796c691fdf2b7a00296969901c5fb
+Grading at Tue Nov 23 20:31:57 EST 2021
 -----------------------------------------------
 testcase 1 : Testing with BstMap<int,int>
 ...compiling...
-In file included from 89-tester.cpp:1:0:
-bstmap.h: In instantiation of ‘void BstMap<K, V>::add(const K&, const V&) [with K = int; V = int]’:
-89-tester.cpp:197:1:   required from here
-bstmap.h:33:16: error: binding reference of type ‘int&’ to ‘const int’ discards qualifiers
-     *current = new Node(key, value);
-                ^~~~~~~~~~~~~~~~~~~~
-bstmap.h:17:5: note:   initializing argument 1 of ‘BstMap<K, V>::Node::Node(K&, V&) [with K = int; V = int]’
-     Node(K & key, V & value) : left(NULL), right(NULL), key(key), value(value) {}
-     ^~~~
-The code did not compile.  This test failed.
+The code compiled.
+  - Valgrind was clean (no errors, no memory leaks)
+Your file matched the expected output
+Testcase passed 
 -----------------------------------------------
 testcase 2 : Testing with BstMap<int,std::string>
 ...compiling...
-In file included from 89-tester.cpp:1:0:
-bstmap.h: In instantiation of ‘void BstMap<K, V>::add(const K&, const V&) [with K = int; V = std::__cxx11::basic_string<char>]’:
-89-tester.cpp:197:1:   required from here
-bstmap.h:33:16: error: binding reference of type ‘int&’ to ‘const int’ discards qualifiers
-     *current = new Node(key, value);
-                ^~~~~~~~~~~~~~~~~~~~
-bstmap.h:17:5: note:   initializing argument 1 of ‘BstMap<K, V>::Node::Node(K&, V&) [with K = int; V = std::__cxx11::basic_string<char>]’
-     Node(K & key, V & value) : left(NULL), right(NULL), key(key), value(value) {}
-     ^~~~
-The code did not compile.  This test failed.
+The code compiled.
+  - Valgrind was clean (no errors, no memory leaks)
+Your file matched the expected output
+Testcase passed 
 -----------------------------------------------
 testcase 3 : Testing with BstMap<int,(a custom class we wrote)>
 ...compiling...
-In file included from 89-tester.cpp:1:0:
-bstmap.h: In instantiation of ‘void BstMap<K, V>::add(const K&, const V&) [with K = int; V = Tester]’:
-89-tester.cpp:197:1:   required from here
-bstmap.h:33:16: error: binding reference of type ‘int&’ to ‘const int’ discards qualifiers
-     *current = new Node(key, value);
-                ^~~~~~~~~~~~~~~~~~~~
-bstmap.h:17:5: note:   initializing argument 1 of ‘BstMap<K, V>::Node::Node(K&, V&) [with K = int; V = Tester]’
-     Node(K & key, V & value) : left(NULL), right(NULL), key(key), value(value) {}
-     ^~~~
-The code did not compile.  This test failed.
+The code compiled.
+  - Valgrind was clean (no errors, no memory leaks)
+Your file matched the expected output
+Testcase passed 
 -----------------------------------------------
 testcase 4 : Testing with BstMap<std::string,int>
 ...compiling...
-In file included from 89-tester.cpp:1:0:
-bstmap.h: In instantiation of ‘void BstMap<K, V>::add(const K&, const V&) [with K = std::__cxx11::basic_string<char>; V = int]’:
-89-tester.cpp:197:1:   required from here
-bstmap.h:33:16: error: binding reference of type ‘std::__cxx11::basic_string<char>&’ to ‘const std::__cxx11::basic_string<char>’ discards qualifiers
-     *current = new Node(key, value);
-                ^~~~~~~~~~~~~~~~~~~~
-bstmap.h:17:5: note:   initializing argument 1 of ‘BstMap<K, V>::Node::Node(K&, V&) [with K = std::__cxx11::basic_string<char>; V = int]’
-     Node(K & key, V & value) : left(NULL), right(NULL), key(key), value(value) {}
-     ^~~~
-The code did not compile.  This test failed.
+The code compiled.
+  - Valgrind was clean (no errors, no memory leaks)
+Your file matched the expected output
+Testcase passed 
 -----------------------------------------------
 testcase 5 : Testing with BstMap<std::string,std::string>
 ...compiling...
-In file included from 89-tester.cpp:1:0:
-bstmap.h: In instantiation of ‘void BstMap<K, V>::add(const K&, const V&) [with K = std::__cxx11::basic_string<char>; V = std::__cxx11::basic_string<char>]’:
-89-tester.cpp:197:1:   required from here
-bstmap.h:33:16: error: binding reference of type ‘std::__cxx11::basic_string<char>&’ to ‘const std::__cxx11::basic_string<char>’ discards qualifiers
-     *current = new Node(key, value);
-                ^~~~~~~~~~~~~~~~~~~~
-bstmap.h:17:5: note:   initializing argument 1 of ‘BstMap<K, V>::Node::Node(K&, V&) [with K = std::__cxx11::basic_string<char>; V = std::__cxx11::basic_string<char>]’
-     Node(K & key, V & value) : left(NULL), right(NULL), key(key), value(value) {}
-     ^~~~
-The code did not compile.  This test failed.
+The code compiled.
+  - Valgrind was clean (no errors, no memory leaks)
+Your file matched the expected output
+Testcase passed 
 -----------------------------------------------
 testcase 6 : Testing with BstMap<std::string,(a custom class we wrote)>
 ...compiling...
-In file included from 89-tester.cpp:1:0:
-bstmap.h: In instantiation of ‘void BstMap<K, V>::add(const K&, const V&) [with K = std::__cxx11::basic_string<char>; V = Tester]’:
-89-tester.cpp:197:1:   required from here
-bstmap.h:33:16: error: binding reference of type ‘std::__cxx11::basic_string<char>&’ to ‘const std::__cxx11::basic_string<char>’ discards qualifiers
-     *current = new Node(key, value);
-                ^~~~~~~~~~~~~~~~~~~~
-bstmap.h:17:5: note:   initializing argument 1 of ‘BstMap<K, V>::Node::Node(K&, V&) [with K = std::__cxx11::basic_string<char>; V = Tester]’
-     Node(K & key, V & value) : left(NULL), right(NULL), key(key), value(value) {}
-     ^~~~
-The code did not compile.  This test failed.
+The code compiled.
+  - Valgrind was clean (no errors, no memory leaks)
+Your file matched the expected output
+Testcase passed 
 -----------------------------------------------
 testcase 7 : Testing with BstMap<(a custom class we wrote),int>
 ...compiling...
-In file included from 89-tester.cpp:1:0:
-bstmap.h: In instantiation of ‘void BstMap<K, V>::add(const K&, const V&) [with K = Tester; V = int]’:
-89-tester.cpp:197:1:   required from here
-bstmap.h:33:16: error: binding reference of type ‘Tester&’ to ‘const Tester’ discards qualifiers
-     *current = new Node(key, value);
-                ^~~~~~~~~~~~~~~~~~~~
-bstmap.h:17:5: note:   initializing argument 1 of ‘BstMap<K, V>::Node::Node(K&, V&) [with K = Tester; V = int]’
-     Node(K & key, V & value) : left(NULL), right(NULL), key(key), value(value) {}
-     ^~~~
-The code did not compile.  This test failed.
+The code compiled.
+  - Valgrind was clean (no errors, no memory leaks)
+Your file matched the expected output
+Testcase passed 
 -----------------------------------------------
 testcase 8 : Testing with BstMap<(a custom class we wrote),std::string>
 ...compiling...
-In file included from 89-tester.cpp:1:0:
-bstmap.h: In instantiation of ‘void BstMap<K, V>::add(const K&, const V&) [with K = Tester; V = std::__cxx11::basic_string<char>]’:
-89-tester.cpp:197:1:   required from here
-bstmap.h:33:16: error: binding reference of type ‘Tester&’ to ‘const Tester’ discards qualifiers
-     *current = new Node(key, value);
-                ^~~~~~~~~~~~~~~~~~~~
-bstmap.h:17:5: note:   initializing argument 1 of ‘BstMap<K, V>::Node::Node(K&, V&) [with K = Tester; V = std::__cxx11::basic_string<char>]’
-     Node(K & key, V & value) : left(NULL), right(NULL), key(key), value(value) {}
-     ^~~~
-The code did not compile.  This test failed.
+The code compiled.
+  - Valgrind was clean (no errors, no memory leaks)
+Your file matched the expected output
+Testcase passed 
 -----------------------------------------------
 testcase 9 : Testing with BstMap<(a custom class we wrote),(a custom class we wrote)>
 ...compiling...
-In file included from 89-tester.cpp:1:0:
-bstmap.h: In instantiation of ‘void BstMap<K, V>::add(const K&, const V&) [with K = Tester; V = Tester]’:
-89-tester.cpp:197:1:   required from here
-bstmap.h:33:16: error: binding reference of type ‘Tester&’ to ‘const Tester’ discards qualifiers
-     *current = new Node(key, value);
-                ^~~~~~~~~~~~~~~~~~~~
-bstmap.h:17:5: note:   initializing argument 1 of ‘BstMap<K, V>::Node::Node(K&, V&) [with K = Tester; V = Tester]’
-     Node(K & key, V & value) : left(NULL), right(NULL), key(key), value(value) {}
-     ^~~~
-The code did not compile.  This test failed.
+The code compiled.
+  - Valgrind was clean (no errors, no memory leaks)
+Your file matched the expected output
+Testcase passed 
 
-Overall Grade: F
+Overall Grade: A
