@@ -32,7 +32,7 @@ class BstSet : public Set<T> {
     *current = new Node(key);
   }
 
-  virtual bool contains(const T & key) {
+  virtual bool contains(const T & key) const {
     Node * current = root;
     while (current != NULL) {
       if (key == current->key) {
@@ -83,7 +83,7 @@ class BstSet : public Set<T> {
       else {
         Node * temp = getSimilarNode(curr->right);
         curr->key = temp->key;
-        curr->value = temp->value;
+        //curr->value = temp->value;
         curr->right = removeHelper(curr->right, curr->key);
       }
     }
@@ -106,7 +106,7 @@ class BstSet : public Set<T> {
     if (otherRoot != NULL) {
       root = new Node;
       root->key = otherRoot->key;
-      root->value = otherRoot->value;
+      //      root->value = otherRoot->value;
       root->left = copyHelper(root->left, otherRoot->left);
       root->right = copyHelper(root->right, otherRoot->right);
       return root;
