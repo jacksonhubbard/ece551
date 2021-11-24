@@ -1,66 +1,10 @@
-Grading at 11/24/2021:01:22:55.655398
-For commit ID 6fbf6c5929999632eddb4b6f185ebbe2cbe68bc4
-Grading at Tue Nov 23 20:22:54 EST 2021
+Grading at 11/24/2021:01:28:37.391693
+For commit ID 804ced6b57eb9862a6974a33f9d409158e06e925
+Grading at Tue Nov 23 20:28:35 EST 2021
 -----------------------------------------------
 testcase 1 : Testing with BstMap<int,int>
 ...compiling...
 In file included from 89-tester.cpp:1:0:
-bstmap.h: In instantiation of ‘BstMap<K, V>& BstMap<K, V>::operator=(const BstMap<K, V>&) [with K = int; V = int]’:
-89-tester.cpp:131:10:   required from here
-bstmap.h:127:9: error: no matching function for call to ‘swap(BstMap<int, int>::Node*&, BstMap<int, int>&)’
-     swap(root, newMap);
-     ~~~~^~~~~~~~~~~~~~
-In file included from /usr/include/c++/7/bits/stl_pair.h:59:0,
-                 from /usr/include/c++/7/utility:70,
-                 from /usr/include/c++/7/algorithm:60,
-                 from bstmap.h:1,
-                 from 89-tester.cpp:1:
-/usr/include/c++/7/bits/move.h:192:5: note: candidate: template<class _Tp> void std::swap(_Tp&, _Tp&)
-     swap(_Tp& __a, _Tp& __b)
-     ^~~~
-/usr/include/c++/7/bits/move.h:192:5: note:   template argument deduction/substitution failed:
-In file included from 89-tester.cpp:1:0:
-bstmap.h:127:9: note:   deduced conflicting types for parameter ‘_Tp’ (‘BstMap<int, int>::Node*’ and ‘BstMap<int, int>’)
-     swap(root, newMap);
-     ~~~~^~~~~~~~~~~~~~
-In file included from /usr/include/c++/7/bits/stl_pair.h:59:0,
-                 from /usr/include/c++/7/utility:70,
-                 from /usr/include/c++/7/algorithm:60,
-                 from bstmap.h:1,
-                 from 89-tester.cpp:1:
-/usr/include/c++/7/bits/move.h:214:5: note: candidate: template<class _Tp, long unsigned int _Nm> void std::swap(_Tp (&)[_Nm], _Tp (&)[_Nm])
-     swap(_Tp (&__a)[_Nm], _Tp (&__b)[_Nm])
-     ^~~~
-/usr/include/c++/7/bits/move.h:214:5: note:   template argument deduction/substitution failed:
-In file included from 89-tester.cpp:1:0:
-bstmap.h:127:9: note:   mismatched types ‘_Tp [_Nm]’ and ‘BstMap<int, int>::Node*’
-     swap(root, newMap);
-     ~~~~^~~~~~~~~~~~~~
-In file included from /usr/include/c++/7/bits/stl_algo.h:60:0,
-                 from /usr/include/c++/7/algorithm:62,
-                 from bstmap.h:1,
-                 from 89-tester.cpp:1:
-/usr/include/c++/7/bits/algorithmfwd.h:587:5: note: candidate: template<class _Tp, long unsigned int _Nm> void std::swap(_Tp&, _Tp&)
-     swap(_Tp& __a, _Tp& __b);
-     ^~~~
-/usr/include/c++/7/bits/algorithmfwd.h:587:5: note:   template argument deduction/substitution failed:
-In file included from 89-tester.cpp:1:0:
-bstmap.h:127:9: note:   deduced conflicting types for parameter ‘_Tp’ (‘BstMap<int, int>::Node*’ and ‘BstMap<int, int>’)
-     swap(root, newMap);
-     ~~~~^~~~~~~~~~~~~~
-In file included from /usr/include/c++/7/string:52:0,
-                 from /usr/include/c++/7/stdexcept:39,
-                 from map.h:3,
-                 from bstmap.h:4,
-                 from 89-tester.cpp:1:
-/usr/include/c++/7/bits/basic_string.h:6246:5: note: candidate: template<class _CharT, class _Traits, class _Alloc> void std::swap(std::__cxx11::basic_string<_CharT, _Traits, _Alloc>&, std::__cxx11::basic_string<_CharT, _Traits, _Alloc>&)
-     swap(basic_string<_CharT, _Traits, _Alloc>& __lhs,
-     ^~~~
-/usr/include/c++/7/bits/basic_string.h:6246:5: note:   template argument deduction/substitution failed:
-In file included from 89-tester.cpp:1:0:
-bstmap.h:127:9: note:   mismatched types ‘std::__cxx11::basic_string<_CharT, _Traits, _Alloc>’ and ‘BstMap<int, int>::Node*’
-     swap(root, newMap);
-     ~~~~^~~~~~~~~~~~~~
 bstmap.h: In instantiation of ‘void BstMap<K, V>::add(const K&, const V&) [with K = int; V = int]’:
 89-tester.cpp:197:1:   required from here
 bstmap.h:33:16: error: binding reference of type ‘int&’ to ‘const int’ discards qualifiers
@@ -74,62 +18,6 @@ The code did not compile.  This test failed.
 testcase 2 : Testing with BstMap<int,std::string>
 ...compiling...
 In file included from 89-tester.cpp:1:0:
-bstmap.h: In instantiation of ‘BstMap<K, V>& BstMap<K, V>::operator=(const BstMap<K, V>&) [with K = int; V = std::__cxx11::basic_string<char>]’:
-89-tester.cpp:131:10:   required from here
-bstmap.h:127:9: error: no matching function for call to ‘swap(BstMap<int, std::__cxx11::basic_string<char> >::Node*&, BstMap<int, std::__cxx11::basic_string<char> >&)’
-     swap(root, newMap);
-     ~~~~^~~~~~~~~~~~~~
-In file included from /usr/include/c++/7/bits/stl_pair.h:59:0,
-                 from /usr/include/c++/7/utility:70,
-                 from /usr/include/c++/7/algorithm:60,
-                 from bstmap.h:1,
-                 from 89-tester.cpp:1:
-/usr/include/c++/7/bits/move.h:192:5: note: candidate: template<class _Tp> void std::swap(_Tp&, _Tp&)
-     swap(_Tp& __a, _Tp& __b)
-     ^~~~
-/usr/include/c++/7/bits/move.h:192:5: note:   template argument deduction/substitution failed:
-In file included from 89-tester.cpp:1:0:
-bstmap.h:127:9: note:   deduced conflicting types for parameter ‘_Tp’ (‘BstMap<int, std::__cxx11::basic_string<char> >::Node*’ and ‘BstMap<int, std::__cxx11::basic_string<char> >’)
-     swap(root, newMap);
-     ~~~~^~~~~~~~~~~~~~
-In file included from /usr/include/c++/7/bits/stl_pair.h:59:0,
-                 from /usr/include/c++/7/utility:70,
-                 from /usr/include/c++/7/algorithm:60,
-                 from bstmap.h:1,
-                 from 89-tester.cpp:1:
-/usr/include/c++/7/bits/move.h:214:5: note: candidate: template<class _Tp, long unsigned int _Nm> void std::swap(_Tp (&)[_Nm], _Tp (&)[_Nm])
-     swap(_Tp (&__a)[_Nm], _Tp (&__b)[_Nm])
-     ^~~~
-/usr/include/c++/7/bits/move.h:214:5: note:   template argument deduction/substitution failed:
-In file included from 89-tester.cpp:1:0:
-bstmap.h:127:9: note:   mismatched types ‘_Tp [_Nm]’ and ‘BstMap<int, std::__cxx11::basic_string<char> >::Node*’
-     swap(root, newMap);
-     ~~~~^~~~~~~~~~~~~~
-In file included from /usr/include/c++/7/bits/stl_algo.h:60:0,
-                 from /usr/include/c++/7/algorithm:62,
-                 from bstmap.h:1,
-                 from 89-tester.cpp:1:
-/usr/include/c++/7/bits/algorithmfwd.h:587:5: note: candidate: template<class _Tp, long unsigned int _Nm> void std::swap(_Tp&, _Tp&)
-     swap(_Tp& __a, _Tp& __b);
-     ^~~~
-/usr/include/c++/7/bits/algorithmfwd.h:587:5: note:   template argument deduction/substitution failed:
-In file included from 89-tester.cpp:1:0:
-bstmap.h:127:9: note:   deduced conflicting types for parameter ‘_Tp’ (‘BstMap<int, std::__cxx11::basic_string<char> >::Node*’ and ‘BstMap<int, std::__cxx11::basic_string<char> >’)
-     swap(root, newMap);
-     ~~~~^~~~~~~~~~~~~~
-In file included from /usr/include/c++/7/string:52:0,
-                 from /usr/include/c++/7/stdexcept:39,
-                 from map.h:3,
-                 from bstmap.h:4,
-                 from 89-tester.cpp:1:
-/usr/include/c++/7/bits/basic_string.h:6246:5: note: candidate: template<class _CharT, class _Traits, class _Alloc> void std::swap(std::__cxx11::basic_string<_CharT, _Traits, _Alloc>&, std::__cxx11::basic_string<_CharT, _Traits, _Alloc>&)
-     swap(basic_string<_CharT, _Traits, _Alloc>& __lhs,
-     ^~~~
-/usr/include/c++/7/bits/basic_string.h:6246:5: note:   template argument deduction/substitution failed:
-In file included from 89-tester.cpp:1:0:
-bstmap.h:127:9: note:   mismatched types ‘std::__cxx11::basic_string<_CharT, _Traits, _Alloc>’ and ‘BstMap<int, std::__cxx11::basic_string<char> >::Node*’
-     swap(root, newMap);
-     ~~~~^~~~~~~~~~~~~~
 bstmap.h: In instantiation of ‘void BstMap<K, V>::add(const K&, const V&) [with K = int; V = std::__cxx11::basic_string<char>]’:
 89-tester.cpp:197:1:   required from here
 bstmap.h:33:16: error: binding reference of type ‘int&’ to ‘const int’ discards qualifiers
@@ -143,62 +31,6 @@ The code did not compile.  This test failed.
 testcase 3 : Testing with BstMap<int,(a custom class we wrote)>
 ...compiling...
 In file included from 89-tester.cpp:1:0:
-bstmap.h: In instantiation of ‘BstMap<K, V>& BstMap<K, V>::operator=(const BstMap<K, V>&) [with K = int; V = Tester]’:
-89-tester.cpp:131:10:   required from here
-bstmap.h:127:9: error: no matching function for call to ‘swap(BstMap<int, Tester>::Node*&, BstMap<int, Tester>&)’
-     swap(root, newMap);
-     ~~~~^~~~~~~~~~~~~~
-In file included from /usr/include/c++/7/bits/stl_pair.h:59:0,
-                 from /usr/include/c++/7/utility:70,
-                 from /usr/include/c++/7/algorithm:60,
-                 from bstmap.h:1,
-                 from 89-tester.cpp:1:
-/usr/include/c++/7/bits/move.h:192:5: note: candidate: template<class _Tp> void std::swap(_Tp&, _Tp&)
-     swap(_Tp& __a, _Tp& __b)
-     ^~~~
-/usr/include/c++/7/bits/move.h:192:5: note:   template argument deduction/substitution failed:
-In file included from 89-tester.cpp:1:0:
-bstmap.h:127:9: note:   deduced conflicting types for parameter ‘_Tp’ (‘BstMap<int, Tester>::Node*’ and ‘BstMap<int, Tester>’)
-     swap(root, newMap);
-     ~~~~^~~~~~~~~~~~~~
-In file included from /usr/include/c++/7/bits/stl_pair.h:59:0,
-                 from /usr/include/c++/7/utility:70,
-                 from /usr/include/c++/7/algorithm:60,
-                 from bstmap.h:1,
-                 from 89-tester.cpp:1:
-/usr/include/c++/7/bits/move.h:214:5: note: candidate: template<class _Tp, long unsigned int _Nm> void std::swap(_Tp (&)[_Nm], _Tp (&)[_Nm])
-     swap(_Tp (&__a)[_Nm], _Tp (&__b)[_Nm])
-     ^~~~
-/usr/include/c++/7/bits/move.h:214:5: note:   template argument deduction/substitution failed:
-In file included from 89-tester.cpp:1:0:
-bstmap.h:127:9: note:   mismatched types ‘_Tp [_Nm]’ and ‘BstMap<int, Tester>::Node*’
-     swap(root, newMap);
-     ~~~~^~~~~~~~~~~~~~
-In file included from /usr/include/c++/7/bits/stl_algo.h:60:0,
-                 from /usr/include/c++/7/algorithm:62,
-                 from bstmap.h:1,
-                 from 89-tester.cpp:1:
-/usr/include/c++/7/bits/algorithmfwd.h:587:5: note: candidate: template<class _Tp, long unsigned int _Nm> void std::swap(_Tp&, _Tp&)
-     swap(_Tp& __a, _Tp& __b);
-     ^~~~
-/usr/include/c++/7/bits/algorithmfwd.h:587:5: note:   template argument deduction/substitution failed:
-In file included from 89-tester.cpp:1:0:
-bstmap.h:127:9: note:   deduced conflicting types for parameter ‘_Tp’ (‘BstMap<int, Tester>::Node*’ and ‘BstMap<int, Tester>’)
-     swap(root, newMap);
-     ~~~~^~~~~~~~~~~~~~
-In file included from /usr/include/c++/7/string:52:0,
-                 from /usr/include/c++/7/stdexcept:39,
-                 from map.h:3,
-                 from bstmap.h:4,
-                 from 89-tester.cpp:1:
-/usr/include/c++/7/bits/basic_string.h:6246:5: note: candidate: template<class _CharT, class _Traits, class _Alloc> void std::swap(std::__cxx11::basic_string<_CharT, _Traits, _Alloc>&, std::__cxx11::basic_string<_CharT, _Traits, _Alloc>&)
-     swap(basic_string<_CharT, _Traits, _Alloc>& __lhs,
-     ^~~~
-/usr/include/c++/7/bits/basic_string.h:6246:5: note:   template argument deduction/substitution failed:
-In file included from 89-tester.cpp:1:0:
-bstmap.h:127:9: note:   mismatched types ‘std::__cxx11::basic_string<_CharT, _Traits, _Alloc>’ and ‘BstMap<int, Tester>::Node*’
-     swap(root, newMap);
-     ~~~~^~~~~~~~~~~~~~
 bstmap.h: In instantiation of ‘void BstMap<K, V>::add(const K&, const V&) [with K = int; V = Tester]’:
 89-tester.cpp:197:1:   required from here
 bstmap.h:33:16: error: binding reference of type ‘int&’ to ‘const int’ discards qualifiers
@@ -212,62 +44,6 @@ The code did not compile.  This test failed.
 testcase 4 : Testing with BstMap<std::string,int>
 ...compiling...
 In file included from 89-tester.cpp:1:0:
-bstmap.h: In instantiation of ‘BstMap<K, V>& BstMap<K, V>::operator=(const BstMap<K, V>&) [with K = std::__cxx11::basic_string<char>; V = int]’:
-89-tester.cpp:131:10:   required from here
-bstmap.h:127:9: error: no matching function for call to ‘swap(BstMap<std::__cxx11::basic_string<char>, int>::Node*&, BstMap<std::__cxx11::basic_string<char>, int>&)’
-     swap(root, newMap);
-     ~~~~^~~~~~~~~~~~~~
-In file included from /usr/include/c++/7/bits/stl_pair.h:59:0,
-                 from /usr/include/c++/7/utility:70,
-                 from /usr/include/c++/7/algorithm:60,
-                 from bstmap.h:1,
-                 from 89-tester.cpp:1:
-/usr/include/c++/7/bits/move.h:192:5: note: candidate: template<class _Tp> void std::swap(_Tp&, _Tp&)
-     swap(_Tp& __a, _Tp& __b)
-     ^~~~
-/usr/include/c++/7/bits/move.h:192:5: note:   template argument deduction/substitution failed:
-In file included from 89-tester.cpp:1:0:
-bstmap.h:127:9: note:   deduced conflicting types for parameter ‘_Tp’ (‘BstMap<std::__cxx11::basic_string<char>, int>::Node*’ and ‘BstMap<std::__cxx11::basic_string<char>, int>’)
-     swap(root, newMap);
-     ~~~~^~~~~~~~~~~~~~
-In file included from /usr/include/c++/7/bits/stl_pair.h:59:0,
-                 from /usr/include/c++/7/utility:70,
-                 from /usr/include/c++/7/algorithm:60,
-                 from bstmap.h:1,
-                 from 89-tester.cpp:1:
-/usr/include/c++/7/bits/move.h:214:5: note: candidate: template<class _Tp, long unsigned int _Nm> void std::swap(_Tp (&)[_Nm], _Tp (&)[_Nm])
-     swap(_Tp (&__a)[_Nm], _Tp (&__b)[_Nm])
-     ^~~~
-/usr/include/c++/7/bits/move.h:214:5: note:   template argument deduction/substitution failed:
-In file included from 89-tester.cpp:1:0:
-bstmap.h:127:9: note:   mismatched types ‘_Tp [_Nm]’ and ‘BstMap<std::__cxx11::basic_string<char>, int>::Node*’
-     swap(root, newMap);
-     ~~~~^~~~~~~~~~~~~~
-In file included from /usr/include/c++/7/bits/stl_algo.h:60:0,
-                 from /usr/include/c++/7/algorithm:62,
-                 from bstmap.h:1,
-                 from 89-tester.cpp:1:
-/usr/include/c++/7/bits/algorithmfwd.h:587:5: note: candidate: template<class _Tp, long unsigned int _Nm> void std::swap(_Tp&, _Tp&)
-     swap(_Tp& __a, _Tp& __b);
-     ^~~~
-/usr/include/c++/7/bits/algorithmfwd.h:587:5: note:   template argument deduction/substitution failed:
-In file included from 89-tester.cpp:1:0:
-bstmap.h:127:9: note:   deduced conflicting types for parameter ‘_Tp’ (‘BstMap<std::__cxx11::basic_string<char>, int>::Node*’ and ‘BstMap<std::__cxx11::basic_string<char>, int>’)
-     swap(root, newMap);
-     ~~~~^~~~~~~~~~~~~~
-In file included from /usr/include/c++/7/string:52:0,
-                 from /usr/include/c++/7/stdexcept:39,
-                 from map.h:3,
-                 from bstmap.h:4,
-                 from 89-tester.cpp:1:
-/usr/include/c++/7/bits/basic_string.h:6246:5: note: candidate: template<class _CharT, class _Traits, class _Alloc> void std::swap(std::__cxx11::basic_string<_CharT, _Traits, _Alloc>&, std::__cxx11::basic_string<_CharT, _Traits, _Alloc>&)
-     swap(basic_string<_CharT, _Traits, _Alloc>& __lhs,
-     ^~~~
-/usr/include/c++/7/bits/basic_string.h:6246:5: note:   template argument deduction/substitution failed:
-In file included from 89-tester.cpp:1:0:
-bstmap.h:127:9: note:   mismatched types ‘std::__cxx11::basic_string<_CharT, _Traits, _Alloc>’ and ‘BstMap<std::__cxx11::basic_string<char>, int>::Node*’
-     swap(root, newMap);
-     ~~~~^~~~~~~~~~~~~~
 bstmap.h: In instantiation of ‘void BstMap<K, V>::add(const K&, const V&) [with K = std::__cxx11::basic_string<char>; V = int]’:
 89-tester.cpp:197:1:   required from here
 bstmap.h:33:16: error: binding reference of type ‘std::__cxx11::basic_string<char>&’ to ‘const std::__cxx11::basic_string<char>’ discards qualifiers
@@ -281,62 +57,6 @@ The code did not compile.  This test failed.
 testcase 5 : Testing with BstMap<std::string,std::string>
 ...compiling...
 In file included from 89-tester.cpp:1:0:
-bstmap.h: In instantiation of ‘BstMap<K, V>& BstMap<K, V>::operator=(const BstMap<K, V>&) [with K = std::__cxx11::basic_string<char>; V = std::__cxx11::basic_string<char>]’:
-89-tester.cpp:131:10:   required from here
-bstmap.h:127:9: error: no matching function for call to ‘swap(BstMap<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char> >::Node*&, BstMap<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char> >&)’
-     swap(root, newMap);
-     ~~~~^~~~~~~~~~~~~~
-In file included from /usr/include/c++/7/bits/stl_pair.h:59:0,
-                 from /usr/include/c++/7/utility:70,
-                 from /usr/include/c++/7/algorithm:60,
-                 from bstmap.h:1,
-                 from 89-tester.cpp:1:
-/usr/include/c++/7/bits/move.h:192:5: note: candidate: template<class _Tp> void std::swap(_Tp&, _Tp&)
-     swap(_Tp& __a, _Tp& __b)
-     ^~~~
-/usr/include/c++/7/bits/move.h:192:5: note:   template argument deduction/substitution failed:
-In file included from 89-tester.cpp:1:0:
-bstmap.h:127:9: note:   deduced conflicting types for parameter ‘_Tp’ (‘BstMap<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char> >::Node*’ and ‘BstMap<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char> >’)
-     swap(root, newMap);
-     ~~~~^~~~~~~~~~~~~~
-In file included from /usr/include/c++/7/bits/stl_pair.h:59:0,
-                 from /usr/include/c++/7/utility:70,
-                 from /usr/include/c++/7/algorithm:60,
-                 from bstmap.h:1,
-                 from 89-tester.cpp:1:
-/usr/include/c++/7/bits/move.h:214:5: note: candidate: template<class _Tp, long unsigned int _Nm> void std::swap(_Tp (&)[_Nm], _Tp (&)[_Nm])
-     swap(_Tp (&__a)[_Nm], _Tp (&__b)[_Nm])
-     ^~~~
-/usr/include/c++/7/bits/move.h:214:5: note:   template argument deduction/substitution failed:
-In file included from 89-tester.cpp:1:0:
-bstmap.h:127:9: note:   mismatched types ‘_Tp [_Nm]’ and ‘BstMap<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char> >::Node*’
-     swap(root, newMap);
-     ~~~~^~~~~~~~~~~~~~
-In file included from /usr/include/c++/7/bits/stl_algo.h:60:0,
-                 from /usr/include/c++/7/algorithm:62,
-                 from bstmap.h:1,
-                 from 89-tester.cpp:1:
-/usr/include/c++/7/bits/algorithmfwd.h:587:5: note: candidate: template<class _Tp, long unsigned int _Nm> void std::swap(_Tp&, _Tp&)
-     swap(_Tp& __a, _Tp& __b);
-     ^~~~
-/usr/include/c++/7/bits/algorithmfwd.h:587:5: note:   template argument deduction/substitution failed:
-In file included from 89-tester.cpp:1:0:
-bstmap.h:127:9: note:   deduced conflicting types for parameter ‘_Tp’ (‘BstMap<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char> >::Node*’ and ‘BstMap<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char> >’)
-     swap(root, newMap);
-     ~~~~^~~~~~~~~~~~~~
-In file included from /usr/include/c++/7/string:52:0,
-                 from /usr/include/c++/7/stdexcept:39,
-                 from map.h:3,
-                 from bstmap.h:4,
-                 from 89-tester.cpp:1:
-/usr/include/c++/7/bits/basic_string.h:6246:5: note: candidate: template<class _CharT, class _Traits, class _Alloc> void std::swap(std::__cxx11::basic_string<_CharT, _Traits, _Alloc>&, std::__cxx11::basic_string<_CharT, _Traits, _Alloc>&)
-     swap(basic_string<_CharT, _Traits, _Alloc>& __lhs,
-     ^~~~
-/usr/include/c++/7/bits/basic_string.h:6246:5: note:   template argument deduction/substitution failed:
-In file included from 89-tester.cpp:1:0:
-bstmap.h:127:9: note:   mismatched types ‘std::__cxx11::basic_string<_CharT, _Traits, _Alloc>’ and ‘BstMap<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char> >::Node*’
-     swap(root, newMap);
-     ~~~~^~~~~~~~~~~~~~
 bstmap.h: In instantiation of ‘void BstMap<K, V>::add(const K&, const V&) [with K = std::__cxx11::basic_string<char>; V = std::__cxx11::basic_string<char>]’:
 89-tester.cpp:197:1:   required from here
 bstmap.h:33:16: error: binding reference of type ‘std::__cxx11::basic_string<char>&’ to ‘const std::__cxx11::basic_string<char>’ discards qualifiers
@@ -350,62 +70,6 @@ The code did not compile.  This test failed.
 testcase 6 : Testing with BstMap<std::string,(a custom class we wrote)>
 ...compiling...
 In file included from 89-tester.cpp:1:0:
-bstmap.h: In instantiation of ‘BstMap<K, V>& BstMap<K, V>::operator=(const BstMap<K, V>&) [with K = std::__cxx11::basic_string<char>; V = Tester]’:
-89-tester.cpp:131:10:   required from here
-bstmap.h:127:9: error: no matching function for call to ‘swap(BstMap<std::__cxx11::basic_string<char>, Tester>::Node*&, BstMap<std::__cxx11::basic_string<char>, Tester>&)’
-     swap(root, newMap);
-     ~~~~^~~~~~~~~~~~~~
-In file included from /usr/include/c++/7/bits/stl_pair.h:59:0,
-                 from /usr/include/c++/7/utility:70,
-                 from /usr/include/c++/7/algorithm:60,
-                 from bstmap.h:1,
-                 from 89-tester.cpp:1:
-/usr/include/c++/7/bits/move.h:192:5: note: candidate: template<class _Tp> void std::swap(_Tp&, _Tp&)
-     swap(_Tp& __a, _Tp& __b)
-     ^~~~
-/usr/include/c++/7/bits/move.h:192:5: note:   template argument deduction/substitution failed:
-In file included from 89-tester.cpp:1:0:
-bstmap.h:127:9: note:   deduced conflicting types for parameter ‘_Tp’ (‘BstMap<std::__cxx11::basic_string<char>, Tester>::Node*’ and ‘BstMap<std::__cxx11::basic_string<char>, Tester>’)
-     swap(root, newMap);
-     ~~~~^~~~~~~~~~~~~~
-In file included from /usr/include/c++/7/bits/stl_pair.h:59:0,
-                 from /usr/include/c++/7/utility:70,
-                 from /usr/include/c++/7/algorithm:60,
-                 from bstmap.h:1,
-                 from 89-tester.cpp:1:
-/usr/include/c++/7/bits/move.h:214:5: note: candidate: template<class _Tp, long unsigned int _Nm> void std::swap(_Tp (&)[_Nm], _Tp (&)[_Nm])
-     swap(_Tp (&__a)[_Nm], _Tp (&__b)[_Nm])
-     ^~~~
-/usr/include/c++/7/bits/move.h:214:5: note:   template argument deduction/substitution failed:
-In file included from 89-tester.cpp:1:0:
-bstmap.h:127:9: note:   mismatched types ‘_Tp [_Nm]’ and ‘BstMap<std::__cxx11::basic_string<char>, Tester>::Node*’
-     swap(root, newMap);
-     ~~~~^~~~~~~~~~~~~~
-In file included from /usr/include/c++/7/bits/stl_algo.h:60:0,
-                 from /usr/include/c++/7/algorithm:62,
-                 from bstmap.h:1,
-                 from 89-tester.cpp:1:
-/usr/include/c++/7/bits/algorithmfwd.h:587:5: note: candidate: template<class _Tp, long unsigned int _Nm> void std::swap(_Tp&, _Tp&)
-     swap(_Tp& __a, _Tp& __b);
-     ^~~~
-/usr/include/c++/7/bits/algorithmfwd.h:587:5: note:   template argument deduction/substitution failed:
-In file included from 89-tester.cpp:1:0:
-bstmap.h:127:9: note:   deduced conflicting types for parameter ‘_Tp’ (‘BstMap<std::__cxx11::basic_string<char>, Tester>::Node*’ and ‘BstMap<std::__cxx11::basic_string<char>, Tester>’)
-     swap(root, newMap);
-     ~~~~^~~~~~~~~~~~~~
-In file included from /usr/include/c++/7/string:52:0,
-                 from /usr/include/c++/7/stdexcept:39,
-                 from map.h:3,
-                 from bstmap.h:4,
-                 from 89-tester.cpp:1:
-/usr/include/c++/7/bits/basic_string.h:6246:5: note: candidate: template<class _CharT, class _Traits, class _Alloc> void std::swap(std::__cxx11::basic_string<_CharT, _Traits, _Alloc>&, std::__cxx11::basic_string<_CharT, _Traits, _Alloc>&)
-     swap(basic_string<_CharT, _Traits, _Alloc>& __lhs,
-     ^~~~
-/usr/include/c++/7/bits/basic_string.h:6246:5: note:   template argument deduction/substitution failed:
-In file included from 89-tester.cpp:1:0:
-bstmap.h:127:9: note:   mismatched types ‘std::__cxx11::basic_string<_CharT, _Traits, _Alloc>’ and ‘BstMap<std::__cxx11::basic_string<char>, Tester>::Node*’
-     swap(root, newMap);
-     ~~~~^~~~~~~~~~~~~~
 bstmap.h: In instantiation of ‘void BstMap<K, V>::add(const K&, const V&) [with K = std::__cxx11::basic_string<char>; V = Tester]’:
 89-tester.cpp:197:1:   required from here
 bstmap.h:33:16: error: binding reference of type ‘std::__cxx11::basic_string<char>&’ to ‘const std::__cxx11::basic_string<char>’ discards qualifiers
@@ -419,62 +83,6 @@ The code did not compile.  This test failed.
 testcase 7 : Testing with BstMap<(a custom class we wrote),int>
 ...compiling...
 In file included from 89-tester.cpp:1:0:
-bstmap.h: In instantiation of ‘BstMap<K, V>& BstMap<K, V>::operator=(const BstMap<K, V>&) [with K = Tester; V = int]’:
-89-tester.cpp:131:10:   required from here
-bstmap.h:127:9: error: no matching function for call to ‘swap(BstMap<Tester, int>::Node*&, BstMap<Tester, int>&)’
-     swap(root, newMap);
-     ~~~~^~~~~~~~~~~~~~
-In file included from /usr/include/c++/7/bits/stl_pair.h:59:0,
-                 from /usr/include/c++/7/utility:70,
-                 from /usr/include/c++/7/algorithm:60,
-                 from bstmap.h:1,
-                 from 89-tester.cpp:1:
-/usr/include/c++/7/bits/move.h:192:5: note: candidate: template<class _Tp> void std::swap(_Tp&, _Tp&)
-     swap(_Tp& __a, _Tp& __b)
-     ^~~~
-/usr/include/c++/7/bits/move.h:192:5: note:   template argument deduction/substitution failed:
-In file included from 89-tester.cpp:1:0:
-bstmap.h:127:9: note:   deduced conflicting types for parameter ‘_Tp’ (‘BstMap<Tester, int>::Node*’ and ‘BstMap<Tester, int>’)
-     swap(root, newMap);
-     ~~~~^~~~~~~~~~~~~~
-In file included from /usr/include/c++/7/bits/stl_pair.h:59:0,
-                 from /usr/include/c++/7/utility:70,
-                 from /usr/include/c++/7/algorithm:60,
-                 from bstmap.h:1,
-                 from 89-tester.cpp:1:
-/usr/include/c++/7/bits/move.h:214:5: note: candidate: template<class _Tp, long unsigned int _Nm> void std::swap(_Tp (&)[_Nm], _Tp (&)[_Nm])
-     swap(_Tp (&__a)[_Nm], _Tp (&__b)[_Nm])
-     ^~~~
-/usr/include/c++/7/bits/move.h:214:5: note:   template argument deduction/substitution failed:
-In file included from 89-tester.cpp:1:0:
-bstmap.h:127:9: note:   mismatched types ‘_Tp [_Nm]’ and ‘BstMap<Tester, int>::Node*’
-     swap(root, newMap);
-     ~~~~^~~~~~~~~~~~~~
-In file included from /usr/include/c++/7/bits/stl_algo.h:60:0,
-                 from /usr/include/c++/7/algorithm:62,
-                 from bstmap.h:1,
-                 from 89-tester.cpp:1:
-/usr/include/c++/7/bits/algorithmfwd.h:587:5: note: candidate: template<class _Tp, long unsigned int _Nm> void std::swap(_Tp&, _Tp&)
-     swap(_Tp& __a, _Tp& __b);
-     ^~~~
-/usr/include/c++/7/bits/algorithmfwd.h:587:5: note:   template argument deduction/substitution failed:
-In file included from 89-tester.cpp:1:0:
-bstmap.h:127:9: note:   deduced conflicting types for parameter ‘_Tp’ (‘BstMap<Tester, int>::Node*’ and ‘BstMap<Tester, int>’)
-     swap(root, newMap);
-     ~~~~^~~~~~~~~~~~~~
-In file included from /usr/include/c++/7/string:52:0,
-                 from /usr/include/c++/7/stdexcept:39,
-                 from map.h:3,
-                 from bstmap.h:4,
-                 from 89-tester.cpp:1:
-/usr/include/c++/7/bits/basic_string.h:6246:5: note: candidate: template<class _CharT, class _Traits, class _Alloc> void std::swap(std::__cxx11::basic_string<_CharT, _Traits, _Alloc>&, std::__cxx11::basic_string<_CharT, _Traits, _Alloc>&)
-     swap(basic_string<_CharT, _Traits, _Alloc>& __lhs,
-     ^~~~
-/usr/include/c++/7/bits/basic_string.h:6246:5: note:   template argument deduction/substitution failed:
-In file included from 89-tester.cpp:1:0:
-bstmap.h:127:9: note:   mismatched types ‘std::__cxx11::basic_string<_CharT, _Traits, _Alloc>’ and ‘BstMap<Tester, int>::Node*’
-     swap(root, newMap);
-     ~~~~^~~~~~~~~~~~~~
 bstmap.h: In instantiation of ‘void BstMap<K, V>::add(const K&, const V&) [with K = Tester; V = int]’:
 89-tester.cpp:197:1:   required from here
 bstmap.h:33:16: error: binding reference of type ‘Tester&’ to ‘const Tester’ discards qualifiers
@@ -488,62 +96,6 @@ The code did not compile.  This test failed.
 testcase 8 : Testing with BstMap<(a custom class we wrote),std::string>
 ...compiling...
 In file included from 89-tester.cpp:1:0:
-bstmap.h: In instantiation of ‘BstMap<K, V>& BstMap<K, V>::operator=(const BstMap<K, V>&) [with K = Tester; V = std::__cxx11::basic_string<char>]’:
-89-tester.cpp:131:10:   required from here
-bstmap.h:127:9: error: no matching function for call to ‘swap(BstMap<Tester, std::__cxx11::basic_string<char> >::Node*&, BstMap<Tester, std::__cxx11::basic_string<char> >&)’
-     swap(root, newMap);
-     ~~~~^~~~~~~~~~~~~~
-In file included from /usr/include/c++/7/bits/stl_pair.h:59:0,
-                 from /usr/include/c++/7/utility:70,
-                 from /usr/include/c++/7/algorithm:60,
-                 from bstmap.h:1,
-                 from 89-tester.cpp:1:
-/usr/include/c++/7/bits/move.h:192:5: note: candidate: template<class _Tp> void std::swap(_Tp&, _Tp&)
-     swap(_Tp& __a, _Tp& __b)
-     ^~~~
-/usr/include/c++/7/bits/move.h:192:5: note:   template argument deduction/substitution failed:
-In file included from 89-tester.cpp:1:0:
-bstmap.h:127:9: note:   deduced conflicting types for parameter ‘_Tp’ (‘BstMap<Tester, std::__cxx11::basic_string<char> >::Node*’ and ‘BstMap<Tester, std::__cxx11::basic_string<char> >’)
-     swap(root, newMap);
-     ~~~~^~~~~~~~~~~~~~
-In file included from /usr/include/c++/7/bits/stl_pair.h:59:0,
-                 from /usr/include/c++/7/utility:70,
-                 from /usr/include/c++/7/algorithm:60,
-                 from bstmap.h:1,
-                 from 89-tester.cpp:1:
-/usr/include/c++/7/bits/move.h:214:5: note: candidate: template<class _Tp, long unsigned int _Nm> void std::swap(_Tp (&)[_Nm], _Tp (&)[_Nm])
-     swap(_Tp (&__a)[_Nm], _Tp (&__b)[_Nm])
-     ^~~~
-/usr/include/c++/7/bits/move.h:214:5: note:   template argument deduction/substitution failed:
-In file included from 89-tester.cpp:1:0:
-bstmap.h:127:9: note:   mismatched types ‘_Tp [_Nm]’ and ‘BstMap<Tester, std::__cxx11::basic_string<char> >::Node*’
-     swap(root, newMap);
-     ~~~~^~~~~~~~~~~~~~
-In file included from /usr/include/c++/7/bits/stl_algo.h:60:0,
-                 from /usr/include/c++/7/algorithm:62,
-                 from bstmap.h:1,
-                 from 89-tester.cpp:1:
-/usr/include/c++/7/bits/algorithmfwd.h:587:5: note: candidate: template<class _Tp, long unsigned int _Nm> void std::swap(_Tp&, _Tp&)
-     swap(_Tp& __a, _Tp& __b);
-     ^~~~
-/usr/include/c++/7/bits/algorithmfwd.h:587:5: note:   template argument deduction/substitution failed:
-In file included from 89-tester.cpp:1:0:
-bstmap.h:127:9: note:   deduced conflicting types for parameter ‘_Tp’ (‘BstMap<Tester, std::__cxx11::basic_string<char> >::Node*’ and ‘BstMap<Tester, std::__cxx11::basic_string<char> >’)
-     swap(root, newMap);
-     ~~~~^~~~~~~~~~~~~~
-In file included from /usr/include/c++/7/string:52:0,
-                 from /usr/include/c++/7/stdexcept:39,
-                 from map.h:3,
-                 from bstmap.h:4,
-                 from 89-tester.cpp:1:
-/usr/include/c++/7/bits/basic_string.h:6246:5: note: candidate: template<class _CharT, class _Traits, class _Alloc> void std::swap(std::__cxx11::basic_string<_CharT, _Traits, _Alloc>&, std::__cxx11::basic_string<_CharT, _Traits, _Alloc>&)
-     swap(basic_string<_CharT, _Traits, _Alloc>& __lhs,
-     ^~~~
-/usr/include/c++/7/bits/basic_string.h:6246:5: note:   template argument deduction/substitution failed:
-In file included from 89-tester.cpp:1:0:
-bstmap.h:127:9: note:   mismatched types ‘std::__cxx11::basic_string<_CharT, _Traits, _Alloc>’ and ‘BstMap<Tester, std::__cxx11::basic_string<char> >::Node*’
-     swap(root, newMap);
-     ~~~~^~~~~~~~~~~~~~
 bstmap.h: In instantiation of ‘void BstMap<K, V>::add(const K&, const V&) [with K = Tester; V = std::__cxx11::basic_string<char>]’:
 89-tester.cpp:197:1:   required from here
 bstmap.h:33:16: error: binding reference of type ‘Tester&’ to ‘const Tester’ discards qualifiers
@@ -557,62 +109,6 @@ The code did not compile.  This test failed.
 testcase 9 : Testing with BstMap<(a custom class we wrote),(a custom class we wrote)>
 ...compiling...
 In file included from 89-tester.cpp:1:0:
-bstmap.h: In instantiation of ‘BstMap<K, V>& BstMap<K, V>::operator=(const BstMap<K, V>&) [with K = Tester; V = Tester]’:
-89-tester.cpp:131:10:   required from here
-bstmap.h:127:9: error: no matching function for call to ‘swap(BstMap<Tester, Tester>::Node*&, BstMap<Tester, Tester>&)’
-     swap(root, newMap);
-     ~~~~^~~~~~~~~~~~~~
-In file included from /usr/include/c++/7/bits/stl_pair.h:59:0,
-                 from /usr/include/c++/7/utility:70,
-                 from /usr/include/c++/7/algorithm:60,
-                 from bstmap.h:1,
-                 from 89-tester.cpp:1:
-/usr/include/c++/7/bits/move.h:192:5: note: candidate: template<class _Tp> void std::swap(_Tp&, _Tp&)
-     swap(_Tp& __a, _Tp& __b)
-     ^~~~
-/usr/include/c++/7/bits/move.h:192:5: note:   template argument deduction/substitution failed:
-In file included from 89-tester.cpp:1:0:
-bstmap.h:127:9: note:   deduced conflicting types for parameter ‘_Tp’ (‘BstMap<Tester, Tester>::Node*’ and ‘BstMap<Tester, Tester>’)
-     swap(root, newMap);
-     ~~~~^~~~~~~~~~~~~~
-In file included from /usr/include/c++/7/bits/stl_pair.h:59:0,
-                 from /usr/include/c++/7/utility:70,
-                 from /usr/include/c++/7/algorithm:60,
-                 from bstmap.h:1,
-                 from 89-tester.cpp:1:
-/usr/include/c++/7/bits/move.h:214:5: note: candidate: template<class _Tp, long unsigned int _Nm> void std::swap(_Tp (&)[_Nm], _Tp (&)[_Nm])
-     swap(_Tp (&__a)[_Nm], _Tp (&__b)[_Nm])
-     ^~~~
-/usr/include/c++/7/bits/move.h:214:5: note:   template argument deduction/substitution failed:
-In file included from 89-tester.cpp:1:0:
-bstmap.h:127:9: note:   mismatched types ‘_Tp [_Nm]’ and ‘BstMap<Tester, Tester>::Node*’
-     swap(root, newMap);
-     ~~~~^~~~~~~~~~~~~~
-In file included from /usr/include/c++/7/bits/stl_algo.h:60:0,
-                 from /usr/include/c++/7/algorithm:62,
-                 from bstmap.h:1,
-                 from 89-tester.cpp:1:
-/usr/include/c++/7/bits/algorithmfwd.h:587:5: note: candidate: template<class _Tp, long unsigned int _Nm> void std::swap(_Tp&, _Tp&)
-     swap(_Tp& __a, _Tp& __b);
-     ^~~~
-/usr/include/c++/7/bits/algorithmfwd.h:587:5: note:   template argument deduction/substitution failed:
-In file included from 89-tester.cpp:1:0:
-bstmap.h:127:9: note:   deduced conflicting types for parameter ‘_Tp’ (‘BstMap<Tester, Tester>::Node*’ and ‘BstMap<Tester, Tester>’)
-     swap(root, newMap);
-     ~~~~^~~~~~~~~~~~~~
-In file included from /usr/include/c++/7/string:52:0,
-                 from /usr/include/c++/7/stdexcept:39,
-                 from map.h:3,
-                 from bstmap.h:4,
-                 from 89-tester.cpp:1:
-/usr/include/c++/7/bits/basic_string.h:6246:5: note: candidate: template<class _CharT, class _Traits, class _Alloc> void std::swap(std::__cxx11::basic_string<_CharT, _Traits, _Alloc>&, std::__cxx11::basic_string<_CharT, _Traits, _Alloc>&)
-     swap(basic_string<_CharT, _Traits, _Alloc>& __lhs,
-     ^~~~
-/usr/include/c++/7/bits/basic_string.h:6246:5: note:   template argument deduction/substitution failed:
-In file included from 89-tester.cpp:1:0:
-bstmap.h:127:9: note:   mismatched types ‘std::__cxx11::basic_string<_CharT, _Traits, _Alloc>’ and ‘BstMap<Tester, Tester>::Node*’
-     swap(root, newMap);
-     ~~~~^~~~~~~~~~~~~~
 bstmap.h: In instantiation of ‘void BstMap<K, V>::add(const K&, const V&) [with K = Tester; V = Tester]’:
 89-tester.cpp:197:1:   required from here
 bstmap.h:33:16: error: binding reference of type ‘Tester&’ to ‘const Tester’ discards qualifiers
