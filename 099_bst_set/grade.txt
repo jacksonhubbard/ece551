@@ -1,0 +1,122 @@
+Grading at 11/24/2021:01:45:29.499442
+For commit ID f2237b10f7b0b9ce4c0f2ec015ab032930fa44b9
+Grading at Tue Nov 23 20:45:28 EST 2021
+-----------------------------------------------
+testcase 1 : Testing with BstSet<int>
+...compiling...
+90-tester.cpp: In function ‘int main()’:
+90-tester.cpp:70:33: error: invalid new-expression of abstract class type ‘BstSet<int>’
+   BSTSetTy * bmt = new BSTSetTy();
+                                 ^
+In file included from 90-tester.cpp:1:0:
+bstset.h:9:7: note:   because the following virtual functions are pure within ‘BstSet<int>’:
+ class BstSet : public Set<T> {
+       ^~~~~~
+In file included from bstset.h:4:0,
+                 from 90-tester.cpp:1:
+set.h:9:16: note: 	bool Set<T>::contains(const T&) const [with T = int]
+   virtual bool contains(const T& key) const = 0;
+                ^~~~~~~~
+90-tester.cpp:92:36: error: invalid new-expression of abstract class type ‘BstSet<int>’
+   BSTSetTy * m2 = new BSTSetTy(*bmt);
+                                    ^
+90-tester.cpp:151:26: error: invalid new-expression of abstract class type ‘BstSet<int>’
+   m = bmt = new BSTSetTy();
+                          ^
+In file included from 90-tester.cpp:1:0:
+bstset.h: In instantiation of ‘BstSet<T>& BstSet<T>::operator=(const BstSet<T>&) [with T = int]’:
+90-tester.cpp:122:10:   required from here
+bstset.h:124:17: error: cannot allocate an object of abstract type ‘BstSet<int>’
+       BstSet<T> tempMap = rhs;
+                 ^~~~~~~
+bstset.h:124:17: error: cannot declare variable ‘tempMap’ to be of abstract type ‘BstSet<int>’
+bstset.h: In instantiation of ‘BstSet<T>::Node* BstSet<T>::removeHelper(BstSet<T>::Node*, const T&) [with T = int]’:
+bstset.h:94:52:   required from ‘void BstSet<T>::remove(const T&) [with T = int]’
+90-tester.cpp:176:1:   required from here
+bstset.h:86:15: error: ‘struct BstSet<int>::Node’ has no member named ‘value’
+         curr->value = temp->value;
+         ~~~~~~^~~~~
+bstset.h:86:29: error: ‘struct BstSet<int>::Node’ has no member named ‘value’
+         curr->value = temp->value;
+                       ~~~~~~^~~~~
+The code did not compile.  This test failed.
+-----------------------------------------------
+testcase 2 : Testing with BstSet<std::string>
+...compiling...
+90-tester.cpp: In function ‘int main()’:
+90-tester.cpp:70:33: error: invalid new-expression of abstract class type ‘BstSet<std::__cxx11::basic_string<char> >’
+   BSTSetTy * bmt = new BSTSetTy();
+                                 ^
+In file included from 90-tester.cpp:1:0:
+bstset.h:9:7: note:   because the following virtual functions are pure within ‘BstSet<std::__cxx11::basic_string<char> >’:
+ class BstSet : public Set<T> {
+       ^~~~~~
+In file included from bstset.h:4:0,
+                 from 90-tester.cpp:1:
+set.h:9:16: note: 	bool Set<T>::contains(const T&) const [with T = std::__cxx11::basic_string<char>]
+   virtual bool contains(const T& key) const = 0;
+                ^~~~~~~~
+90-tester.cpp:92:36: error: invalid new-expression of abstract class type ‘BstSet<std::__cxx11::basic_string<char> >’
+   BSTSetTy * m2 = new BSTSetTy(*bmt);
+                                    ^
+90-tester.cpp:151:26: error: invalid new-expression of abstract class type ‘BstSet<std::__cxx11::basic_string<char> >’
+   m = bmt = new BSTSetTy();
+                          ^
+In file included from 90-tester.cpp:1:0:
+bstset.h: In instantiation of ‘BstSet<T>& BstSet<T>::operator=(const BstSet<T>&) [with T = std::__cxx11::basic_string<char>]’:
+90-tester.cpp:122:10:   required from here
+bstset.h:124:17: error: cannot allocate an object of abstract type ‘BstSet<std::__cxx11::basic_string<char> >’
+       BstSet<T> tempMap = rhs;
+                 ^~~~~~~
+bstset.h:124:17: error: cannot declare variable ‘tempMap’ to be of abstract type ‘BstSet<std::__cxx11::basic_string<char> >’
+bstset.h: In instantiation of ‘BstSet<T>::Node* BstSet<T>::removeHelper(BstSet<T>::Node*, const T&) [with T = std::__cxx11::basic_string<char>]’:
+bstset.h:94:52:   required from ‘void BstSet<T>::remove(const T&) [with T = std::__cxx11::basic_string<char>]’
+90-tester.cpp:176:1:   required from here
+bstset.h:86:15: error: ‘struct BstSet<std::__cxx11::basic_string<char> >::Node’ has no member named ‘value’
+         curr->value = temp->value;
+         ~~~~~~^~~~~
+bstset.h:86:29: error: ‘struct BstSet<std::__cxx11::basic_string<char> >::Node’ has no member named ‘value’
+         curr->value = temp->value;
+                       ~~~~~~^~~~~
+The code did not compile.  This test failed.
+-----------------------------------------------
+testcase 3 : Testing with BstSet<(a custom class we wrote)>
+...compiling...
+90-tester.cpp: In function ‘int main()’:
+90-tester.cpp:70:33: error: invalid new-expression of abstract class type ‘BstSet<Tester>’
+   BSTSetTy * bmt = new BSTSetTy();
+                                 ^
+In file included from 90-tester.cpp:1:0:
+bstset.h:9:7: note:   because the following virtual functions are pure within ‘BstSet<Tester>’:
+ class BstSet : public Set<T> {
+       ^~~~~~
+In file included from bstset.h:4:0,
+                 from 90-tester.cpp:1:
+set.h:9:16: note: 	bool Set<T>::contains(const T&) const [with T = Tester]
+   virtual bool contains(const T& key) const = 0;
+                ^~~~~~~~
+90-tester.cpp:92:36: error: invalid new-expression of abstract class type ‘BstSet<Tester>’
+   BSTSetTy * m2 = new BSTSetTy(*bmt);
+                                    ^
+90-tester.cpp:151:26: error: invalid new-expression of abstract class type ‘BstSet<Tester>’
+   m = bmt = new BSTSetTy();
+                          ^
+In file included from 90-tester.cpp:1:0:
+bstset.h: In instantiation of ‘BstSet<T>& BstSet<T>::operator=(const BstSet<T>&) [with T = Tester]’:
+90-tester.cpp:122:10:   required from here
+bstset.h:124:17: error: cannot allocate an object of abstract type ‘BstSet<Tester>’
+       BstSet<T> tempMap = rhs;
+                 ^~~~~~~
+bstset.h:124:17: error: cannot declare variable ‘tempMap’ to be of abstract type ‘BstSet<Tester>’
+bstset.h: In instantiation of ‘BstSet<T>::Node* BstSet<T>::removeHelper(BstSet<T>::Node*, const T&) [with T = Tester]’:
+bstset.h:94:52:   required from ‘void BstSet<T>::remove(const T&) [with T = Tester]’
+90-tester.cpp:176:1:   required from here
+bstset.h:86:15: error: ‘struct BstSet<Tester>::Node’ has no member named ‘value’
+         curr->value = temp->value;
+         ~~~~~~^~~~~
+bstset.h:86:29: error: ‘struct BstSet<Tester>::Node’ has no member named ‘value’
+         curr->value = temp->value;
+                       ~~~~~~^~~~~
+The code did not compile.  This test failed.
+
+Overall Grade: F
