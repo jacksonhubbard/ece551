@@ -1,3 +1,6 @@
+#include <algorithm>
+#include <cstdlib>
+
 #include "map.h"
 
 using namespace std;
@@ -100,7 +103,9 @@ class BstMap : public Map<K, V> {
 
   Node * copyHelper(Node * root, const Node * otherRoot) {
     if (otherRoot != NULL) {
-      root = new Node(otherRoot->key, otherRoot->value);
+      root = new Node;
+      root->key = otherRoot->key;
+      root->value = otherRoot->value;
       root->left = copyHelper(root->left, otherRoot->left);
       root->right = copyHelper(root->right, otherRoot->right);
       return root;
