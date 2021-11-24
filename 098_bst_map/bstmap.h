@@ -14,7 +14,11 @@ class BstMap : public Map<K, V> {
     V value;
 
     Node() : left(NULL), right(NULL), key(K()), value(V()) {}
-    Node(K & key, V & value) : left(NULL), right(NULL), key(key), value(value) {}
+    Node(const K & key, const V & value) :
+        left(NULL),
+        right(NULL),
+        key(key),
+        value(value) {}
   };
 
   Node * root;
