@@ -1,5 +1,7 @@
 #include "map.h"
 
+using namespace std;
+
 template<typename K, typename V>
 class BstMap : public Map<K, V> {
   struct Node {
@@ -9,7 +11,7 @@ class BstMap : public Map<K, V> {
     V value;
 
     Node() : left(NULL), right(NULL), key(K()), value(V()) {}
-    Node(K key, V value) : left(NULL), right(NULL), key(key), value(value) {}
+    Node(K & key, V & value) : left(NULL), right(NULL), key(key), value(value) {}
   };
 
   Node * root;
@@ -95,5 +97,29 @@ class BstMap : public Map<K, V> {
     destroy(root->right);
     delete root;
   }
+
+  Node * copyHelper(Node * root, const Node * otherRoot) {
+    if (otherRoot != NULL) {
+      root = new Node(otherRoot->key, otherRoot->value);
+      root->left = copyHelper(root->left, otherRoot->left);
+      root->right = copyHelper(root->right, otherRoot->right);
+      return root;
+    }
+    return NULL;
+  }
+
   virtual ~BstMap<K, V>() { destroy(root); }
+
+  BstMap<K, V>() : root(NULL) {}
+  BstMap<K, V>(const BstMap<K, V> & rhs) : root(NULL) {
+    root = copyHelper(root, rhs.root);
+  };
+
+  BstMap<K, V> & operator=(const BstMap<K, V> & rhs) {
+    BstMap<K, V> newMap(rhs);
+    destroy(root);
+    root = NULL;
+    swap(root, newMap);
+    return *this;
+  }
 };
