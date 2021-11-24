@@ -121,10 +121,17 @@ class BstMap : public Map<K, V> {
   };
 
   BstMap<K, V> & operator=(const BstMap<K, V> & rhs) {
-    BstMap<K, V> newMap(rhs);
-    destroy(root);
-    root = NULL;
-    swap(root, newMap);
+    //BstMap<K, V> newMap(rhs);
+    //destroy(root);
+    //root = NULL;
+    //    swap(root, newMap);
+
+    if (&rhs != this) {
+      BstMap<K, V> tempMap = rhs;
+      Node * t = root;
+      root = tempMap.root;
+      tempMap.root = t;
+    }
     return *this;
   }
 };
