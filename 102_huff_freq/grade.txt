@@ -1,0 +1,244 @@
+Grading at 11/26/2021:14:15:34.952645
+For commit ID a5845e3456104ad3b3251bffea63adc84a6f945a
+Grading at Fri Nov 26 09:15:30 EST 2021
+compiling
+g++ -ggdb3 -Wall -Werror -pedantic -o testFreq testFreq.cpp readFreq.cpp
+Make succeed, testFreq created
+Testcase 1
+-----------------------
+  - Valgrind reported errors
+Valgrind reported errors (test failed).
+==117201== Memcheck, a memory error detector
+==117201== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==117201== Using Valgrind-3.13.0 and LibVEX; rerun with -h for copyright info
+==117201== Command: ./testFreq /etc/issue
+==117201== Parent PID: 117200
+==117201== 
+==117201== Invalid read of size 8
+==117201==    at 0x109038: main (testFreq.cpp:13)
+==117201==  Address 0x1fff000310 is on thread 1's stack
+==117201==  2096 bytes below stack pointer
+==117201== 
+==117201== Invalid read of size 8
+==117201==    at 0x109079: main (testFreq.cpp:17)
+==117201==  Address 0x1fff000360 is on thread 1's stack
+==117201==  2016 bytes below stack pointer
+==117201== 
+==117201== Conditional jump or move depends on uninitialised value(s)
+==117201==    at 0x10903E: main (testFreq.cpp:13)
+==117201== 
+==117201== Use of uninitialised value of size 8
+==117201==    at 0x4F4362E: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+==117201==    by 0x4F44034: std::ostreambuf_iterator<char, std::char_traits<char> > std::num_put<char, std::ostreambuf_iterator<char, std::char_traits<char> > >::_M_insert_int<unsigned long>(std::ostreambuf_iterator<char, std::char_traits<char> >, std::ios_base&, char, unsigned long) const (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+==117201==    by 0x4F502B4: std::ostream& std::ostream::_M_insert<unsigned long>(unsigned long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+==117201==    by 0x109086: main (testFreq.cpp:17)
+==117201== 
+==117201== Conditional jump or move depends on uninitialised value(s)
+==117201==    at 0x4F4363B: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+==117201==    by 0x4F44034: std::ostreambuf_iterator<char, std::char_traits<char> > std::num_put<char, std::ostreambuf_iterator<char, std::char_traits<char> > >::_M_insert_int<unsigned long>(std::ostreambuf_iterator<char, std::char_traits<char> >, std::ios_base&, char, unsigned long) const (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+==117201==    by 0x4F502B4: std::ostream& std::ostream::_M_insert<unsigned long>(unsigned long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+==117201==    by 0x109086: main (testFreq.cpp:17)
+==117201== 
+==117201== Invalid free() / delete / delete[] / realloc()
+==117201==    at 0x4C3173B: operator delete[](void*) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==117201==    by 0x1090BA: main (testFreq.cpp:19)
+==117201==  Address 0x1fff000310 is on thread 1's stack
+==117201==  2016 bytes below stack pointer
+==117201== 
+==117201== 
+==117201== HEAP SUMMARY:
+==117201==     in use at exit: 0 bytes in 0 blocks
+==117201==   total heap usage: 4 allocs, 5 frees, 85,544 bytes allocated
+==117201== 
+==117201== All heap blocks were freed -- no leaks are possible
+==117201== 
+==117201== For counts of detected and suppressed errors, rerun with: -v
+==117201== Use --track-origins=yes to see where uninitialised values come from
+==117201== ERROR SUMMARY: 561 errors from 6 contexts (suppressed: 0 from 0)
+Testcase 2
+-----------------------
+  - Valgrind reported errors
+Valgrind reported errors (test failed).
+==117205== Memcheck, a memory error detector
+==117205== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==117205== Using Valgrind-3.13.0 and LibVEX; rerun with -h for copyright info
+==117205== Command: ./testFreq /etc/services
+==117205== Parent PID: 117204
+==117205== 
+==117205== Invalid read of size 8
+==117205==    at 0x109038: main (testFreq.cpp:13)
+==117205==  Address 0x1fff000310 is on thread 1's stack
+==117205==  2096 bytes below stack pointer
+==117205== 
+==117205== Invalid read of size 8
+==117205==    at 0x109079: main (testFreq.cpp:17)
+==117205==  Address 0x1fff000358 is on thread 1's stack
+==117205==  2024 bytes below stack pointer
+==117205== 
+==117205== Conditional jump or move depends on uninitialised value(s)
+==117205==    at 0x10903E: main (testFreq.cpp:13)
+==117205== 
+==117205== Use of uninitialised value of size 8
+==117205==    at 0x4F4362E: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+==117205==    by 0x4F44034: std::ostreambuf_iterator<char, std::char_traits<char> > std::num_put<char, std::ostreambuf_iterator<char, std::char_traits<char> > >::_M_insert_int<unsigned long>(std::ostreambuf_iterator<char, std::char_traits<char> >, std::ios_base&, char, unsigned long) const (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+==117205==    by 0x4F502B4: std::ostream& std::ostream::_M_insert<unsigned long>(unsigned long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+==117205==    by 0x109086: main (testFreq.cpp:17)
+==117205== 
+==117205== Conditional jump or move depends on uninitialised value(s)
+==117205==    at 0x4F4363B: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+==117205==    by 0x4F44034: std::ostreambuf_iterator<char, std::char_traits<char> > std::num_put<char, std::ostreambuf_iterator<char, std::char_traits<char> > >::_M_insert_int<unsigned long>(std::ostreambuf_iterator<char, std::char_traits<char> >, std::ios_base&, char, unsigned long) const (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+==117205==    by 0x4F502B4: std::ostream& std::ostream::_M_insert<unsigned long>(unsigned long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+==117205==    by 0x109086: main (testFreq.cpp:17)
+==117205== 
+==117205== Invalid free() / delete / delete[] / realloc()
+==117205==    at 0x4C3173B: operator delete[](void*) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==117205==    by 0x1090BA: main (testFreq.cpp:19)
+==117205==  Address 0x1fff000310 is on thread 1's stack
+==117205==  2016 bytes below stack pointer
+==117205== 
+==117205== 
+==117205== HEAP SUMMARY:
+==117205==     in use at exit: 0 bytes in 0 blocks
+==117205==   total heap usage: 4 allocs, 5 frees, 85,544 bytes allocated
+==117205== 
+==117205== All heap blocks were freed -- no leaks are possible
+==117205== 
+==117205== For counts of detected and suppressed errors, rerun with: -v
+==117205== Use --track-origins=yes to see where uninitialised values come from
+==117205== ERROR SUMMARY: 576 errors from 6 contexts (suppressed: 0 from 0)
+Testcase 3
+-----------------------
+  - Valgrind reported errors
+Valgrind reported errors (test failed).
+==117209== Memcheck, a memory error detector
+==117209== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==117209== Using Valgrind-3.13.0 and LibVEX; rerun with -h for copyright info
+==117209== Command: ./testFreq /usr/share/dict/words
+==117209== Parent PID: 117208
+==117209== 
+==117209== Use of uninitialised value of size 8
+==117209==    at 0x1092F2: readFrequencies(char const*) (readFreq.cpp:40)
+==117209==    by 0x108FE7: main (testFreq.cpp:10)
+==117209== 
+==117209== Use of uninitialised value of size 8
+==117209==    at 0x109306: readFrequencies(char const*) (readFreq.cpp:40)
+==117209==    by 0x108FE7: main (testFreq.cpp:10)
+==117209== 
+==117209== Invalid read of size 1
+==117209==    at 0x4F37C36: std::istream::get(char&) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+==117209==    by 0x1092C0: readFrequencies(char const*) (readFreq.cpp:36)
+==117209==    by 0x108FE7: main (testFreq.cpp:10)
+==117209==  Address 0x5b7fef0 is 0 bytes after a block of size 8,192 alloc'd
+==117209==    at 0x4C3089F: operator new[](unsigned long) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==117209==    by 0x4F2BFE7: std::basic_filebuf<char, std::char_traits<char> >::_M_allocate_internal_buffer() (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+==117209==    by 0x4F300F1: std::basic_filebuf<char, std::char_traits<char> >::open(char const*, std::_Ios_Openmode) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+==117209==    by 0x4F302AF: std::basic_ifstream<char, std::char_traits<char> >::open(char const*, std::_Ios_Openmode) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+==117209==    by 0x1092A7: readFrequencies(char const*) (readFreq.cpp:33)
+==117209==    by 0x108FE7: main (testFreq.cpp:10)
+==117209== 
+==117209== Invalid read of size 8
+==117209==    at 0x1092F2: readFrequencies(char const*) (readFreq.cpp:40)
+==117209==    by 0x108FE7: main (testFreq.cpp:10)
+==117209==  Address 0x1fff000008 is on thread 1's stack
+==117209==  200 bytes below stack pointer
+==117209== 
+==117209== Invalid write of size 8
+==117209==    at 0x109306: readFrequencies(char const*) (readFreq.cpp:40)
+==117209==    by 0x108FE7: main (testFreq.cpp:10)
+==117209==  Address 0x1fff000008 is on thread 1's stack
+==117209==  200 bytes below stack pointer
+==117209== 
+==117209== Invalid read of size 8
+==117209==    at 0x109038: main (testFreq.cpp:13)
+==117209==  Address 0x1fff000300 is on thread 1's stack
+==117209==  2096 bytes below stack pointer
+==117209== 
+==117209== Invalid read of size 8
+==117209==    at 0x109079: main (testFreq.cpp:17)
+==117209==  Address 0x1fff000300 is on thread 1's stack
+==117209==  2096 bytes below stack pointer
+==117209== 
+==117209== Conditional jump or move depends on uninitialised value(s)
+==117209==    at 0x10903E: main (testFreq.cpp:13)
+==117209== 
+==117209== Use of uninitialised value of size 8
+==117209==    at 0x4F4362E: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+==117209==    by 0x4F44034: std::ostreambuf_iterator<char, std::char_traits<char> > std::num_put<char, std::ostreambuf_iterator<char, std::char_traits<char> > >::_M_insert_int<unsigned long>(std::ostreambuf_iterator<char, std::char_traits<char> >, std::ios_base&, char, unsigned long) const (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+==117209==    by 0x4F502B4: std::ostream& std::ostream::_M_insert<unsigned long>(unsigned long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+==117209==    by 0x109086: main (testFreq.cpp:17)
+==117209== 
+==117209== Conditional jump or move depends on uninitialised value(s)
+==117209==    at 0x4F4363B: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+==117209==    by 0x4F44034: std::ostreambuf_iterator<char, std::char_traits<char> > std::num_put<char, std::ostreambuf_iterator<char, std::char_traits<char> > >::_M_insert_int<unsigned long>(std::ostreambuf_iterator<char, std::char_traits<char> >, std::ios_base&, char, unsigned long) const (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+==117209==    by 0x4F502B4: std::ostream& std::ostream::_M_insert<unsigned long>(unsigned long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+==117209==    by 0x109086: main (testFreq.cpp:17)
+==117209== 
+==117209== Invalid free() / delete / delete[] / realloc()
+==117209==    at 0x4C3173B: operator delete[](void*) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==117209==    by 0x1090BA: main (testFreq.cpp:19)
+==117209==  Address 0x1fff000300 is on thread 1's stack
+==117209==  2016 bytes below stack pointer
+==117209== 
+==117209== 
+==117209== HEAP SUMMARY:
+==117209==     in use at exit: 0 bytes in 0 blocks
+==117209==   total heap usage: 4 allocs, 5 frees, 85,544 bytes allocated
+==117209== 
+==117209== All heap blocks were freed -- no leaks are possible
+==117209== 
+==117209== For counts of detected and suppressed errors, rerun with: -v
+==117209== Use --track-origins=yes to see where uninitialised values come from
+==117209== ERROR SUMMARY: 1289 errors from 11 contexts (suppressed: 0 from 0)
+Testcase 4
+-----------------------
+  - Valgrind reported errors
+Valgrind reported errors (test failed).
+==117223== Memcheck, a memory error detector
+==117223== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==117223== Using Valgrind-3.13.0 and LibVEX; rerun with -h for copyright info
+==117223== Command: ./testFreq /usr/share/dict/cracklib-small
+==117223== Parent PID: 117222
+==117223== 
+==117223== Invalid read of size 8
+==117223==    at 0x109038: main (testFreq.cpp:13)
+==117223==  Address 0x1fff0002f0 is on thread 1's stack
+==117223==  2096 bytes below stack pointer
+==117223== 
+==117223== Invalid read of size 8
+==117223==    at 0x109079: main (testFreq.cpp:17)
+==117223==  Address 0x1fff000340 is on thread 1's stack
+==117223==  2016 bytes below stack pointer
+==117223== 
+==117223== Conditional jump or move depends on uninitialised value(s)
+==117223==    at 0x10903E: main (testFreq.cpp:13)
+==117223== 
+==117223== Use of uninitialised value of size 8
+==117223==    at 0x4F4362E: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+==117223==    by 0x4F44034: std::ostreambuf_iterator<char, std::char_traits<char> > std::num_put<char, std::ostreambuf_iterator<char, std::char_traits<char> > >::_M_insert_int<unsigned long>(std::ostreambuf_iterator<char, std::char_traits<char> >, std::ios_base&, char, unsigned long) const (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+==117223==    by 0x4F502B4: std::ostream& std::ostream::_M_insert<unsigned long>(unsigned long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+==117223==    by 0x109086: main (testFreq.cpp:17)
+==117223== 
+==117223== Conditional jump or move depends on uninitialised value(s)
+==117223==    at 0x4F4363B: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+==117223==    by 0x4F44034: std::ostreambuf_iterator<char, std::char_traits<char> > std::num_put<char, std::ostreambuf_iterator<char, std::char_traits<char> > >::_M_insert_int<unsigned long>(std::ostreambuf_iterator<char, std::char_traits<char> >, std::ios_base&, char, unsigned long) const (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+==117223==    by 0x4F502B4: std::ostream& std::ostream::_M_insert<unsigned long>(unsigned long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+==117223==    by 0x109086: main (testFreq.cpp:17)
+==117223== 
+==117223== Invalid free() / delete / delete[] / realloc()
+==117223==    at 0x4C3173B: operator delete[](void*) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==117223==    by 0x1090BA: main (testFreq.cpp:19)
+==117223==  Address 0x1fff0002f0 is on thread 1's stack
+==117223==  2016 bytes below stack pointer
+==117223== 
+==117223== 
+==117223== HEAP SUMMARY:
+==117223==     in use at exit: 0 bytes in 0 blocks
+==117223==   total heap usage: 4 allocs, 5 frees, 85,544 bytes allocated
+==117223== 
+==117223== All heap blocks were freed -- no leaks are possible
+==117223== 
+==117223== For counts of detected and suppressed errors, rerun with: -v
+==117223== Use --track-origins=yes to see where uninitialised values come from
+==117223== ERROR SUMMARY: 570 errors from 6 contexts (suppressed: 0 from 0)
+
+Overall Grade: F
