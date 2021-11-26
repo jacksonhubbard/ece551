@@ -38,7 +38,8 @@ uint64_t * readFrequencies(const char * fname) {
   char c;
   while (myfile.get(c)) {
     //    cout << c << "\n";
-    int index = int(c);
+    unsigned char c2 = c;
+    int index = int(c2);
     //cout << index << "\n\n";
     arr[index]++;
   }
