@@ -41,7 +41,7 @@ void writeCompressedOutput(const char * inFile,
   char c;
   while (myfile.get(c)) {
     unsigned char c2 = c;
-    BitString b = theMap.find(c2)->second;
+    BitString b = theMap.find(unsigned(c2))->second;
     bfw.writeBitString(b);
   }
 
@@ -73,11 +73,9 @@ int main(int argc, char ** argv) {
   tree->buildMap(empty, theMap);
 
   writeCompressedOutput(argv[1], argv[2], theMap);
-  //const std::map<unsigned int, BitString> &theMap)
 
   //  printTable(theMap);
   delete tree;
-  return EXIT_SUCCESS;
 
   return EXIT_SUCCESS;
 }
