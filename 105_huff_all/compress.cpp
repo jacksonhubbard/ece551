@@ -33,8 +33,8 @@ void writeCompressedOutput(const char * inFile,
 
   //WRITE YOUR CODE HERE!
   //open the input file for reading
-  std::ifstream myfile;
-  myfile.open(inFile);
+  std::ifstream myfile(inFile);
+  //  myfile.open(inFile);
 
   //You need to read the input file, lookup the characters in the map,
   //and write the proper bit string with the BitFileWriter
@@ -51,7 +51,7 @@ void writeCompressedOutput(const char * inFile,
 
   //BitFileWriter will close the output file in its destructor
   //but you probably need to close your input file.
-  myfile.close();
+  //myfile.close();
 }
 
 int main(int argc, char ** argv) {
@@ -73,8 +73,6 @@ int main(int argc, char ** argv) {
   tree->buildMap(empty, theMap);
 
   writeCompressedOutput(argv[1], argv[2], theMap);
-
-  //  printTable(theMap);
   delete tree;
 
   return EXIT_SUCCESS;
