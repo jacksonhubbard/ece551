@@ -43,8 +43,9 @@ uint64_t * readFrequencies(const char * fname) {
     arr[index]++;
   }
 
-  arr[256]++;
-  assert(arr[256] == 1);
+  arr[256] = 1;
+
+  //  assert(arr[256] == 1);
   myfile.close();
 
   //cout << arr[65];
