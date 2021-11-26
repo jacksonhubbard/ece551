@@ -26,8 +26,11 @@ void printSym(std::ostream & s, unsigned sym) {
 }
 uint64_t * readFrequencies(const char * fname) {
   //WRITE ME!
-  uint64_t * p;
-  uint64_t arr[257] = {0};
+  uint64_t * arr = new uint64_t[257];
+
+  for (int i = 0; i < 257; i++) {
+    arr[i] = 0;
+  }
 
   std::ifstream myfile;
   myfile.open(fname);
@@ -45,6 +48,7 @@ uint64_t * readFrequencies(const char * fname) {
   myfile.close();
 
   //cout << arr[65];
-  p = arr;
-  return p;
+  // p = arr;
+
+  return arr;
 }
