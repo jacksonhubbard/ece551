@@ -41,15 +41,14 @@ void writeCompressedOutput(const char * inFile,
   char c;
   while (myfile.get(c)) {
     unsigned char c2 = c;
-    //    BitString b = theMap.find(unsigned(c2))->second;
-    //bfw.writeBitString(b);
-    bfw.writeBitString(theMap.find(unsigned(c2))->second);
+    BitString b = theMap.find(unsigned(c2))->second;
+    bfw.writeBitString(theMap.find(unsigned(c2))->seco);
   }
 
   //dont forget to lookup 256 for the EOF marker, and write it out.
-  //BitString b = theMap.find(256)->second;
-  //bfw.writeBitString(b);
-  bfw.writeBitString(theMap.find(256)->second);
+  BitString b = theMap.find(256)->second;
+  bfw.writeBitString(b);
+
   //BitFileWriter will close the output file in its destructor
   //but you probably need to close your input file.
   //myfile.close();
