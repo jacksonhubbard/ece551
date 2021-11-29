@@ -1,6 +1,6 @@
 C
 C
-D
+C
 D
 C
 B
@@ -12,9 +12,9 @@ B
 A
 D
 C
-A
+C
 D
-D
+C
 B
 B
 A
