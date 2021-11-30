@@ -17,6 +17,6 @@ D
 D
 B
 B
-A
+C
 B
 C
