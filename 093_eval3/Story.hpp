@@ -84,17 +84,12 @@ class Story {
     return currentPage.referencedPages[nextPage - 1];
   }
 
-  int stackHelper(stack<int> s) { return s.top(); }
-
-  int queueHelper(queue<int> q) { return q.front(); }
   int nextHelper(stack<int> s) { return s.top(); }
   int nextHelper(queue<int> q) { return q.front(); }
 
   template<typename Worklist>
-  void search(int vertex, bool stackIndicator) {
+  void search(int vertex) {
     Worklist todo;
-    //queue<int> todo;
-
     bool * visitedArr = new bool[numPages];
     for (int i = 0; i < numPages; i++) {
       visitedArr[i] = false;
@@ -113,15 +108,7 @@ class Story {
 
     while (todo.size() != 0) {
       currentDepth++;
-      int pageIndex = -1;
-      //    if (stackIndicator) {
-      //pageIndex = stackHelper(todo);
-      //}
-      //else {
-      // pageIndex = queueHelper(todo);
-      //}
-      pageIndex = nextHelper(todo);
-
+      int pageIndex = nextHelper(todo);
       todo.pop();
 
       currentPage = pages[pageIndex];
@@ -142,6 +129,72 @@ class Story {
     delete[] visitedArr;
   }
 
+  template<typename Worklist>
+  void search2(int vertex) {
+    Worklist todo;
+    bool * visitedArr = new bool[numPages];
+    for (int i = 0; i < numPages; i++) {
+      visitedArr[i] = false;
+    }
+    visitedArr[vertex] = true;
+    todo.push(vertex);
+
+    Page currentPage;
+    int currentDepth = 0;
+
+    vector<Page> currentPath;
+    vector<vector<Page> > allPaths;
+
+    while (todo.size() != 0) {
+      currentDepth++;
+      int pageIndex = nextHelper(todo);
+      //      cout << "in while loop with page: " << pageIndex << "\n";
+      todo.pop();
+      currentPage = pages[pageIndex];
+      currentPath.push_back(currentPage);
+      //cout << "just added " << currentPage.pageNumber << "to currrentPath" << endl;
+
+      if (currentPage.winLossIndicator < 0) {
+        vector<int> referencedPages = currentPage.referencedPages;
+        for (size_t i = 0; i < referencedPages.size(); i++) {
+          int pageIndex2 = referencedPages[i];
+          if (visitedArr[pageIndex2 - 1] == false) {
+            visitedArr[pageIndex2 - 1] = true;
+            todo.push(pageIndex2 - 1);
+            //        depthArr[pageIndex2 - 1] = depthArr[pageIndex] + 1;
+          }
+        }
+      }
+      else {
+        //if leads to winning page, add currentPath to allPAths
+        if (currentPage.winLossIndicator == 1) {
+          allPaths.push_back(currentPath);
+        }
+        // reset currentPath for next loop
+        //        currentPath.clear();
+        currentPath.pop_back();
+
+        bool needToDelete = true;
+        while (needToDelete) {
+          int lastNodeToExplore = currentPath.back().pageNumber;
+
+          if (visitedArr[lastNodeToExplore] == true) {
+            //      cout << "deleting " << lastNodeToExplore << " from path\n";
+            currentPath.pop_back();
+          }
+          else {
+            needToDelete = false;
+          }
+        }
+        //        cout << "just cleared currrentPAth" << endl;
+      }
+    }
+    printPaths(allPaths);
+    //printDepths(depthArr);
+    //delete[] depthArr;
+    delete[] visitedArr;
+  }
+
   void printDepths(int * depthArr) {
     for (int i = 0; i < numPages; i++) {
       if (depthArr[i] == -1) {
@@ -149,6 +202,34 @@ class Story {
       }
       else {
         cout << "Page " << i + 1 << ":" << depthArr[i] << "\n";
+      }
+    }
+  }
+
+  void printPaths(vector<vector<Page> > allPaths) {
+    //    cout << allPaths.size() << " paths found\n";
+
+    for (size_t i = 0; i < allPaths.size(); i++) {
+      vector<Page> currentPath = allPaths[i];
+
+      for (size_t j = 0; j < currentPath.size(); j++) {
+        Page currentPage = currentPath[j];
+        cout << currentPage.pageNumber;
+
+        if (currentPage.winLossIndicator == 1) {
+          cout << "(win)\n";
+        }
+        else {
+          //cout << "in selection \n";
+          //int selection = -1;
+          //for (int k = 0; i < currentPage.referencedPages.size(); k++) {
+          //  if (currentPage.referencedPages[k] == currentPath[j + 1].pageNumber) {
+          //    selection = currentPage.referencedPages[k];
+          //  }
+          //}
+          //cout << "(" << selection << ")\n";
+          cout << "()";
+        }
       }
     }
   }
