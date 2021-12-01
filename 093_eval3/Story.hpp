@@ -74,7 +74,6 @@ class Story {
     int nextPage;
     int maxNum = currentPage.referencedPages.size();
 
-    //cout << "Enter the page number of your choice: ";
     while (!(cin >> nextPage) || nextPage < 1 || nextPage > maxNum) {
       cin.clear();
       cin.ignore();
@@ -82,13 +81,12 @@ class Story {
       cout << "Enter the page number of your choice: ";
     }
     return currentPage.referencedPages[nextPage - 1];
-    //return nextPage;
   }
 
-  //  template<typename Worklist>
+  template<typename Worklist>
   void search(int vertex) {
-    //Worklist todo;
-    queue<int> todo;
+    Worklist todo;
+    //queue<int> todo;
 
     bool * visitedArr = new bool[numPages];
     for (int i = 0; i < numPages; i++) {
@@ -107,16 +105,12 @@ class Story {
     depthArr[0] = currentDepth;
 
     while (todo.size() != 0) {
-      //      cout << "in while\n";
       currentDepth++;
       int pageIndex = todo.front();
       todo.pop();
       currentPage = pages[pageIndex];
       if (currentPage.winLossIndicator < 0) {
         vector<int> referencedPages = currentPage.referencedPages;
-        //        cout << "Page: " << pageIndex << referencedPages[0] << referencedPages[1]
-        //     << referencedPages[2] << "\n";
-
         for (size_t i = 0; i < referencedPages.size(); i++) {
           int pageIndex2 = referencedPages[i];
           if (visitedArr[pageIndex2 - 1] == false) {
@@ -126,11 +120,8 @@ class Story {
           }
         }
       }
-      //currentDepth++;
     }
     printDepths(depthArr);
-    //    free(depthArr);
-    //free(visitedArr);
     delete[] depthArr;
     delete[] visitedArr;
   }
