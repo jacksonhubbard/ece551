@@ -1,6 +1,6 @@
-Grading at 11/22/2021:14:56:30.726229
-For commit ID 8a7f6bf4de78ef681050d3b0e0aaad1f081bc8ec
-Grading at Mon Nov 22 09:56:14 EST 2021
+Grading at 12/01/2021:19:21:53.184421
+For commit ID 90ff49737c1c9ce0f57bb8df73ede3668daf512f
+Grading at Wed Dec  1 14:21:36 EST 2021
 Checking Step 1 test cases required for extra credit
 
 Compiling cyoa-step1
@@ -39,7 +39,7 @@ Your file matched the expected output
 Step 1: PASSED Pre-Grader Test Cases
 
 Compiling cyoa-step2
-make: 'cyoa-step2' is up to date.
+g++ -o cyoa-step2 -ggdb3 -Wall -Werror -pedantic -std=gnu++98 cyoa-step2.cpp
 Compiled for step 2
 Input to story is
 1
@@ -84,6 +84,8 @@ Your file matched the expected output
 Step 3: PASSED Pre-Grader Test Cases
 
 Compiling cyoa-step4
+g++     cyoa-step4.cpp   -o cyoa-step4
+<builtin>: recipe for target 'cyoa-step4' failed
 The code did not compile!
 Did not compile for step 4
 Running your test cases
