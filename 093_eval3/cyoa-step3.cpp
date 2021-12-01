@@ -66,8 +66,8 @@ int main(int argc, char * argv[]) {
 
   Page firstPage = storyObject.pages[0];
 
-  //storyObject.search<queue<int> >(0);
+  storyObject.search<queue<int> >(0);
 
-  storyObject.search(0);
+  //  storyObject.search(0);
   return EXIT_SUCCESS;
 }
