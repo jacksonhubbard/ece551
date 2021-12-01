@@ -4,6 +4,7 @@
 #include <iostream>
 #include <queue>
 #include <set>
+#include <stack>
 #include <string>
 #include <vector>
 
@@ -83,8 +84,14 @@ class Story {
     return currentPage.referencedPages[nextPage - 1];
   }
 
+  int stackHelper(stack<int> s) { return s.top(); }
+
+  int queueHelper(queue<int> q) { return q.front(); }
+  int nextHelper(stack<int> s) { return s.top(); }
+  int nextHelper(queue<int> q) { return q.front(); }
+
   template<typename Worklist>
-  void search(int vertex) {
+  void search(int vertex, bool stackIndicator) {
     Worklist todo;
     //queue<int> todo;
 
@@ -106,8 +113,17 @@ class Story {
 
     while (todo.size() != 0) {
       currentDepth++;
-      int pageIndex = todo.front();
+      int pageIndex = -1;
+      //    if (stackIndicator) {
+      //pageIndex = stackHelper(todo);
+      //}
+      //else {
+      // pageIndex = queueHelper(todo);
+      //}
+      pageIndex = nextHelper(todo);
+
       todo.pop();
+
       currentPage = pages[pageIndex];
       if (currentPage.winLossIndicator < 0) {
         vector<int> referencedPages = currentPage.referencedPages;

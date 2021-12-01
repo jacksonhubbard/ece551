@@ -2,8 +2,8 @@
 #include <exception>
 #include <fstream>
 #include <iostream>
-#include <queue>
 #include <set>
+#include <stack>
 #include <string>
 #include <vector>
 
@@ -67,7 +67,8 @@ int main(int argc, char * argv[]) {
   Page firstPage = storyObject.pages[0];
 
   //storyObject.search<queue<int> >(0);
+  storyObject.search<stack<int> >(0, true);
 
-  storyObject.search(0);
+  //  storyObject.search(0);
   return EXIT_SUCCESS;
 }
