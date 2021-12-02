@@ -12,6 +12,7 @@ using namespace std;
 int main(int argc, char * argv[]) {
   if (argc != 2) {
     // need to report error
+    perror("invalid syntax, one parameter = name of a page");
     return EXIT_FAILURE;
   }
   char * filename = argv[1];
@@ -20,11 +21,11 @@ int main(int argc, char * argv[]) {
   inputFile.open(filename);
   if (inputFile.is_open()) {
     Page pageObject;
-
-    //1. parse file and print line as we go
-    pageObject.parseFile(inputFile, -1, true);
+    // parse file and print line as we go
+    pageObject.parseFile(inputFile, 0, true);
     pageObject.addPageNumber();
-    //2.
+
+    // print options
     cout << "\n";
     if (pageObject.winLossIndicator == -1) {
       cout << "What would you like to do?\n\n";

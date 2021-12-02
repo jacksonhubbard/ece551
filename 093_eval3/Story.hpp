@@ -12,6 +12,11 @@
 
 using namespace std;
 
+/*
+Class that represents a story. Uses a vector of Pages, an indicator
+variable on if it has a winning page and if it has a losing page, and
+a int variable to store the total number of pages.
+ */
 class Story {
  public:
   vector<Page> pages;
@@ -25,10 +30,14 @@ class Story {
       hasLosingPage(false),
       numPages(0){};
 
+  /*
+  Function to check if a story is valid. It is valid if it contains
+  at least 1 winning page, at least one losing page, every page is referenced,
+  and every reference is to a valid page. 
+  */
   void checkValidStory() {
     set<int> pagesReferenced;
-
-    // check if winning and losing page
+    // set indicators for if it contains a winning and losing page
     for (vector<Page>::iterator it = pages.begin(); it != pages.end(); ++it) {
       if (it->winLossIndicator == 0) {
         hasLosingPage = true;
@@ -36,7 +45,6 @@ class Story {
       if (it->winLossIndicator == 1) {
         hasWinningPage = true;
       }
-
       // check each referenced page of the current page is valid (less than numPages)
       for (vector<int>::iterator navigationIterator = it->referencedPages.begin();
            navigationIterator != it->referencedPages.end();
@@ -50,31 +58,31 @@ class Story {
         }
       }
     }
-
     if (!hasWinningPage || !hasLosingPage) {
       // throw error= no winnging/losing page
       cout << "no winning/losing page";
       exit(EXIT_FAILURE);
     }
-
+    // check every page is referenced 1+ times
     for (int i = 2; i < numPages; i++) {
       if (pagesReferenced.find(i) == pagesReferenced.end()) {
-        // page i is not refernced
-        //throw error= given page is not refernced
         cout << "given page is not refernced: " << i;
         exit(EXIT_FAILURE);
       }
     }
   }
 
+  /*
+  Allows the user to interact with the page passed in as parameter
+  If the page is a winning/losing page, exit. If not, take in
+  input from user on their next selection and return the page number
+  */
   int interactWithPage(Page currentPage) {
     if (currentPage.winLossIndicator >= 0) {
       exit(EXIT_SUCCESS);
     }
-
     int nextPage;
     int maxNum = currentPage.referencedPages.size();
-
     while (!(cin >> nextPage) || nextPage < 1 || nextPage > maxNum) {
       cin.clear();
       cin.ignore();
@@ -84,21 +92,68 @@ class Story {
     return currentPage.referencedPages[nextPage - 1];
   }
 
+  Story buildupStory(string directoryName) {
+    //    Story storyObject;
+    // check directory for page1.txt
+    string baseFileName = directoryName + "/page";
+    string page1Name = baseFileName + "1.txt";
+    std::ifstream input(page1Name.c_str());
+    if (!input) {
+      perror("no page 1, cannot proceed");
+      exit(EXIT_FAILURE);
+    }
+    Page pageObject;
+    pageObject.parseFile(input, 1, false);  // do not print as we go
+    pageObject.addPageNumber();
+    pages.push_back(pageObject);
+    numPages++;
+
+    int i = 2;
+    bool lookingForFiles = true;
+    while (lookingForFiles) {
+      stringstream ss;
+      ss << i;
+      string i_str;
+      ss >> i_str;
+      std::ifstream input((baseFileName + i_str + ".txt").c_str());
+      if (!input) {
+        // no page i, break
+        lookingForFiles = false;
+      }
+      else {
+        Page pageObject;
+        pageObject.parseFile(input, i, false);  // do not print as we go
+        pageObject.addPageNumber();
+        pages.push_back(pageObject);
+        numPages++;
+        i++;
+      }
+    }
+    return *this;
+  }
+
+  // Helper functions to return next element from stack/queue
+  // Uses parametric polymorphism to call correct nextHelper()
   int nextHelper(stack<int> s) { return s.top(); }
   int nextHelper(queue<int> q) { return q.front(); }
 
+  /*
+  Takes in a starting vertex and then searches story to
+  find depth of each page. Templated over the type of worklist
+  that is to be created (stack or a queue). Calls helper function
+  to print the depth of each page it discovered 
+  */
   template<typename Worklist>
-  void search(int vertex) {
+  void searchForDepth(int startVertex) {
     Worklist todo;
     bool * visitedArr = new bool[numPages];
     for (int i = 0; i < numPages; i++) {
       visitedArr[i] = false;
     }
-    visitedArr[vertex] = true;
-    todo.push(vertex);
+    visitedArr[startVertex] = true;
+    todo.push(startVertex);
 
     Page currentPage;
-
     int currentDepth = 0;
     int * depthArr = new int[numPages];
     for (int i = 0; i < numPages; i++) {
@@ -115,11 +170,12 @@ class Story {
       if (currentPage.winLossIndicator < 0) {
         vector<int> referencedPages = currentPage.referencedPages;
         for (size_t i = 0; i < referencedPages.size(); i++) {
-          int pageIndex2 = referencedPages[i];
-          if (visitedArr[pageIndex2 - 1] == false) {
-            visitedArr[pageIndex2 - 1] = true;
-            todo.push(pageIndex2 - 1);
-            depthArr[pageIndex2 - 1] = depthArr[pageIndex] + 1;
+          int referencedPageIndex = referencedPages[i] - 1;
+          if (visitedArr[referencedPageIndex] == false) {
+            visitedArr[referencedPageIndex] = true;
+            todo.push(referencedPageIndex);
+            // referencedPage depth is one more than currnt page depth
+            depthArr[referencedPageIndex] = depthArr[pageIndex] + 1;
           }
         }
       }
@@ -132,8 +188,8 @@ class Story {
   template<typename Worklist>
   void search2(int vertex) {
     Worklist todo;
-    bool * visitedArr = new bool[numPages];
-    for (int i = 0; i < numPages; i++) {
+    bool * visitedArr = new bool[numPages + 1];
+    for (int i = 0; i <= numPages; i++) {
       visitedArr[i] = false;
     }
     visitedArr[vertex] = true;
@@ -163,9 +219,9 @@ class Story {
         vector<int> referencedPages = currentPage.referencedPages;
         for (size_t i = 0; i < referencedPages.size(); i++) {
           int pageIndex2 = referencedPages[i];
-          if (visitedArr[pageIndex2 - 1] == false) {
-            visitedArr[pageIndex2 - 1] = true;
-            todo.push(pageIndex2 - 1);
+          if (visitedArr[pageIndex2] == false) {
+            visitedArr[pageIndex2] = true;
+            todo.push(pageIndex2);
           }
         }
       }
@@ -178,14 +234,22 @@ class Story {
 
         bool needToDelete = true;
         while (needToDelete) {
-          currentPath.pop_back();
+          //          currentPath.pop_back();
           // if child page is not visited, don't delete
-          Page currPage = currentPath.back();
-          for (size_t j = 0; j < currPage.referencedPages.size(); j++) {
-            int refPage = currPage.referencedPages[j];
-            if (visitedArr[refPage] == false) {
-              needToDelete = false;
+          if (currentPath.size() > 1) {
+            currentPath.pop_back();
+            Page currPage = currentPath.back();
+            for (size_t j = 0; j < currPage.referencedPages.size(); j++) {
+              int refPage = currPage.referencedPages[j];
+              //cout << refPage << endl;
+              //              cout << visitedArr[refPage] << endl;
+              if (visitedArr[refPage] == false) {
+                needToDelete = false;
+              }
             }
+          }
+          else {
+            needToDelete = false;
           }
         }
       }
@@ -193,10 +257,13 @@ class Story {
     printPaths(allPaths);
     delete[] visitedArr;
   }
-
+  /*
+  Takes in an array of depths, which represent the depth of
+  each page in the story. It then prints out the depths
+  */
   void printDepths(int * depthArr) {
     for (int i = 0; i < numPages; i++) {
-      if (depthArr[i] == -1) {
+      if (depthArr[i] == -1) {  // value -1 indicates not reachable
         cout << "Page " << i + 1 << " is not reachable\n";
       }
       else {
@@ -205,22 +272,25 @@ class Story {
     }
   }
 
+  /*
+  Takes in a vector of vectors that stores the paths through
+  the story to a winning page. It then prints these out, along
+  with the options the user must select on each page 
+  */
   void printPaths(vector<vector<Page> > allPaths) {
     for (size_t i = 0; i < allPaths.size(); i++) {
       vector<Page> currentPath = allPaths[i];
-      //      cout << "currPath size " << currentPath.size() << endl;
       for (size_t j = 0; j < currentPath.size(); j++) {
         Page currentPage = currentPath[j];
-        //cout << currentPage.pageNumber;
 
         if (currentPage.winLossIndicator == 1) {
           cout << currentPage.pageNumber << "(win)\n";
         }
-        else {
+        else {  // not a winning page, so also print selection
           int selection = -1;
+          // see which referencedPage is equal to next page in path
           for (size_t k = 0; k < currentPage.referencedPages.size(); k++) {
             if (currentPage.referencedPages[k] == currentPath[j + 1].pageNumber) {
-              //              selection = currentPage.referencedPages[k];
               selection = k + 1;
             }
           }

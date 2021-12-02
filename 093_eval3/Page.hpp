@@ -6,6 +6,13 @@
 #include <vector>
 using namespace std;
 
+/*
+Class to represent a page of the story. The navigation section
+is used for the options, winLossInidcator to state if the page
+is a winning/losing page and the, referencedPages is to store
+the page numbers of the options in the navigation section, and the
+page number stores the page's page number.
+*/
 class Page {
  public:
   vector<string> navigation_section;
@@ -14,6 +21,7 @@ class Page {
   vector<int> referencedPages;
   int pageNumber;
 
+  // Default constructor
   Page() :
       navigation_section(vector<string>()),
       text(vector<string>()),
@@ -21,6 +29,11 @@ class Page {
       referencedPages(vector<int>()),
       pageNumber(0){};
 
+  /*
+Takes in a file, the index which represents the page number
+and an indicaor variable specifying if it should print as it parses
+Returns a Page object with data correctly parsed.
+  */
   Page parseFile(ifstream & file, int index, bool print) {
     string line;
     bool navSectionDone = false;
@@ -28,6 +41,10 @@ class Page {
     int lineCount = 0;
     pageNumber = index;
 
+    if (index < 0) {
+      perror("page number must be positive");
+      exit(EXIT_FAILURE);
+    }
     while (std::getline(file, line)) {
       if (lineCount == 0 && line == "WIN") {
         winLossIndicator = 1;
@@ -38,10 +55,10 @@ class Page {
       if (!navSectionDone && line.find("#") == 0) {
         navSectionDone = true;
       }
-      else if (!navSectionDone) {
+      else if (!navSectionDone) {  // add line to navSection
         navigation_section.push_back(line);
       }
-      else {
+      else {  // add line to text
         text.push_back(line);
         if (print) {
           printf("%s\n", line.c_str());
@@ -52,12 +69,16 @@ class Page {
     return currentPage;
   };
 
+  /*
+Displays the current page to the user and uses helper function
+to take in user's input to allow for interaction
+  */
   void displayPage() {
+    // print the text
     for (vector<string>::iterator it = text.begin(); it != text.end(); it++) {
       cout << *it << "\n";
     }
     cout << "\n";
-
     if (winLossIndicator == -1) {
       cout << "What would you like to do?\n\n";
       printOptions();
@@ -74,6 +95,10 @@ class Page {
     }
   }
 
+  /*
+Formats the navigation options and prints them out 
+Adjusts page number and gets rid of colon formatting
+  */
   void printOptions() {
     int choiceNumber = 1;
     for (vector<string>::iterator it = navigation_section.begin();
@@ -81,7 +106,8 @@ class Page {
          ++it) {
       size_t indexColon = it->find(":");
       if (indexColon == std::string::npos) {
-        // throw error
+        perror("invalid page syntax");
+        exit(EXIT_FAILURE);
       }
       else {
         string currentChoice = it->substr(indexColon + 1);
@@ -90,6 +116,11 @@ class Page {
       choiceNumber++;
     }
   }
+
+  /*
+  Helper function to add Page numbers to the referencedPages field
+of a given page
+  */
   void addPageNumber() {
     int choiceNumber = 1;
     for (vector<string>::iterator it = navigation_section.begin();
@@ -98,11 +129,13 @@ class Page {
       size_t indexColon = it->find(":");
       if (indexColon == std::string::npos) {
         // throw error
+        //        perror("invalid page syntax\n");
+        //        exit(EXIT_FAILURE);
       }
       else {
+        // convert substring to int to add to referencedPages
         string s = it->substr(0, indexColon);
         stringstream substring(s);
-
         int currentPageNumber = -1;
         substring >> currentPageNumber;
         referencedPages.push_back(currentPageNumber);
