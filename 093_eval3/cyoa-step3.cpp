@@ -24,8 +24,7 @@ int main(int argc, char * argv[]) {
   // check if valid story
   storyObject.checkValidStory();
 
-  //Page firstPage = storyObject.pages[0];
-
+  // call depth finding helper fucntion
   storyObject.searchForDepths<queue<int> >(0);
 
   //  storyObject.search(0);
