@@ -144,7 +144,7 @@ class Story {
   to print the depth of each page it discovered 
   */
   template<typename Worklist>
-  void searchForDepth(int startVertex) {
+  void searchForDepths(int startVertex) {
     Worklist todo;
     bool * visitedArr = new bool[numPages];
     for (int i = 0; i < numPages; i++) {
@@ -186,7 +186,7 @@ class Story {
   }
 
   template<typename Worklist>
-  void search2(int vertex) {
+  void searchForPaths(int vertex) {
     Worklist todo;
     bool * visitedArr = new bool[numPages + 1];
     for (int i = 0; i <= numPages; i++) {
