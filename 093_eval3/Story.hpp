@@ -92,9 +92,12 @@ class Story {
     return currentPage.referencedPages[nextPage - 1];
   }
 
+  /*
+  Takes in a directory name and then checks for page 1. If present
+  proceeds to read the remaining pages, and parse each page into story.
+  Returns the built up story with all the pages inside it
+  */
   Story buildupStory(string directoryName) {
-    //    Story storyObject;
-    // check directory for page1.txt
     string baseFileName = directoryName + "/page";
     string page1Name = baseFileName + "1.txt";
     std::ifstream input(page1Name.c_str());
@@ -130,6 +133,28 @@ class Story {
       }
     }
     return *this;
+  }
+
+  /*
+  Displays page 1, and then allows the user to interact with the page.
+  Proceeds through whole story with the user's interactions
+  */
+  void playStory() {
+    // start with page1, display it
+    Page page1 = pages.front();
+    page1.displayPage();
+
+    // user selects page number, go to that pageObject in vector and display it
+    int nextPage = interactWithPage(page1);
+    while (true) {  // will exit when story is won/lost
+      for (vector<Page>::iterator it = pages.begin(); it != pages.end(); ++it) {
+        if (it->pageNumber == nextPage) {
+          Page pageToDisplay = *it;
+          pageToDisplay.displayPage();
+          nextPage = interactWithPage(pageToDisplay);
+        }
+      }
+    }
   }
 
   // Helper functions to return next element from stack/queue
