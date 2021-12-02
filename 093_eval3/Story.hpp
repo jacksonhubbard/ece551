@@ -152,7 +152,12 @@ class Story {
       todo.pop();
       currentPage = pages[pageIndex];
       currentPath.push_back(currentPage);
-      //cout << "just added " << currentPage.pageNumber << "to currrentPath" << endl;
+      //      cout << "just added " << currentPage.pageNumber << "to currrentPath" << endl;
+      //cout << "printing current Path\n";
+      //for (size_t d = 0; d < currentPath.size(); d++) {
+      //cout << currentPath[d].pageNumber << ", ";
+      //}
+      //cout << endl;
 
       if (currentPage.winLossIndicator < 0) {
         vector<int> referencedPages = currentPage.referencedPages;
@@ -161,37 +166,31 @@ class Story {
           if (visitedArr[pageIndex2 - 1] == false) {
             visitedArr[pageIndex2 - 1] = true;
             todo.push(pageIndex2 - 1);
-            //        depthArr[pageIndex2 - 1] = depthArr[pageIndex] + 1;
           }
         }
       }
       else {
-        //if leads to winning page, add currentPath to allPAths
+        visitedArr[pageIndex] = true;
+        //if winning page, add currentPath to allPaths
         if (currentPage.winLossIndicator == 1) {
           allPaths.push_back(currentPath);
         }
-        // reset currentPath for next loop
-        //        currentPath.clear();
-        currentPath.pop_back();
 
         bool needToDelete = true;
         while (needToDelete) {
-          int lastNodeToExplore = currentPath.back().pageNumber;
-
-          if (visitedArr[lastNodeToExplore] == true) {
-            //      cout << "deleting " << lastNodeToExplore << " from path\n";
-            currentPath.pop_back();
-          }
-          else {
-            needToDelete = false;
+          currentPath.pop_back();
+          // if child page is not visited, don't delete
+          Page currPage = currentPath.back();
+          for (size_t j = 0; j < currPage.referencedPages.size(); j++) {
+            int refPage = currPage.referencedPages[j];
+            if (visitedArr[refPage] == false) {
+              needToDelete = false;
+            }
           }
         }
-        //        cout << "just cleared currrentPAth" << endl;
       }
     }
     printPaths(allPaths);
-    //printDepths(depthArr);
-    //delete[] depthArr;
     delete[] visitedArr;
   }
 
@@ -207,28 +206,27 @@ class Story {
   }
 
   void printPaths(vector<vector<Page> > allPaths) {
-    //    cout << allPaths.size() << " paths found\n";
-
     for (size_t i = 0; i < allPaths.size(); i++) {
       vector<Page> currentPath = allPaths[i];
-
+      //      cout << "currPath size " << currentPath.size() << endl;
       for (size_t j = 0; j < currentPath.size(); j++) {
         Page currentPage = currentPath[j];
-        cout << currentPage.pageNumber;
+        //cout << currentPage.pageNumber;
 
         if (currentPage.winLossIndicator == 1) {
-          cout << "(win)\n";
+          cout << currentPage.pageNumber << "(win)\n";
         }
         else {
-          //cout << "in selection \n";
-          //int selection = -1;
-          //for (int k = 0; i < currentPage.referencedPages.size(); k++) {
-          //  if (currentPage.referencedPages[k] == currentPath[j + 1].pageNumber) {
-          //    selection = currentPage.referencedPages[k];
-          //  }
-          //}
-          //cout << "(" << selection << ")\n";
-          cout << "()";
+          int selection = -1;
+          for (size_t k = 0; k < currentPage.referencedPages.size(); k++) {
+            if (currentPage.referencedPages[k] == currentPath[j + 1].pageNumber) {
+              //              selection = currentPage.referencedPages[k];
+              selection = k + 1;
+            }
+          }
+          if (selection != -1) {
+            cout << currentPage.pageNumber << "(" << selection << ")";
+          }
         }
       }
     }
