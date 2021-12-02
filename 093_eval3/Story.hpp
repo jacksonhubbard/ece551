@@ -210,6 +210,12 @@ class Story {
     delete[] visitedArr;
   }
 
+  /*
+  Takes in a starting vertex and then searches story to
+  find path to all winning pages. Templated over the type of worklist
+  that is to be created (stack or a queue). Calls helper function
+  to print the winning paths it discovered
+  */
   template<typename Worklist>
   void searchForPaths(int vertex) {
     Worklist todo;
