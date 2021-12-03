@@ -1,6 +1,6 @@
-Grading at 12/03/2021:13:47:02.092529
-For commit ID 2e1d841af260ce397e6f5baf173f4ac8fe89f4bd
-Grading at Fri Dec  3 08:46:30 EST 2021
+Grading at 12/03/2021:13:51:18.140980
+For commit ID 1c03bd71c20fa471be96fdb7666543523e54810b
+Grading at Fri Dec  3 08:50:46 EST 2021
 Checking Step 1 test cases required for extra credit
 
 Compiling cyoa-step1
@@ -94,7 +94,13 @@ Test case 17 (success): cyoa-step4 /usr/local/ece551/cyoa/story1
 Valgrind reported memory errors
 +-----------------------------------------------------------------------+
 Test case 18 (success): cyoa-step4 /usr/local/ece551/cyoa/story2
-Valgrind reported memory errors
+1c1,3
+< 1(2)3(win)
+---
+> 1(1),2(2),6(1),7(1),12(1),9(win)
+> 1(1),2(2),6(2),8(1),11(win)
+> 1(2),3(win)
+Your file did not match the expected output
 Step 4: Failed test cases as above
 Running your test cases
 
