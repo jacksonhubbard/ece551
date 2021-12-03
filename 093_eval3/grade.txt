@@ -1,6 +1,6 @@
-Grading at 12/03/2021:12:24:27.882750
-For commit ID d732b4f2123ce31ddc4fa89888cd189211347418
-Grading at Fri Dec  3 07:23:57 EST 2021
+Grading at 12/03/2021:12:27:28.865080
+For commit ID d8d3e61ba086eebaca2cb279a77d570b001234d3
+Grading at Fri Dec  3 07:26:58 EST 2021
 Checking Step 1 test cases required for extra credit
 
 Compiling cyoa-step1
@@ -105,7 +105,7 @@ g++ -o cyoa-step1 -ggdb3 -Wall -Werror -pedantic -std=gnu++98 cyoa-step1.cpp
 Test case 1 (error): cyoa-step1 invalid.txt
 Your program successfully indicated a failure case
 +-----------------------------------------------------------------------+
-Test case 2 (error): cyoa-step1 badPage.txt
+Test case 2 (error): cyoa-step1 page5.txt
 As you take the magic whistle from the wizard's hand, he disappears in a
 puff of smoke. You decide that you should give the whistle a try before you
 set off to deal with the dragon (after all, if you learned nothing else in
@@ -124,7 +124,6 @@ other hand, help might be useful.
 Fortunately for you, the two wisest people you know, Denevieve and Grew,
 live in the next village over. Thinking about it for several minutes, you
 decide whom to go to for help.
-
 
 What would you like to do?
 
@@ -147,10 +146,10 @@ g++ -o cyoa-step1 -ggdb3 -Wall -Werror -pedantic -std=gnu++98 cyoa-step1.cpp
 Test case 4 (success): cyoa-step1 story1/page1.txt
 Your file matched the expected output
 +-----------------------------------------------------------------------+
-Test case 5 (success): cyoa-step1 badPage.txt
+Test case 5 (success): cyoa-step1 page5.txt
 We considered this an error case and gave the following message:
-Expected file name pageX.txt, but found badPage.txt
-1,26d0
+Incorrect page format, expected num:text
+1,25d0
 < invalid page syntax: Success
 < As you take the magic whistle from the wizard's hand, he disappears in a
 < puff of smoke. You decide that you should give the whistle a try before you
@@ -170,7 +169,6 @@ Expected file name pageX.txt, but found badPage.txt
 < Fortunately for you, the two wisest people you know, Denevieve and Grew,
 < live in the next village over. Thinking about it for several minutes, you
 < decide whom to go to for help.
-< 
 < 
 < What would you like to do?
 < 
