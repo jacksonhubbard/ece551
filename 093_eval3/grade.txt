@@ -1,6 +1,6 @@
-Grading at 12/03/2021:05:02:27.726323
-For commit ID 5be94fc995fc39f23a22f14e787f5f05b9a1f24a
-Grading at Fri Dec  3 00:02:07 EST 2021
+Grading at 12/03/2021:12:11:50.876417
+For commit ID 9b9614f5b582bbeb7a4ce6cbebabd8d122ff4bac
+Grading at Fri Dec  3 07:11:22 EST 2021
 Checking Step 1 test cases required for extra credit
 
 Compiling cyoa-step1
@@ -94,15 +94,55 @@ Test case 17 (success): cyoa-step4 /usr/local/ece551/cyoa/story1
 Valgrind reported memory errors
 +-----------------------------------------------------------------------+
 Test case 18 (success): cyoa-step4 /usr/local/ece551/cyoa/story2
-1c1,3
-< 1(2)3(win)
----
-> 1(1),2(2),6(1),7(1),12(1),9(win)
-> 1(1),2(2),6(2),8(1),11(win)
-> 1(2),3(win)
-Your file did not match the expected output
+Valgrind reported memory errors
 Step 4: Failed test cases as above
 Running your test cases
-Cannot proceed without testcases.txt
+
+Compiling cyoa-step1
+rm -f *~ cyoa-step1 cyoa-step2 cyoa-step3 cyoa-step4
+g++ -o cyoa-step1 -ggdb3 -Wall -Werror -pedantic -std=gnu++98 cyoa-step1.cpp
++-----------------------------------------------------------------------+
+Test case 1 (error): cyoa-step1 invalid.txt
+You listed this in #errors, and we agree that it is an error case.
+However, your program did not indicate a failure case (exit status was EXIT_SUCCESS)
+
+Compiling cyoa-step2
+rm -f *~ cyoa-step1 cyoa-step2 cyoa-step3 cyoa-step4
+g++ -o cyoa-step2 -ggdb3 -Wall -Werror -pedantic -std=gnu++98 cyoa-step2.cpp
++-----------------------------------------------------------------------+
+Test case 2 (error): cyoa-step2 broken1
+Your program successfully indicated a failure case
+
+Compiling cyoa-step1
+rm -f *~ cyoa-step1 cyoa-step2 cyoa-step3 cyoa-step4
+g++ -o cyoa-step1 -ggdb3 -Wall -Werror -pedantic -std=gnu++98 cyoa-step1.cpp
++-----------------------------------------------------------------------+
+Test case 3 (success): cyoa-step1 story1/page1.txt
+Your file matched the expected output
+
+Compiling cyoa-step2
+rm -f *~ cyoa-step1 cyoa-step2 cyoa-step3 cyoa-step4
+g++ -o cyoa-step2 -ggdb3 -Wall -Werror -pedantic -std=gnu++98 cyoa-step2.cpp
++-----------------------------------------------------------------------+
+Test case 4 (success): cyoa-step2 story1 < test1/input2.txt
+We considered this an error case and gave the following message:
+Your file matched the expected output
+
+Compiling cyoa-step3
+rm -f *~ cyoa-step1 cyoa-step2 cyoa-step3 cyoa-step4
+g++ -o cyoa-step3 -ggdb3 -Wall -Werror -pedantic -std=gnu++98 cyoa-step3.cpp
++-----------------------------------------------------------------------+
+Test case 5 (success): cyoa-step3 story1
+Your file matched the expected output
+
+Compiling cyoa-step4
+rm -f *~ cyoa-step1 cyoa-step2 cyoa-step3 cyoa-step4
+g++ -o cyoa-step4 -ggdb3 -Wall -Werror -pedantic -std=gnu++98 cyoa-step4.cpp
++-----------------------------------------------------------------------+
+Test case 6 (success): cyoa-step4 story1
+Valgrind reported memory errors
+
+You have FAILED one or more of your test cases
+Keep debugging
 
 Overall Grade: NO GRADE YET
