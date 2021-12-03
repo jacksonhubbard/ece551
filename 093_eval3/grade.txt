@@ -1,6 +1,6 @@
-Grading at 12/03/2021:12:15:20.166337
-For commit ID 3ef7a795d806791705f2b030f2e6e46fdf9a2069
-Grading at Fri Dec  3 07:14:51 EST 2021
+Grading at 12/03/2021:12:22:33.468622
+For commit ID 0e38dd998ba42bb49e533f14d7c70dee6c1278c9
+Grading at Fri Dec  3 07:22:03 EST 2021
 Checking Step 1 test cases required for extra credit
 
 Compiling cyoa-step1
@@ -104,26 +104,54 @@ g++ -o cyoa-step1 -ggdb3 -Wall -Werror -pedantic -std=gnu++98 cyoa-step1.cpp
 +-----------------------------------------------------------------------+
 Test case 1 (error): cyoa-step1 invalid.txt
 Your program successfully indicated a failure case
++-----------------------------------------------------------------------+
+Test case 2 (error): cyoa-step1 badPage.txt
+As you take the magic whistle from the wizard's hand, he disappears in a
+puff of smoke. You decide that you should give the whistle a try before you
+set off to deal with the dragon (after all, if you learned nothing else in
+school, it was that testing is VERY important). 
+
+You think of a raven and blow on the whistle "CAW CAW CAW CAW". Then you
+think of a chicken and blow "COCKADOODLEDOOOO". It seems like the whistle
+works great, though you wonder how many different birds you can think of
+and how they would help you deal with the dragon. 
+
+Putting that question in the back of your mind, you contemplate whether or
+not you should get some help before you set out. On the one hand, if you go
+alone, you might be able to better sneak into the dragon's lair. On the
+other hand, help might be useful.
+
+Fortunately for you, the two wisest people you know, Denevieve and Grew,
+live in the next village over. Thinking about it for several minutes, you
+decide whom to go to for help.
+
+
+What would you like to do?
+
+ 1. Go to Denevieve for help.
+ 2. Go to Grew for help.
+ 3. Go alone.
+Your program successfully indicated a failure case
 
 Compiling cyoa-step2
 rm -f *~ cyoa-step1 cyoa-step2 cyoa-step3 cyoa-step4
 g++ -o cyoa-step2 -ggdb3 -Wall -Werror -pedantic -std=gnu++98 cyoa-step2.cpp
 +-----------------------------------------------------------------------+
-Test case 2 (error): cyoa-step2 broken1
+Test case 3 (error): cyoa-step2 broken1
 Your program successfully indicated a failure case
 
 Compiling cyoa-step1
 rm -f *~ cyoa-step1 cyoa-step2 cyoa-step3 cyoa-step4
 g++ -o cyoa-step1 -ggdb3 -Wall -Werror -pedantic -std=gnu++98 cyoa-step1.cpp
 +-----------------------------------------------------------------------+
-Test case 3 (success): cyoa-step1 story1/page1.txt
+Test case 4 (success): cyoa-step1 story1/page1.txt
 Your file matched the expected output
 
 Compiling cyoa-step2
 rm -f *~ cyoa-step1 cyoa-step2 cyoa-step3 cyoa-step4
 g++ -o cyoa-step2 -ggdb3 -Wall -Werror -pedantic -std=gnu++98 cyoa-step2.cpp
 +-----------------------------------------------------------------------+
-Test case 4 (success): cyoa-step2 story1 < test1/input2.txt
+Test case 5 (success): cyoa-step2 story1 < test1/input2.txt
 We considered this an error case and gave the following message:
 Your file matched the expected output
 
@@ -131,14 +159,14 @@ Compiling cyoa-step3
 rm -f *~ cyoa-step1 cyoa-step2 cyoa-step3 cyoa-step4
 g++ -o cyoa-step3 -ggdb3 -Wall -Werror -pedantic -std=gnu++98 cyoa-step3.cpp
 +-----------------------------------------------------------------------+
-Test case 5 (success): cyoa-step3 story1
+Test case 6 (success): cyoa-step3 story1
 Your file matched the expected output
 
 Compiling cyoa-step4
 rm -f *~ cyoa-step1 cyoa-step2 cyoa-step3 cyoa-step4
 g++ -o cyoa-step4 -ggdb3 -Wall -Werror -pedantic -std=gnu++98 cyoa-step4.cpp
 +-----------------------------------------------------------------------+
-Test case 6 (success): cyoa-step4 story1
+Test case 7 (success): cyoa-step4 story1
 Valgrind reported memory errors
 
 You have FAILED one or more of your test cases
