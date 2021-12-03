@@ -15,6 +15,7 @@ using namespace std;
 int main(int argc, char * argv[]) {
   if (argc != 2) {
     // need to report error
+    perror("invalid syntax, one parameter = directory of story");
     return EXIT_FAILURE;
   }
   Story storyObject;

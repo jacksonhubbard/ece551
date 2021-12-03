@@ -18,6 +18,7 @@ int main(int argc, char * argv[]) {
   }
   Story storyObject;
   string directoryName = argv[1];
+
   // read page files and build story
   storyObject.buildupStory(directoryName);
 
@@ -27,6 +28,5 @@ int main(int argc, char * argv[]) {
   // call depth finding helper fucntion
   storyObject.searchForDepths<queue<int> >(0);
 
-  //  storyObject.search(0);
   return EXIT_SUCCESS;
 }

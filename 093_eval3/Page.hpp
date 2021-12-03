@@ -98,7 +98,7 @@ Returns a Page object with data correctly parsed.
       return false;
     }
     else {
-      std::string::const_iterator it = s.begin();
+      string::const_iterator it = s.begin();
       while (it != s.end()) {
         if (!(isdigit(*it))) {
           return false;
