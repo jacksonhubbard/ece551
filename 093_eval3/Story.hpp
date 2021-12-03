@@ -235,29 +235,20 @@ class Story {
       currentDepth++;
       int pageIndex = nextHelper(todo);
       visitedArr[pageIndex] = true;
-      //      cout << "in while loop with page: " << pageIndex << "\n";
       todo.pop();
       currentPage = pages[pageIndex];
       currentPath.push_back(currentPage);
-      //      cout << "just added " << currentPage.pageNumber << "to currrentPath" << endl;
-      //cout << "printing current Path\n";
-      //for (size_t d = 0; d < currentPath.size(); d++) {
-      //cout << currentPath[d].pageNumber << ", ";
-      //}
-      //cout << endl;
 
       if (currentPage.winLossIndicator < 0) {
         vector<long> referencedPages = currentPage.referencedPages;
         for (size_t i = 0; i < referencedPages.size(); i++) {
           int pageIndex2 = referencedPages[i];
           if (visitedArr[pageIndex2] == false) {
-            //  visitedArr[pageIndex2] = true;
             todo.push(pageIndex2);
           }
         }
       }
       else {
-        //visitedArr[pageIndex] = true;
         //if winning page, add currentPath to allPaths
         if (currentPage.winLossIndicator == 1) {
           allPaths.push_back(currentPath);
@@ -265,15 +256,12 @@ class Story {
 
         bool needToDelete = true;
         while (needToDelete) {
-          //          currentPath.pop_back();
           // if child page is not visited, don't delete
           if (currentPath.size() > 1) {
             currentPath.pop_back();
             Page currPage = currentPath.back();
             for (size_t j = 0; j < currPage.referencedPages.size(); j++) {
               int refPage = currPage.referencedPages[j];
-              //cout << refPage << endl;
-              //              cout << visitedArr[refPage] << endl;
               if (visitedArr[refPage] == false) {
                 needToDelete = false;
               }
