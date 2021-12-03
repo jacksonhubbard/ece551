@@ -1,6 +1,6 @@
-Grading at 12/03/2021:12:11:50.876417
-For commit ID 9b9614f5b582bbeb7a4ce6cbebabd8d122ff4bac
-Grading at Fri Dec  3 07:11:22 EST 2021
+Grading at 12/03/2021:12:15:20.166337
+For commit ID 3ef7a795d806791705f2b030f2e6e46fdf9a2069
+Grading at Fri Dec  3 07:14:51 EST 2021
 Checking Step 1 test cases required for extra credit
 
 Compiling cyoa-step1
@@ -103,8 +103,7 @@ rm -f *~ cyoa-step1 cyoa-step2 cyoa-step3 cyoa-step4
 g++ -o cyoa-step1 -ggdb3 -Wall -Werror -pedantic -std=gnu++98 cyoa-step1.cpp
 +-----------------------------------------------------------------------+
 Test case 1 (error): cyoa-step1 invalid.txt
-You listed this in #errors, and we agree that it is an error case.
-However, your program did not indicate a failure case (exit status was EXIT_SUCCESS)
+Your program successfully indicated a failure case
 
 Compiling cyoa-step2
 rm -f *~ cyoa-step1 cyoa-step2 cyoa-step3 cyoa-step4
