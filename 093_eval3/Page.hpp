@@ -72,7 +72,6 @@ Returns a Page object with data correctly parsed.
 
   void checkForValidNavSection(string line) {
     size_t indexColon = line.find(":");
-    cout << line << endl;
     if (indexColon == std::string::npos) {
       perror("invalid page syntax 1");
       exit(EXIT_FAILURE);
