@@ -59,11 +59,11 @@ void Story::checkValidStory() {
   If the page is a winning/losing page, exit. If not, take in
   input from user on their next selection and return the page number
   */
-int Story::interactWithPage(Page currentPage) {
+long Story::interactWithPage(Page currentPage) {
   if (currentPage.winLossIndicator >= 0) {
     exit(EXIT_SUCCESS);
   }
-  int nextPage;
+  long nextPage;
   int maxNum = currentPage.referencedPages.size();
   while (!(cin >> nextPage) || nextPage < 1 || nextPage > maxNum) {
     cin.clear();
@@ -148,7 +148,7 @@ template<typename Worklist>
 void Story::searchForDepths(int startVertex) {
   Worklist todo;
   bool * visitedArr = new bool[numPages];
-  for (int i = 0; i < numPages; i++) {
+  for (long i = 0; i < numPages; i++) {
     visitedArr[i] = false;
   }
   visitedArr[startVertex] = true;
@@ -164,14 +164,14 @@ void Story::searchForDepths(int startVertex) {
 
   while (todo.size() != 0) {
     currentDepth++;
-    int pageIndex = nextHelper(todo);
+    long pageIndex = nextHelper(todo);
     todo.pop();
 
     currentPage = pages[pageIndex];
     if (currentPage.winLossIndicator < 0) {
       vector<long> referencedPages = currentPage.referencedPages;
       for (size_t i = 0; i < referencedPages.size(); i++) {
-        int referencedPageIndex = referencedPages[i] - 1;
+        long referencedPageIndex = referencedPages[i] - 1;
         if (visitedArr[referencedPageIndex] == false) {
           visitedArr[referencedPageIndex] = true;
           todo.push(referencedPageIndex);
@@ -196,7 +196,7 @@ template<typename Worklist>
 void Story::searchForPaths(int vertex) {
   Worklist todo;
   bool * visitedArr = new bool[numPages + 1];
-  for (int i = 0; i <= numPages; i++) {
+  for (long i = 0; i <= numPages; i++) {
     visitedArr[i] = false;
   }
   todo.push(vertex);
@@ -207,7 +207,7 @@ void Story::searchForPaths(int vertex) {
 
   while (todo.size() != 0) {
     currentDepth++;
-    int pageIndex = nextHelper(todo);
+    long pageIndex = nextHelper(todo);
     visitedArr[pageIndex] = true;
     todo.pop();
     currentPage = pages[pageIndex];
@@ -215,7 +215,7 @@ void Story::searchForPaths(int vertex) {
     if (currentPage.winLossIndicator < 0) {
       vector<long> referencedPages = currentPage.referencedPages;
       for (size_t i = 0; i < referencedPages.size(); i++) {
-        int pageIndex2 = referencedPages[i];
+        long pageIndex2 = referencedPages[i];
         if (visitedArr[pageIndex2] == false) {
           todo.push(pageIndex2);
         }
@@ -234,7 +234,7 @@ void Story::searchForPaths(int vertex) {
           currentPath.pop_back();
           Page currPage = currentPath.back();
           for (size_t j = 0; j < currPage.referencedPages.size(); j++) {
-            int refPage = currPage.referencedPages[j];
+            long refPage = currPage.referencedPages[j];
             if (visitedArr[refPage] == false) {
               needToDelete = false;
             }
@@ -255,7 +255,7 @@ void Story::searchForPaths(int vertex) {
   each page in the story. It then prints out the depths
   */
 void Story::printDepths(int * depthArr) {
-  for (int i = 0; i < numPages; i++) {
+  for (long i = 0; i < numPages; i++) {
     if (depthArr[i] == -1) {  // value -1 indicates not reachable
       cout << "Page " << i + 1 << " is not reachable\n";
     }
@@ -283,7 +283,7 @@ void Story::printPaths(vector<vector<Page> > allPaths) {
         cout << currentPage.pageNumber << "(win)\n";
       }
       else {  // not a winning page, so also print selection
-        int selection = -1;
+        long selection = -1;
         // see which referencedPage is equal to next page in path
         for (size_t k = 0; k < currentPage.referencedPages.size(); k++) {
           if (currentPage.referencedPages[k] == currentPath[j + 1].pageNumber) {

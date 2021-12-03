@@ -42,7 +42,7 @@ class Story {
   If the page is a winning/losing page, exit. If not, take in
   input from user on their next selection and return the page number
   */
-  int interactWithPage(Page currentPage);
+  long interactWithPage(Page currentPage);
 
   /*
   Takes in a directory name and then checks for page 1. If present

@@ -4,7 +4,7 @@ Takes in a file, the index which represents the page number
 and an indicaor variable specifying if it should print as it parses
 Returns a Page object with data correctly parsed.
 */
-Page Page::parseFile(ifstream & file, int index, bool print) {
+Page Page::parseFile(ifstream & file, long index, bool print) {
   string line;
   bool navSectionDone = false;
   Page currentPage;
@@ -146,7 +146,7 @@ void Page::addPageNumber() {
       // convert substring to int to add to referencedPages
       string s = it->substr(0, indexColon);
       stringstream substring(s);
-      int currentPageNumber = -1;
+      long currentPageNumber = -1;
       substring >> currentPageNumber;
       referencedPages.push_back(currentPageNumber);
     }

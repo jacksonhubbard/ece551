@@ -34,7 +34,7 @@ class Page {
   and an indicaor variable specifying if it should print as it parses
   Returns a Page object with data correctly parsed.
   */
-  Page parseFile(ifstream & file, int index, bool print);
+  Page parseFile(ifstream & file, long index, bool print);
 
   /*
   Helper finction that takes in a line and exits the 
