@@ -139,8 +139,8 @@ void Page::addPageNumber() {
     size_t indexColon = it->find(":");
     if (indexColon == std::string::npos) {
       // throw error
-      //        perror("invalid page syntax\n");
-      //        exit(EXIT_FAILURE);
+      perror("invalid page syntax\n");
+      exit(EXIT_FAILURE);
     }
     else {
       // convert substring to int to add to referencedPages
