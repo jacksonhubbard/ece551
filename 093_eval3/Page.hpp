@@ -9,7 +9,7 @@ using namespace std;
 /*
 Class to represent a page of the story. The navigation section
 is used for the options, winLossInidcator to state if the page
-is a winning/losing page and the, referencedPages is to store
+is a winning/losing page, referencedPages is to store
 the page numbers of the options in the navigation section, and the
 page number stores the page's page number.
 */
