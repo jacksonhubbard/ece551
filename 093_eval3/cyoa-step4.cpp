@@ -29,18 +29,18 @@ int main(int argc, char * argv[]) {
   storyObject.checkValidStory();
 
   // call path finding helper function
-  //  storyObject.searchForPaths<stack<int> >(0);
+  storyObject.searchForPaths<stack<int> >(0);
 
-  Graph graph;
-  graph.story = storyObject;
-  cout << "assigned storyto graph\n";
-  //for (int i = 0; i <= storyObject.numPages; i++) {
-  //  graph.visited.push_back(false);
-  // }
-  graph.pathsFromRoot();
+  //Graph graph;
+  //graph.story = storyObject;
+  //cout << "assigned storyto graph\n";
+  // //for (int i = 0; i <= storyObject.numPages; i++) {
+  ////  graph.visited.push_back(false);
+  //// }
+  //graph.pathsFromRoot();
 
-  //graph.dfs(0);
-  cout << "printing paths" << endl;
-  graph.printPaths();
+  ////graph.dfs(0);
+  //cout << "printing paths" << endl;
+  //graph.printPaths();
   return EXIT_SUCCESS;
 }
