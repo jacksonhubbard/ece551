@@ -1,11 +1,11 @@
-Grading at 12/03/2021:15:28:07.580287
-For commit ID ed380774f97d88c6f45a24e6f101afd2cbd807c6
-Grading at Fri Dec  3 10:27:35 EST 2021
+Grading at 12/03/2021:15:59:22.959391
+For commit ID 71d48ec6cdb47901dc47a1a36744aee5490f81cc
+Grading at Fri Dec  3 10:58:48 EST 2021
 Checking Step 1 test cases required for extra credit
 
 Compiling cyoa-step1
 rm -f *~ cyoa-step1 cyoa-step2 cyoa-step3 cyoa-step4
-g++ -o cyoa-step1 -ggdb3 -Wall -Werror -pedantic -std=gnu++98 cyoa-step1.cpp
+g++ -o cyoa-step1 -ggdb3 -Wall -Werror -pedantic -std=gnu++98 cyoa-step1.cpp Page.hpp
 Compiled for step 1
 +-----------------------------------------------------------------------+
 Test case 1 (success): cyoa-step1 /usr/local/ece551/cyoa/story1/page1.txt
@@ -106,7 +106,7 @@ Running your test cases
 
 Compiling cyoa-step1
 rm -f *~ cyoa-step1 cyoa-step2 cyoa-step3 cyoa-step4
-g++ -o cyoa-step1 -ggdb3 -Wall -Werror -pedantic -std=gnu++98 cyoa-step1.cpp
+g++ -o cyoa-step1 -ggdb3 -Wall -Werror -pedantic -std=gnu++98 cyoa-step1.cpp Page.hpp
 +-----------------------------------------------------------------------+
 Test case 1 (error): cyoa-step1 invalid.txt
 Your program successfully indicated a failure case
@@ -130,7 +130,7 @@ Your program successfully indicated a failure case
 
 Compiling cyoa-step1
 rm -f *~ cyoa-step1 cyoa-step2 cyoa-step3 cyoa-step4
-g++ -o cyoa-step1 -ggdb3 -Wall -Werror -pedantic -std=gnu++98 cyoa-step1.cpp
+g++ -o cyoa-step1 -ggdb3 -Wall -Werror -pedantic -std=gnu++98 cyoa-step1.cpp Page.hpp
 +-----------------------------------------------------------------------+
 Test case 5 (success): cyoa-step1 story1/page1.txt
 Your file matched the expected output
