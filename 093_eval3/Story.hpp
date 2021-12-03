@@ -8,7 +8,7 @@
 #include <string>
 #include <vector>
 
-#include "Page.hpp"
+#include "Page.cpp"
 
 using namespace std;
 
@@ -119,8 +119,7 @@ class Story {
       string i_str;
       ss >> i_str;
       std::ifstream input((baseFileName + i_str + ".txt").c_str());
-      if (!input) {
-        // no page i, break
+      if (!input) {  // no page i, break
         lookingForFiles = false;
       }
       else {
@@ -224,10 +223,8 @@ class Story {
       visitedArr[i] = false;
     }
     todo.push(vertex);
-
     Page currentPage;
     int currentDepth = 0;
-
     vector<Page> currentPath;
     vector<vector<Page> > allPaths;
 
@@ -238,7 +235,6 @@ class Story {
       todo.pop();
       currentPage = pages[pageIndex];
       currentPath.push_back(currentPage);
-
       if (currentPage.winLossIndicator < 0) {
         vector<long> referencedPages = currentPage.referencedPages;
         for (size_t i = 0; i < referencedPages.size(); i++) {
@@ -253,7 +249,7 @@ class Story {
         if (currentPage.winLossIndicator == 1) {
           allPaths.push_back(currentPath);
         }
-
+        // delete nodes as we recurse up
         bool needToDelete = true;
         while (needToDelete) {
           // if child page is not visited, don't delete

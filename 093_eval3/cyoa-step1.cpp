@@ -5,7 +5,7 @@
 #include <string>
 #include <vector>
 
-#include "Page.hpp"
+#include "Page.cpp"
 
 using namespace std;
 
