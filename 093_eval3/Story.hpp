@@ -352,6 +352,9 @@ class Story {
   with the options the user must select on each page 
   */
   void printPaths(vector<vector<Page> > allPaths) {
+    if (allPaths.size() == 0) {
+      cout << "This story is unwinnable!\n";
+    }
     for (size_t i = 0; i < allPaths.size(); i++) {
       vector<Page> currentPath = allPaths[i];
       for (size_t j = 0; j < currentPath.size(); j++) {
