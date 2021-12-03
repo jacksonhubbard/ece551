@@ -2,7 +2,7 @@
 cyoa-step1 invalid.txt
 cyoa-step1 page5.txt
 cyoa-step2 broken1
-
+cyoa-step3 invalid
 
 #success
 cyoa-step1 story1/page1.txt

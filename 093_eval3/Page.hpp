@@ -70,6 +70,10 @@ Returns a Page object with data correctly parsed.
     return currentPage;
   };
 
+  /*
+  Helper finction that takes in a line and exits the 
+  protgram with an error message if it is not in the right format
+  */
   void checkForValidNavSection(string line) {
     size_t indexColon = line.find(":");
     if (indexColon == std::string::npos) {
@@ -85,6 +89,10 @@ Returns a Page object with data correctly parsed.
     }
   }
 
+  /*
+  Helper function that takes in a string and checks to see 
+  if it is a valid number 
+  */
   bool checkForValidNumber(const string & s) {
     if (s.empty()) {
       return false;

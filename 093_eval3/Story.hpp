@@ -53,20 +53,20 @@ class Story {
         pagesReferenced.insert(*navigationIterator);
         if (*navigationIterator > numPages) {
           // throw error= page with invalid reference
-          cout << "invalid refernced page " << *navigationIterator;
+          perror("invalid refernced page ");
           exit(EXIT_FAILURE);
         }
       }
     }
     if (!hasWinningPage || !hasLosingPage) {
       // throw error= no winnging/losing page
-      cout << "no winning/losing page";
+      perror("no winning/losing page");
       exit(EXIT_FAILURE);
     }
     // check every page is referenced 1+ times
     for (int i = 2; i < numPages; i++) {
       if (pagesReferenced.find(i) == pagesReferenced.end()) {
-        cout << "given page is not refernced: " << i;
+        perror("given page is not refernced");
         exit(EXIT_FAILURE);
       }
     }
