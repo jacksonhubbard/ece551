@@ -1,6 +1,6 @@
-Grading at 12/03/2021:12:50:35.566533
-For commit ID 17add0724034332eb88a2ee7a4e4b1b54afd32a6
-Grading at Fri Dec  3 07:50:04 EST 2021
+Grading at 12/03/2021:12:53:46.948686
+For commit ID 23368a1fffabed37b62f02762de44d5f8e0d4c9e
+Grading at Fri Dec  3 07:53:15 EST 2021
 Checking Step 1 test cases required for extra credit
 
 Compiling cyoa-step1
@@ -9,52 +9,25 @@ g++ -o cyoa-step1 -ggdb3 -Wall -Werror -pedantic -std=gnu++98 cyoa-step1.cpp
 Compiled for step 1
 +-----------------------------------------------------------------------+
 Test case 1 (success): cyoa-step1 /usr/local/ece551/cyoa/story1/page1.txt
-1,3d0
-< 2:Choose the magic whistle.
-< 3:Choose the magic shoes.
-< 4:Choose the magic toaster.
-Your file did not match the expected output
+Your file matched the expected output
 +-----------------------------------------------------------------------+
 Test case 2 (success): cyoa-step1 /usr/local/ece551/cyoa/story1/page2.txt
-1,3d0
-< 5:Go to Denevieve for help.
-< 6:Go to Grew for help.
-< 7:Go alone.
-Your file did not match the expected output
+Your file matched the expected output
 +-----------------------------------------------------------------------+
 Test case 3 (success): cyoa-step1 /usr/local/ece551/cyoa/story1/page3.txt
-1,3d0
-< 8:Go to Denevieve for help.
-< 9:Go to Grew for help.
-< 7:Go alone.
-Your file did not match the expected output
+Your file matched the expected output
 +-----------------------------------------------------------------------+
 Test case 4 (success): cyoa-step1 /usr/local/ece551/cyoa/story1/page4.txt
-1,3d0
-< 11:Go to Denevieve for help.
-< 12:Go to Grew for help.
-< 7:Go alone.
-Your file did not match the expected output
+Your file matched the expected output
 +-----------------------------------------------------------------------+
 Test case 5 (success): cyoa-step1 /usr/local/ece551/cyoa/story1/page5.txt
-1,3d0
-< 14:Silent Night, accompanied by raven calls
-< 13:Angels We Have Heard on High, accompanied by roosters crowing
-< 10:Bohemian Rhapsody, accompanied by the magestic call of a bald eagle
-Your file did not match the expected output
+Your file matched the expected output
 +-----------------------------------------------------------------------+
 Test case 6 (success): cyoa-step1 /usr/local/ece551/cyoa/story2/page1.txt
-1,3d0
-< 2:Try to sneak past the sleeping dragon
-< 3:Leave the dragon's cave and go home
-< 4:Stab the dragon in the neck
-Your file did not match the expected output
+Your file matched the expected output
 +-----------------------------------------------------------------------+
 Test case 7 (success): cyoa-step1 /usr/local/ece551/cyoa/story2/page2.txt
-1,2d0
-< 5:Pick up the ruby
-< 6:Pass the ruby to explore the rest of the hoard
-Your file did not match the expected output
+Your file matched the expected output
 +-----------------------------------------------------------------------+
 Test case 8 (success): cyoa-step1 /usr/local/ece551/cyoa/story2/page3.txt
 Your file matched the expected output
@@ -64,7 +37,7 @@ Your file matched the expected output
 +-----------------------------------------------------------------------+
 Test case 10 (success): cyoa-step1 /usr/local/ece551/cyoa/story2/page5.txt
 Your file matched the expected output
-Step 1: Failed test cases as above
+Step 1: PASSED Pre-Grader Test Cases
 
 Compiling cyoa-step2
 rm -f *~ cyoa-step1 cyoa-step2 cyoa-step3 cyoa-step4
@@ -77,46 +50,14 @@ Input to story is
 
 +-----------------------------------------------------------------------+
 Test case 11 (success): cyoa-step2 /usr/local/ece551/cyoa/story1 < pregrader_input.txt
-1,15d0
-< 2:Choose the magic whistle.
-< 3:Choose the magic shoes.
-< 4:Choose the magic toaster.
-< 5:Go to Denevieve for help.
-< 6:Go to Grew for help.
-< 7:Go alone.
-< 8:Go to Denevieve for help.
-< 9:Go to Grew for help.
-< 7:Go alone.
-< 11:Go to Denevieve for help.
-< 12:Go to Grew for help.
-< 7:Go alone.
-< 14:Silent Night, accompanied by raven calls
-< 13:Angels We Have Heard on High, accompanied by roosters crowing
-< 10:Bohemian Rhapsody, accompanied by the magestic call of a bald eagle
-Your file did not match the expected output
+Your file matched the expected output
 Input to story is
 3
 2
 
 +-----------------------------------------------------------------------+
 Test case 12 (success): cyoa-step2 /usr/local/ece551/cyoa/story1 < pregrader_input.txt
-1,15d0
-< 2:Choose the magic whistle.
-< 3:Choose the magic shoes.
-< 4:Choose the magic toaster.
-< 5:Go to Denevieve for help.
-< 6:Go to Grew for help.
-< 7:Go alone.
-< 8:Go to Denevieve for help.
-< 9:Go to Grew for help.
-< 7:Go alone.
-< 11:Go to Denevieve for help.
-< 12:Go to Grew for help.
-< 7:Go alone.
-< 14:Silent Night, accompanied by raven calls
-< 13:Angels We Have Heard on High, accompanied by roosters crowing
-< 10:Bohemian Rhapsody, accompanied by the magestic call of a bald eagle
-Your file did not match the expected output
+Your file matched the expected output
 Input to story is
 1
 2
@@ -125,83 +66,25 @@ Input to story is
 
 +-----------------------------------------------------------------------+
 Test case 13 (success): cyoa-step2 /usr/local/ece551/cyoa/story2 < pregrader_input.txt
-1,13d0
-< 2:Try to sneak past the sleeping dragon
-< 3:Leave the dragon's cave and go home
-< 4:Stab the dragon in the neck
-< 5:Pick up the ruby
-< 6:Pass the ruby to explore the rest of the hoard
-< 7:Put on the cloak
-< 8:Open the book
-< 12:Go back and take the ruby
-< 10:Go back and open the book
-< 11:Exult in your skillset and go home
-< 4:Stab the dragon in the neck
-< 9:Take your prize and go home
-< 4:Stab the dragon in the neck
-Your file did not match the expected output
+Your file matched the expected output
 Input to story is
 3
 
 +-----------------------------------------------------------------------+
 Test case 14 (success): cyoa-step2 /usr/local/ece551/cyoa/story2 < pregrader_input.txt
-1,13d0
-< 2:Try to sneak past the sleeping dragon
-< 3:Leave the dragon's cave and go home
-< 4:Stab the dragon in the neck
-< 5:Pick up the ruby
-< 6:Pass the ruby to explore the rest of the hoard
-< 7:Put on the cloak
-< 8:Open the book
-< 12:Go back and take the ruby
-< 10:Go back and open the book
-< 11:Exult in your skillset and go home
-< 4:Stab the dragon in the neck
-< 9:Take your prize and go home
-< 4:Stab the dragon in the neck
-Your file did not match the expected output
-Step 2: Failed test cases as above
+Your file matched the expected output
+Step 2: PASSED Pre-Grader Test Cases
 
 Compiling cyoa-step3
 rm -f *~ cyoa-step1 cyoa-step2 cyoa-step3 cyoa-step4
 g++ -o cyoa-step3 -ggdb3 -Wall -Werror -pedantic -std=gnu++98 cyoa-step3.cpp
 +-----------------------------------------------------------------------+
 Test case 15 (success): cyoa-step3 /usr/local/ece551/cyoa/story1
-1,15d0
-< 2:Choose the magic whistle.
-< 3:Choose the magic shoes.
-< 4:Choose the magic toaster.
-< 5:Go to Denevieve for help.
-< 6:Go to Grew for help.
-< 7:Go alone.
-< 8:Go to Denevieve for help.
-< 9:Go to Grew for help.
-< 7:Go alone.
-< 11:Go to Denevieve for help.
-< 12:Go to Grew for help.
-< 7:Go alone.
-< 14:Silent Night, accompanied by raven calls
-< 13:Angels We Have Heard on High, accompanied by roosters crowing
-< 10:Bohemian Rhapsody, accompanied by the magestic call of a bald eagle
-Your file did not match the expected output
+Your file matched the expected output
 +-----------------------------------------------------------------------+
 Test case 16 (success): cyoa-step3 /usr/local/ece551/cyoa/story2
-1,13d0
-< 2:Try to sneak past the sleeping dragon
-< 3:Leave the dragon's cave and go home
-< 4:Stab the dragon in the neck
-< 5:Pick up the ruby
-< 6:Pass the ruby to explore the rest of the hoard
-< 7:Put on the cloak
-< 8:Open the book
-< 12:Go back and take the ruby
-< 10:Go back and open the book
-< 11:Exult in your skillset and go home
-< 4:Stab the dragon in the neck
-< 9:Take your prize and go home
-< 4:Stab the dragon in the neck
-Your file did not match the expected output
-Step 3: Failed test cases as above
+Your file matched the expected output
+Step 3: PASSED Pre-Grader Test Cases
 
 Compiling cyoa-step4
 rm -f *~ cyoa-step1 cyoa-step2 cyoa-step3 cyoa-step4
@@ -223,10 +106,6 @@ Test case 1 (error): cyoa-step1 invalid.txt
 Your program successfully indicated a failure case
 +-----------------------------------------------------------------------+
 Test case 2 (error): cyoa-step1 page5.txt
-5:Go to Denevieve for help.
-6:Go to Grew for help.
-7:Go alone.
-
 Your program successfully indicated a failure case
 
 Compiling cyoa-step2
@@ -241,20 +120,12 @@ rm -f *~ cyoa-step1 cyoa-step2 cyoa-step3 cyoa-step4
 g++ -o cyoa-step1 -ggdb3 -Wall -Werror -pedantic -std=gnu++98 cyoa-step1.cpp
 +-----------------------------------------------------------------------+
 Test case 4 (success): cyoa-step1 story1/page1.txt
-1,3d0
-< 2:Choose the magic whistle.
-< 3:Choose the magic shoes.
-< 4:Choose the magic toaster.
-Your file did not match the expected output
+Your file matched the expected output
 +-----------------------------------------------------------------------+
 Test case 5 (success): cyoa-step1 page5.txt
 We considered this an error case and gave the following message:
 Incorrect page format, expected num:text
-1,5d0
-< 5:Go to Denevieve for help.
-< 6:Go to Grew for help.
-< 7:Go alone.
-< 
+1d0
 < invalid page syntax 1: Success
 Your file did not match the expected output
 
@@ -264,34 +135,14 @@ g++ -o cyoa-step2 -ggdb3 -Wall -Werror -pedantic -std=gnu++98 cyoa-step2.cpp
 +-----------------------------------------------------------------------+
 Test case 6 (success): cyoa-step2 story1 < test1/input2.txt
 We considered this an error case and gave the following message:
-1,3d0
-< 2:Try to sneak past the sleeping dragon
-< 3:Leave the dragon's cave and go home
-< 4:Stab the dragon in the neck
-Your file did not match the expected output
+Your file matched the expected output
 
 Compiling cyoa-step3
 rm -f *~ cyoa-step1 cyoa-step2 cyoa-step3 cyoa-step4
 g++ -o cyoa-step3 -ggdb3 -Wall -Werror -pedantic -std=gnu++98 cyoa-step3.cpp
 +-----------------------------------------------------------------------+
 Test case 7 (success): cyoa-step3 story1
-1,15d0
-< 2:Choose the magic whistle.
-< 3:Choose the magic shoes.
-< 4:Choose the magic toaster.
-< 5:Go to Denevieve for help.
-< 6:Go to Grew for help.
-< 7:Go alone.
-< 8:Go to Denevieve for help.
-< 9:Go to Grew for help.
-< 7:Go alone.
-< 11:Go to Denevieve for help.
-< 12:Go to Grew for help.
-< 7:Go alone.
-< 14:Silent Night, accompanied by raven calls
-< 13:Angels We Have Heard on High, accompanied by roosters crowing
-< 10:Bohemian Rhapsody, accompanied by the magestic call of a bald eagle
-Your file did not match the expected output
+Your file matched the expected output
 
 Compiling cyoa-step4
 rm -f *~ cyoa-step1 cyoa-step2 cyoa-step3 cyoa-step4
