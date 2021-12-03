@@ -7,7 +7,8 @@
 #include <string>
 #include <vector>
 
-#include "Story.hpp"
+//#include "Story.hpp"
+#include "Graph.hpp"
 
 using namespace std;
 
@@ -29,5 +30,13 @@ int main(int argc, char * argv[]) {
   // call path finding helper function
   storyObject.searchForPaths<stack<int> >(0);
 
+  //  Graph graph;
+  //graph.story = storyObject;
+  //for (int i = 0; i <= storyObject.numPages; i++) {
+  //  graph.visited.push_back(false);
+  // }
+
+  //graph.dfs(0);
+  //graph.printPaths();
   return EXIT_SUCCESS;
 }
