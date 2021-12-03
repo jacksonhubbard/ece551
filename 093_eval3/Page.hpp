@@ -52,7 +52,7 @@ Returns a Page object with data correctly parsed.
       else if (lineCount == 0 && line == "LOSE") {
         winLossIndicator = 0;
       }
-      if (!navSectionDone && line.find("#") == 0) {
+      else if (!navSectionDone && line.find("#") == 0) {
         navSectionDone = true;
       }
       else if (!navSectionDone) {  // add line to navSection
@@ -72,6 +72,7 @@ Returns a Page object with data correctly parsed.
 
   void checkForValidNavSection(string line) {
     size_t indexColon = line.find(":");
+    cout << line << endl;
     if (indexColon == std::string::npos) {
       perror("invalid page syntax 1");
       exit(EXIT_FAILURE);
