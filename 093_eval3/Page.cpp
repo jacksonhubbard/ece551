@@ -3,7 +3,7 @@
 Takes in a file, the index which represents the page number
 and an indicaor variable specifying if it should print as it parses
 Returns a Page object with data correctly parsed.
-  */
+*/
 Page Page::parseFile(ifstream & file, int index, bool print) {
   string line;
   bool navSectionDone = false;
@@ -41,9 +41,9 @@ Page Page::parseFile(ifstream & file, int index, bool print) {
 }
 
 /*
-  Helper finction that takes in a line and exits the 
-  program with an error message if it is not in the right format
-  */
+Helper finction that takes in a line and exits the 
+program with an error message if it is not in the right format
+*/
 void Page::checkForValidNavSection(string line) {
   size_t indexColon = line.find(":");
   if (indexColon == std::string::npos) {
@@ -60,9 +60,9 @@ void Page::checkForValidNavSection(string line) {
 }
 
 /*
-  Helper function that takes in a string and checks to see 
-  if it is a valid number 
-  */
+Helper function that takes in a string and checks to see 
+if it is a valid number 
+*/
 bool Page::checkForValidNumber(const string & s) {
   if (s.empty()) {
     return false;
@@ -82,7 +82,7 @@ bool Page::checkForValidNumber(const string & s) {
 /*
 Displays the current page to the user and uses helper function
 to take in user's input to allow for interaction
-  */
+*/
 void Page::displayPage() {
   // print the text
   for (vector<string>::iterator it = text.begin(); it != text.end(); it++) {
@@ -108,7 +108,7 @@ void Page::displayPage() {
 /*
 Formats the navigation options and prints them out 
 Adjusts page number and gets rid of colon formatting
-  */
+*/
 void Page::printOptions() {
   int choiceNumber = 1;
   for (vector<string>::iterator it = navigation_section.begin();
@@ -128,9 +128,9 @@ void Page::printOptions() {
 }
 
 /*
-  Helper function to add Page numbers to the referencedPages field
-  of a given page
-  */
+Helper function to add Page numbers to the referencedPages field
+of a given page
+*/
 void Page::addPageNumber() {
   int choiceNumber = 1;
   for (vector<string>::iterator it = navigation_section.begin();

@@ -6,7 +6,7 @@
 #include <string>
 #include <vector>
 
-#include "Story.hpp"
+#include "Story.cpp"
 
 using namespace std;
 
