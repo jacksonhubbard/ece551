@@ -7,8 +7,7 @@
 #include <string>
 #include <vector>
 
-//#include "Story.hpp"
-#include "Graph.hpp"
+#include "Story.hpp"
 
 using namespace std;
 
