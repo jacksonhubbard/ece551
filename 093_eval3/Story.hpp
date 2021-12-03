@@ -46,7 +46,7 @@ class Story {
         hasWinningPage = true;
       }
       // check each referenced page of the current page is valid (less than numPages)
-      for (vector<int>::iterator navigationIterator = it->referencedPages.begin();
+      for (vector<long>::iterator navigationIterator = it->referencedPages.begin();
            navigationIterator != it->referencedPages.end();
            ++navigationIterator) {
         // add current referenced page to set
@@ -193,7 +193,7 @@ class Story {
 
       currentPage = pages[pageIndex];
       if (currentPage.winLossIndicator < 0) {
-        vector<int> referencedPages = currentPage.referencedPages;
+        vector<long> referencedPages = currentPage.referencedPages;
         for (size_t i = 0; i < referencedPages.size(); i++) {
           int referencedPageIndex = referencedPages[i] - 1;
           if (visitedArr[referencedPageIndex] == false) {
@@ -248,7 +248,7 @@ class Story {
       //cout << endl;
 
       if (currentPage.winLossIndicator < 0) {
-        vector<int> referencedPages = currentPage.referencedPages;
+        vector<long> referencedPages = currentPage.referencedPages;
         for (size_t i = 0; i < referencedPages.size(); i++) {
           int pageIndex2 = referencedPages[i];
           if (visitedArr[pageIndex2] == false) {

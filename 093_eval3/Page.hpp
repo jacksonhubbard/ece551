@@ -18,15 +18,15 @@ class Page {
   vector<string> navigation_section;
   vector<string> text;
   int winLossIndicator;  // 1 for win, 0 for loss, -1 for stillPlaying
-  vector<int> referencedPages;
-  int pageNumber;
+  vector<long> referencedPages;
+  long pageNumber;
 
   // Default constructor
   Page() :
       navigation_section(vector<string>()),
       text(vector<string>()),
       winLossIndicator(-1),
-      referencedPages(vector<int>()),
+      referencedPages(vector<long>()),
       pageNumber(0){};
 
   /*
@@ -72,18 +72,18 @@ Returns a Page object with data correctly parsed.
 
   /*
   Helper finction that takes in a line and exits the 
-  protgram with an error message if it is not in the right format
+  program with an error message if it is not in the right format
   */
   void checkForValidNavSection(string line) {
     size_t indexColon = line.find(":");
     if (indexColon == std::string::npos) {
-      perror("invalid page syntax 1");
+      perror("invalid page syntax, no colon");
       exit(EXIT_FAILURE);
     }
     else {
       string pageNumber = line.substr(0, indexColon);
       if (!(checkForValidNumber(pageNumber))) {
-        perror("invalid page syntax 2");
+        perror("invalid page syntax, not a number");
         exit(EXIT_FAILURE);
       }
     }
