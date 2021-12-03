@@ -1,6 +1,6 @@
-Grading at 12/03/2021:12:53:46.948686
-For commit ID 23368a1fffabed37b62f02762de44d5f8e0d4c9e
-Grading at Fri Dec  3 07:53:15 EST 2021
+Grading at 12/03/2021:12:56:27.601515
+For commit ID 930f5bee624474777c1140c634c1dcb1ce4dd6a2
+Grading at Fri Dec  3 07:55:57 EST 2021
 Checking Step 1 test cases required for extra credit
 
 Compiling cyoa-step1
@@ -121,19 +121,12 @@ g++ -o cyoa-step1 -ggdb3 -Wall -Werror -pedantic -std=gnu++98 cyoa-step1.cpp
 +-----------------------------------------------------------------------+
 Test case 4 (success): cyoa-step1 story1/page1.txt
 Your file matched the expected output
-+-----------------------------------------------------------------------+
-Test case 5 (success): cyoa-step1 page5.txt
-We considered this an error case and gave the following message:
-Incorrect page format, expected num:text
-1d0
-< invalid page syntax 1: Success
-Your file did not match the expected output
 
 Compiling cyoa-step2
 rm -f *~ cyoa-step1 cyoa-step2 cyoa-step3 cyoa-step4
 g++ -o cyoa-step2 -ggdb3 -Wall -Werror -pedantic -std=gnu++98 cyoa-step2.cpp
 +-----------------------------------------------------------------------+
-Test case 6 (success): cyoa-step2 story1 < test1/input2.txt
+Test case 5 (success): cyoa-step2 story1 < test1/input2.txt
 We considered this an error case and gave the following message:
 Your file matched the expected output
 
@@ -141,14 +134,14 @@ Compiling cyoa-step3
 rm -f *~ cyoa-step1 cyoa-step2 cyoa-step3 cyoa-step4
 g++ -o cyoa-step3 -ggdb3 -Wall -Werror -pedantic -std=gnu++98 cyoa-step3.cpp
 +-----------------------------------------------------------------------+
-Test case 7 (success): cyoa-step3 story1
+Test case 6 (success): cyoa-step3 story1
 Your file matched the expected output
 
 Compiling cyoa-step4
 rm -f *~ cyoa-step1 cyoa-step2 cyoa-step3 cyoa-step4
 g++ -o cyoa-step4 -ggdb3 -Wall -Werror -pedantic -std=gnu++98 cyoa-step4.cpp
 +-----------------------------------------------------------------------+
-Test case 8 (success): cyoa-step4 story1
+Test case 7 (success): cyoa-step4 story1
 Valgrind reported memory errors
 
 You have FAILED one or more of your test cases
