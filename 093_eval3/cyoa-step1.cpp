@@ -13,7 +13,7 @@ int main(int argc, char * argv[]) {
   if (argc != 2) {
     // need to report error
     perror("invalid syntax, one parameter = name of a page");
-    return EXIT_FAILURE;
+    exit(EXIT_FAILURE);
   }
   char * filename = argv[1];
 
@@ -44,7 +44,8 @@ int main(int argc, char * argv[]) {
     inputFile.close();
   }
   else {
-    cerr << "Couldn't open file\n";
+    perror("Couldn't open file\n");
+    exit(EXIT_FAILURE);
   }
   return EXIT_SUCCESS;
 }
