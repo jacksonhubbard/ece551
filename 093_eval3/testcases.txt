@@ -1,0 +1,9 @@
+#error
+cyoa-step1 invalid.txt
+cyoa-step2 broken1
+
+#success
+cyoa-step1 story1/page1.txt
+cyoa-step2 story1 < test1/input2.txt
+cyoa-step3 story1
+cyoa-step4 story1
