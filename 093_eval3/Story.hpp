@@ -223,7 +223,6 @@ class Story {
     for (int i = 0; i <= numPages; i++) {
       visitedArr[i] = false;
     }
-    //    visitedArr[vertex] = true;
     todo.push(vertex);
 
     Page currentPage;
@@ -288,47 +287,6 @@ class Story {
     }
     printPaths(allPaths);
     delete[] visitedArr;
-  }
-
-  /*
-  Takes in a starting vertex and then searches story to
-  find path to all winning pages. Templated over the type of worklist
-  that is to be created (stack or a queue). Calls helper function
-  to print the winning paths it discovered
-  */
-  void searchForPaths2(int vertex) {
-    stack<int> todo;
-    bool * visitedArr = new bool[numPages + 1];
-    for (int i = 0; i <= numPages; i++) {
-      visitedArr[i] = false;
-    }
-    //    visitedArr[vertex] = true;
-    todo.push(vertex);
-
-    Page currentPage;
-
-    vector<Page> currentPath;
-    vector<vector<Page> > allPaths;
-    currentPage = pages[0];
-    currentPath.push_back(currentPage);
-  }
-
-  void traverseGraph(vector<Page> currentPath,
-                     vector<vector<Page> > allPaths,
-                     int indexOfPage) {
-    Page currentPage;
-    currentPage = pages[indexOfPage];
-
-    if (currentPage.winLossIndicator == 1) {
-      allPaths.push_back(currentPath);
-    }
-    else if (currentPage.winLossIndicator == 0) {
-    }
-    else {
-      for (size_t i = 0; i < currentPage.referencedPages.size(); i++) {
-        //        currentPath.push_back();
-      }
-    }
   }
 
   /*
