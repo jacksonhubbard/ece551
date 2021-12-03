@@ -56,6 +56,7 @@ Returns a Page object with data correctly parsed.
         navSectionDone = true;
       }
       else if (!navSectionDone) {  // add line to navSection
+        checkForValidNavSection(line);
         navigation_section.push_back(line);
       }
       else {  // add line to text
@@ -68,6 +69,37 @@ Returns a Page object with data correctly parsed.
     }
     return currentPage;
   };
+
+  void checkForValidNavSection(string line) {
+    size_t indexColon = line.find(":");
+    if (indexColon == std::string::npos) {
+      perror("invalid page syntax 1");
+      exit(EXIT_FAILURE);
+    }
+    else {
+      string pageNumber = line.substr(0, indexColon);
+      if (!(checkForValidNumber(pageNumber))) {
+        perror("invalid page syntax 2");
+        exit(EXIT_FAILURE);
+      }
+    }
+  }
+
+  bool checkForValidNumber(const string & s) {
+    if (s.empty()) {
+      return false;
+    }
+    else {
+      std::string::const_iterator it = s.begin();
+      while (it != s.end()) {
+        if (!(isdigit(*it))) {
+          return false;
+        }
+        it++;
+      }
+      return true;
+    }
+  }
 
   /*
 Displays the current page to the user and uses helper function
